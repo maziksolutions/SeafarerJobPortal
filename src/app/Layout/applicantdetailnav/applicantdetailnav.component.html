@@ -1,0 +1,105 @@
+<nav >
+    <div class="navbar-wrapper">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row">
+          <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
+          <li class="nav-item"> <a class="navbar-brand" href="index.html"> <img class="brand-logo" alt="stack admin logo" src="app-assets/images/logo/Crewlink-logo-light.png"> 
+            </a> </li>
+          <li class="nav-item d-md-none"> <a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a> </li>
+        </ul>
+      </div>
+      <!-- <div class="navbar-container content">
+        <div class="collapse navbar-collapse" id="navbar-mobile">
+          <ul class="nav navbar-nav mr-auto float-left">
+            <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a></li>
+          </ul>
+          <ul class="nav navbar-nav float-right">
+            <li>
+                  <fieldset class="form-inline position-relative" style="margin: 10px 10px 10px 0">
+                <input type="text" class="form-control" placeholder="Search Vessel" style="padding-top: 7px; padding-bottom: 7px; font-size: 12px; font-weight: 100">
+                <div class="form-control-position" style="top: 0"> <i class="ft-search"></i> </div>                
+              </fieldset>
+                  </li>
+            <li>
+              <fieldset class="form-inline position-relative" style="margin: 10px 10px 10px 0">              
+                  <input type="text" class="form-control" placeholder="Search Crew" style="padding-top: 7px; padding-bottom: 7px; font-size: 12px; font-weight: 100">
+                <div class="form-control-position" style="top: 0"> <i class="ft-search"></i> </div>
+              </fieldset>
+            </li>
+            <li class="dropdown dropdown-notification nav-item"> <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i> 
+              </a>            
+            </li>
+            <li class="dropdown dropdown-notification nav-item"> <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-mail"></i> 
+              </a>            
+            </li>
+            <li class="dropdown dropdown-user nav-item"> <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown"> <span class="avatar avatar-online"> <img src="app-assets/images/portrait/small/avatar.png" alt="avatar"><i></i></span>  
+              </a>
+              <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="user-profile.html"><i class="ft-user"></i> Edit Profile</a> <a class="dropdown-item" href="email-application.html"><i class="ft-mail"></i> My Inbox</a> <a class="dropdown-item" href="user-cards.html"><i class="ft-check-square"></i> Task</a> <a class="dropdown-item" href="chat-application.html"><i class="ft-message-square"></i> Chats</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="login-with-bg-image.html"><i class="ft-power"></i> Logout</a> </div>
+            </li>
+            <li class="nav-item d-md-block"><a class="nav-link nav-link-label" href="#"><i class="ficon ft-help-circle"></i></a></li>
+            
+          </ul>
+        </div>
+      </div> -->
+
+      <div id="user-profile" style="margin-top: 21px;">
+        <div class="row">
+          <div class="col-12">
+            <div class="card profile-with-cover m-b-0">
+              <div class="card-img-top img-fluid bg-cover height-100" style="background: #E3EBF3;    height: 65px !important;"></div>
+              <div class="media profil-cover-details w-100">            
+                <div class="media-left pl-3 pt-1 profile-image"style="padding-top: 1.8rem !important;">
+                  <!-- <img *ngIf="showimage=='yes'" src="{{userimage}}" class="rounded-circle img-border height-100"
+                    alt="Card image"> -->
+
+                    <img *ngIf="showimage === 'yes'" [src]="userimage" class="rounded-circle img-border " alt="Card image" style="height:90px;width: 90px;">
+                  <div *ngIf="showimage=='no'" id="profileImage">{{getShortName(applicantfullname)}}</div>
+                </div>
+
+
+                <div class="media-body pt-5 px-2"style="padding-top: 5.6rem !important;">
+                  <div class="row">
+                    <div class="col">
+                      <!-- <h3 class="card-title m-b-0" style="font-size: 1.4rem;">{{applicantfullname}} <span class="alert bg-success p-t-3 p-b-3 font-small-3 position-relative position-tm-3">On Board</span></h3> -->
+                      <h3 class="card-title m-b-0" style="font-size: 1.8rem;">{{applicantfullname}}</h3>
+                      <div style="font-size: 1.4rem;">{{rank}}</div></div>
+                      <!-- <div class="col">
+                      <div class="float-right white font-small-2 position-relative position-tm-15 bg-primary p-1 round">
+                        <strong>Operator Experience :</strong> <span class="yellow font-small-3">1y 3m 15d</span> <span class="p-l-10 p-r-10">|</span>
+                          <strong>Rank Experience :</strong> <span class="yellow font-small-3">7y 0m</span> <span class="p-l-10 p-r-10">|</span>
+                        <strong>Total Experience :</strong> <span class="yellow font-small-3">8y 5m</span>
+                          </div> </div> -->
+                  </div>
+                </div>
+              </div>
+              <nav class="navbar navbar-profile align-self-end m-r-30">
+                <div id="navigation">
+                  <ul>
+                    <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantDetails', applicantId]">Personal Details</a>
+                      <ul>
+                      <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantDetails', applicantId]" >Particulars</a></li>
+                        <li routerLinkActive="active"><a [routerLink]="['/logindata/Applicantaddress', applicantId]">Address</a></li>
+
+                    </ul>
+                      </li>
+                    <li  routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantLicense', applicantId]">Licenses</a>
+                      <!-- <ul>
+                          <li><a [routerLink]="['/logindata/ApplicantLicense', applicantId]">License</a></li>
+                    
+                          </ul> -->
+                      </li>
+                      <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantTravel', applicantId]">Travel Documents</a></li>
+                    <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantAssignment', applicantId]">Sea services</a></li>
+                    <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantCourses', applicantId]">Courses</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+

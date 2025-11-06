@@ -1,0 +1,10 @@
+
+  ::ng-deep .red-snackbar .mat-mdc-simple-snack-bar {
+    background: #ad2300 !important;
+    color: #fff !important;
+  }
+  
+  ::ng-deep .blue-snackbar .mat-mdc-simple-snack-bar {
+    background: #233855 !important;
+    color: #fff !important;
+  }

@@ -1,0 +1,266 @@
+
+.mat-option-text{font-size: 12px !important; color: #253A62 !important;}
+.mat-option{font-size: 12px !important; color: #253A62 !important;line-height: 30px !important;height: 30px !important;
+border-bottom: 1px dotted;}
+.mat-menu-item {
+    line-height: 40px !important;
+    height: 50px !important;
+    border-bottom: 1px solid #e2e2e2 !important;
+    font-size: 14px !important;
+}
+
+
+
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+  }
+  
+  .example-is-mobile .example-toolbar {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+  }
+  
+  .example-sidenav-container {
+    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+    flex: 1;  
+  }
+  
+  .example-is-mobile .example-sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+       `<body>` to be our scrolling element for mobile layouts. */
+    flex: 1 0 auto;
+  }
+
+  ::ng-deep .mat-toolbar.mat-primary {
+    color: #fff;
+    cursor: pointer;
+}
+
+
+::ng-deep .mat-toolbar-row, .mat-toolbar-single-row {
+    height: 50px !important;
+}
+::ng-deep .mat-expansion-panel-header {  
+  padding: 0 16px !important;
+}
+
+
+::ng-deep .dropdown-content
+{
+position: absolute !important;
+ 
+}
+::ng-deep .dropdown-content a
+{
+  border-bottom: 1px solid #ccc !important;
+    font-size: 12px !important;
+    line-height: normal !important;
+    padding: 5px !important;
+}
+
+::ng-deep .abc input
+{
+margin:0px !important;
+padding-top: 7px !important; padding-bottom: 7px !important; font-size: 12px !important; font-weight: 100 !important;
+}
+
+.all-vessel
+{
+  position: relative;
+    top: 13px;
+    right: 10px;
+    color: #fff;
+}
+
+:host ::ng-deep .mat-checkbox-frame
+{
+  border-color: rgb(231, 177, 1) !important;
+}
+
+.dialog-container-custom .mat-dialog-container {
+  background: #f2f2f2 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Notification CSS starts here */
+
+
+h1{
+ float: left;
+  padding: 10px 30px
+}
+
+
+
+.icons{
+  display: inline;
+  float: right
+}
+
+/* .notification{
+  padding-top: 30px;
+  position: relative;
+  display: inline-block;
+} */
+
+.number{
+  height: 21px;
+  width: 21px;
+  background-color: #d63031;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 3px;
+  left: 24px;
+  padding: 2px;
+  border-style: solid;
+  border-width: 2px;
+  font-size: 11px;
+}
+
+.number:empty {
+   display: none;
+}
+
+.notBtn{
+  transition: 0.3s;
+  cursor: pointer
+}
+
+.box{
+  width: 300px;
+  height: 0px;
+  border-radius: 5px;
+  transition: 0.3s;
+  position: absolute;
+  overflow-y: scroll;
+  padding: 0px;
+  right: 20px;
+  margin-top: 3px;
+  background-color: #F4F4F4;
+  -webkit-box-shadow: 10px 10px 23px 0px #233855;
+  -moz-box-shadow: 10px 10px 23px 0px #233855;
+  box-shadow: 10px 10px 23px 0px #233855;
+  cursor: context-menu;
+  z-index: 999;
+}
+
+.notBtn:hover > .box{
+  height: 40vh
+}
+
+/* .content{
+  padding: 20px;
+  color: #233855;
+  vertical-align: middle;
+  text-align: left;
+} */
+
+.gry{
+  background-color: #F4F4F4;
+}
+
+.top{
+  color: #233855;
+  padding: 10px
+}
+
+.display{
+  position: relative;
+}
+
+.cont{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F4F4F4;
+}
+
+.cont:empty{
+  display: none;
+}
+
+.stick{
+  text-align: center;  
+  display: block;
+  font-size: 50pt;
+  padding-top: 70px;
+  padding-left: 80px
+}
+
+.stick:hover{
+  color: #233855;
+}
+
+.cent{
+  text-align: center;
+  display: block;
+}
+
+.sec{
+  padding: 10px;
+  background-color: #F4F4F4;
+  transition: 0.3s;
+}
+
+.profCont{
+  padding-left: 15px;
+}
+
+.profile{
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  width: 75px;
+  float: left;
+}
+.txt{
+  vertical-align: top;
+  font-size: 0.9rem;
+  padding: 5px;
+  color:#333;
+  line-height: 1.1rem;
+}
+
+.sub{
+  font-size: .8rem;
+  color: grey;
+}
+
+.new{
+  border-style: none none solid none;
+  border-color: #233855;
+}
+
+.sec:hover{
+  background-color: #BFBFBF;
+}
+::ng-deep .content-wrapper
+{
+   padding: 2rem !important;
+}
+
+
+

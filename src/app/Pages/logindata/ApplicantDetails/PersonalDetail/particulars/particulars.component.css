@@ -1,0 +1,44 @@
+.underweight{
+    background-color: grey;
+    color: white;
+}
+.normal{
+    background-color: green;
+    color: white;
+}
+.overweight{
+    background-color: orange;
+    color: white;
+}
+.obese{
+    background-color: red;
+    color: white;
+}
+html body.fixed-navbar{padding-top:0px !important}
+
+.nationality-column {
+    font-size: 10px; /* Adjust as needed */
+}
+.left-align-btn {
+    position: absolute; /* Ensures the button is placed at the exact left position */
+    left: 0; /* Aligns to the left side of its parent container */
+    top: 50%; /* Centers vertically in the container, adjust if needed */
+    transform: translateY(-50%); /* Ensures exact centering if top: 50% is used */
+    margin: 0; /* Removes any margins */
+  }
+  
+
+  
+::ng-deep .red-snackbar .mat-mdc-simple-snack-bar {
+    background: #ad2300 !important;
+    color: #fff !important;
+  }
+  
+  ::ng-deep .blue-snackbar .mat-mdc-simple-snack-bar {
+    background: #233855 !important;
+    color: #fff !important;
+  }
+
+  ::ng-deep  .mat-mdc-header-row {
+    background:  #E3EBF3 !important;
+  }

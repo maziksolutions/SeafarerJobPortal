@@ -1,0 +1,16 @@
+::ng-deep  .mat-mdc-header-row {
+    background:  #E3EBF3 !important;
+  }
+  ::ng-deep .form-inline .form-control.form-small {
+  min-width: 180px;   /* width badhayi */
+ height: 30px !important; 
+  font-size: 14px;    /* readable text */
+  padding: 4px 8px;   /* inner spacing */
+}
+.form-inline .form-control.form-small {
+  min-width: 180px;
+  font-size: 14px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  line-height: 1.4;
+}

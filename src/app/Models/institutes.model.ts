@@ -1,0 +1,30 @@
+export class InstitutesModel{
+    instituteId:number;
+    instituteName:string;
+    street:string;
+    area:string;
+    postCode:string;
+    countryId:number;
+    countryName:string;
+    stateId:number;
+    stateName:string;
+    cityId:number;
+    cityName:string;
+    countryCode:string;
+    stateCode:string;
+    phone:string;
+    code:string;
+    mobile:string;
+    email:string;
+    modifiedBy:string;
+    modifiedDate:string;
+    isDeleted:boolean;
+    recDate:string;
+
+    country:any;
+    state:any;
+    city:any;
+    isActive:any;
+    rank:any;
+    status:any;
+}

@@ -1,0 +1,104 @@
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit(applicantLicensefrm)" [formGroup]="applicantLicensefrm">
+    <div style="Color:red; padding-bottom:10px; font-size: 12px !important;"> {{errorMsg}}</div>
+    <div class="row">
+      <div class="col s6">
+        <h4>{{data.modalTitle}}
+          <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
+        </h4>
+        <div class="row">
+
+          <div class="col s4">
+            <mat-form-field color="accent">
+              <mat-label>licenseNumber</mat-label>
+              <input matInput  formControlName="licenseNumber" required>
+            </mat-form-field>
+          </div>
+
+          <div class="col s4">
+            <mat-form-field color="accent">
+              <mat-label>Place Of Issue</mat-label>
+              <input matInput  formControlName="placeOfIssue" required>
+            </mat-form-field>
+          </div>
+
+          <div class="col s4">
+            <mat-form-field>
+              <mat-label>Country</mat-label>
+              <mat-select  formControlName="countryId">
+                <mat-option *ngFor="let country of countries" [value]="country.countryId">
+                  {{country.countryName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col s4">
+            <mat-form-field>
+              <mat-label>Authority</mat-label>
+              <mat-select   formControlName="authorityId">
+                <mat-option *ngFor="let state of authorityList" [value]="state.authorityId">
+                  {{state.authorities}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+             
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+
+      <div class="col s4">
+        <mat-form-field>
+          <mat-label>License</mat-label>
+          <mat-select   formControlName="licenseId">
+            <mat-option *ngFor="let license of licenseList" [value]="license.licenceId">
+              {{license.licenceName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div> 
+
+      <div class="col s4">
+        <mat-form-field>
+          <mat-label>Date Of Issue</mat-label>
+          <input matInput [matDatepicker]="picker1" (click)="picker1.open()"  (dateChange)="compareTwoDates()"
+            formControlName="issueDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1 touchUi startView="month"></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="col s4">
+        <mat-form-field>
+          <mat-label>Date Of Expiry</mat-label>
+          <input matInput [matDatepicker]="picker2" (click)="picker2.open()"  (dateChange)="compareTwoDates()"
+            placeholder="Date Of Expiry" formControlName="expiryDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2 touchUi startView="month"></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      
+
+
+      <div class="col s4">
+        <mat-label>Certificate</mat-label>
+        <input type="file" accept="application/pdf"  formControlName="attachment" (change)="handleCertificateFile($event)">
+      </div>
+
+    </div>
+
+    <div>
+      <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
+      <button type="submit" mat-raised-button color="primary"
+        [disabled]="applicantLicensefrm.invalid">{{data.modalBtnTitle}}</button>
+    </div>
+
+
+
+

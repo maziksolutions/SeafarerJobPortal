@@ -1,0 +1,182 @@
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit(ApplicantAssignmentfrm)" [formGroup]="ApplicantAssignmentfrm">
+    <div class="error-alert"> {{errorMsg}}</div>
+    <h4>{{data.modalTitle}}
+      <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
+    </h4>
+    <div class="row">
+      <div class="col-3 form">
+        <mat-form-field color="accent">
+          <mat-label>Company Name</mat-label>
+          <input matInput formControlName="companyName" required>
+        </mat-form-field>
+      </div>
+
+      <div class="col-3 form">
+        <mat-form-field>
+          <mat-label>Rank </mat-label>
+          <mat-select formControlName="rankId">
+            <mat-option *ngFor="let rank of rankRegisterList" [value]="rank.rankId">
+              {{rank.rankName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-3 form">
+        <mat-form-field>
+          <mat-label>Sign on Date</mat-label>
+          <input matInput [matDatepicker]="picker2" (click)="picker2.open()" placeholder="Date Of Expiry"
+            formControlName="signonDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2 touchUi startView="month"></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+
+      <div class="col-3 form">
+        <mat-form-field>
+          <mat-label>Sign off Date</mat-label>
+          <input matInput [matDatepicker]="picker1" (click)="picker1.open()" formControlName="signoffDate" required>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1 touchUi startView="month"></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-6 form">
+        <mat-form-field color="accent">
+          <mat-label>Vessel Name</mat-label>
+          <input matInput formControlName="vesselName" required>
+        </mat-form-field>
+      </div>
+
+
+      <div class="col-6 form">
+        <mat-form-field color="accent">
+          <mat-label>Vessel Type </mat-label>
+          <mat-select formControlName="shipId" required>
+            <mat-option *ngFor="let ship of shipTypeList" [value]="ship.shipId">
+              {{ship.type}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-3 form">
+        <mat-form-field color="accent">
+          <mat-label>Engine Model </mat-label>
+          <mat-select placeholder="Engine Maker" formControlName="engineMakerId">
+            <mat-option *ngFor="let engine of engineMakerlist" [value]="engine.engineMakerId">
+              {{engine.maker}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-3 form">
+        <mat-form-field color="accent">
+          <mat-label>Engine model & Type </mat-label>
+          <input matInput type="text" formControlName="model" required>
+        </mat-form-field>
+      </div>
+
+      <div class="col-3 form">
+        <mat-form-field color="accent">
+          <mat-label>DWT</mat-label>
+          <input matInput formControlName="dwt" required>
+        </mat-form-field>
+      </div>
+
+      <div class="col-3 form">
+        <mat-form-field color="accent">
+          <mat-label>GRT</mat-label>
+          <input matInput formControlName="grt" required>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-4 form">
+        <mat-form-field color="accent">
+          <mat-label>KW</mat-label>
+          <input matInput formControlName="kw" required>
+        </mat-form-field>
+      </div>
+
+      <div class="col-4 form">
+        <mat-form-field color="accent">
+          <mat-label>Propulsion</mat-label>
+          <input matInput formControlName="propulsion" required>
+        </mat-form-field>
+      </div>
+
+      <div class="col-4 form">
+        <mat-form-field color="accent">
+          <mat-label>IMO</mat-label>
+          <input matInput formControlName="imo" required>
+        </mat-form-field>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-3 form">
+        <mat-form-field color="accent">
+          <mat-label>Country </mat-label>
+          <mat-select placeholder="Country" (selectionChange)="LoadPortByCountryId($event.value)"
+            formControlName="countryId"required>
+            <mat-option *ngFor="let country of countryList" [value]="country.countryId">
+              {{country.countryName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-3 form">
+        <mat-form-field color="accent">
+          <mat-label>Seaport </mat-label>
+          <mat-select formControlName="seaportId">
+            <mat-option *ngFor="let seaport of seaportList" [value]="seaport.seaportId">
+              {{seaport.seaportName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-3 form">
+        <mat-form-field color="accent">
+          <mat-label>Manager </mat-label>
+          <mat-select formControlName="managerId">
+            <mat-option [value]=null> Select Manager</mat-option>
+            <mat-option *ngFor="let manager of managerList" [value]="manager.managerId">
+              {{manager.managers}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-3 form">
+        <mat-form-field color="accent">
+          <mat-label>Signoff Reason </mat-label>
+          <mat-select formControlName="signOffReasonId">
+            <mat-option *ngFor="let signoff of signOffReasonList" [value]="signoff.signOffReasonId">
+              {{signoff.reason}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
+      <button type="submit" mat-raised-button color="primary"
+        [disabled]="ApplicantAssignmentfrm.invalid">{{data.modalBtnTitle}}</button>
+    </div>
+  </form>

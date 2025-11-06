@@ -1,0 +1,33 @@
+export class NewApplicantModel{
+    newApplicantId:number;
+    firstName:string;
+    middleName:string;
+    lastName:string;
+    dob:string;
+    gender:string;
+    rank:string;
+    shipCategory:string;
+    resume:string;
+    number:string;
+    placeOfIssue:string;
+    dateOfIssue:string;
+    dateOfExpiry:string;
+    attachment:string;
+    area:string;
+    street:string;
+    postCode:string;
+    country:string;
+    countryId:number;
+    countryName:string;
+    nationality:string;
+    state:string;
+    stateId:number;
+    stateName:string;
+    city:string;
+    cityId:number;
+    cityName:string;
+    isDeleted:boolean;
+    recDate:string;
+    modifiedBy:string;
+    modifiedDate:string;
+}

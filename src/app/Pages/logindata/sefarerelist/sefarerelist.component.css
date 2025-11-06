@@ -1,0 +1,113 @@
+.mat-column-Status{
+    flex: 0 0 120px;
+  }
+.mat-column-code{
+    flex: 0 0 80px;
+  }
+  .mat-column-firstName{
+    flex: 0 0 150px;
+  }
+  .mat-column-nationality{
+    flex: 0 0 120px;
+  }
+  .mat-column-shipCategory{
+    flex: 0 0 100px;
+  }
+  .mat-column-applicantStatus{
+    flex: 0 0 100px;
+  }
+  .mat-column-actions{
+    flex: 0 0 130px;
+  }
+  .mat-column-dob{
+    flex: 0 0 100px;
+  }
+  .mat-column-doa{
+    flex: 0 0 90px;
+  }
+.mat-row.highlighted {
+    background: #c4c5c6;
+  }
+  :host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-left: 2px;;
+  padding-bottom: 0px !important;
+  border: 1px solid #BABFC7  !important;
+  border-radius: 3px;
+  }
+  :host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0  !important;
+  border-top: none !important;
+  position: inherit;
+  width: 120px;
+  }
+  :host ::ng-deep .mat-icon-button{
+  padding: 0;
+  margin: 0;
+  height: 26px !important;
+  }
+  :host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix
+  {
+  padding: 0px !important;
+  }
+  
+  :host ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline
+  {
+  background-color: #fff !important;
+  }
+  :host ::ng-deep  .mat-form-field-appearance-legacy .mat-form-field-label
+  {
+  margin-left: 5px;
+  }
+  :host ::ng-deep  .mat-form-field-appearance-legacy .mat-form-field-underline{bottom:0 !important}
+  :host ::ng-deep .multiselect-dropdown[_ngcontent-dln-c5] .dropdown-btn[_ngcontent-dln-c5]
+  {
+  padding: 0px 10px !important;
+  
+  }
+  :host ::ng-deep .mat-select-value
+  {
+  padding:6px;
+  }
+  
+  
+  :host ::ng-deep .mat-accent .mat-input-element
+  {
+  padding:6px;
+  }
+  
+  form .form-control{
+      border : none !important;     
+    
+    }  
+    .mat-table
+{
+  max-height: calc(100vh - 200px) !important;
+  overflow-x: overlay;
+}
+
+
+
+
+.fade {
+  opacity: 0;
+  transition: opacity .15s linear;
+}
+.modal-backdrop.show {
+  opacity: .5;
+}
+.modal-backdrop.fade {
+  opacity: 0;
+}
+.fade.show {
+  opacity: 1;
+}
+.my-modal {
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 0;
+  }
+  .modal-dialog {
+    max-width: 70vw !important;
+}
+ 

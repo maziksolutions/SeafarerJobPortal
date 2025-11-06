@@ -1,0 +1,90 @@
+.mat-form-field {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 141px;
+}
+
+
+
+::ng-deep .red-snackbar .mat-mdc-simple-snack-bar {
+  background: #ad2300 !important;
+  color: #fff !important;
+}
+
+::ng-deep .blue-snackbar .mat-mdc-simple-snack-bar {
+  background: #233855 !important;
+  color: #fff !important;
+}
+
+
+::ng-deep .cdk-overlay-pane
+{
+  max-height: 98vh !important;
+  max-width: 90vw !important;
+}
+
+h4{
+  font-weight: 600; 
+  border-bottom: 2px solid #ccc; 
+  padding-bottom: 7px; 
+}
+mat-form-field {
+  display: block; /* Ensures that each element in the form field is block-level */
+  width: 100%;
+}
+
+mat-form-field .mat-label {
+  margin-bottom: 1px; /* Adds space between label and input */
+  display: block; /* Makes the label a block element */
+}
+
+mat-form-field .mat-input-element {
+  margin-top: 6px; /* Adds space between input and label */
+}
+.small-label .mat-label {
+  font-size: 1px;  /* Adjust the size as needed */
+}
+
+::ng-deep .mat-mdc-form-field-infix {
+  padding-top: 21px !important;
+  padding-bottom: 6px ;
+}
+
+/* Targeting the matInput component */
+.mat-form-field .mat-input-element {
+font-size: 5px;  /* Decrease font size */
+padding: 3px;     /* Adjust padding if needed */
+height: 20px;     /* Adjust height */
+}
+/* Target the small-input class */
+.small-input .mat-input-element {
+font-size: 5px;
+padding: 3px;
+height: 20px;
+}
+mat-dialog-content {
+overflow: enable; 
+max-height: 100%;  
+}
+.form-container {
+max-height: 80vh;  
+overflow-y: auto;  
+}
+.form-actions button {
+margin-right: 10px; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

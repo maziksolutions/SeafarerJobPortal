@@ -1,0 +1,52 @@
+<nav
+  class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-dark navbar-shadow navbar-brand-center">
+  <div class="navbar-wrapper">
+    <div class="navbar-header">
+      <ul class="nav navbar-nav flex-row">
+        <li class="nav-item d-md-none mr-auto">
+          <mat-toolbar color="primary" class="example-toolbar">
+            <i class="ft-menu" ></i>
+          </mat-toolbar>
+        </li>
+        <li class="nav-item"> <a class="navbar-brand">
+            <img class="brand-logo" alt="stack admin logo" src="assets/app-assets/images/logo/Crewlink-logo-light.png">
+          </a> </li>
+        <!-- <li class="nav-item d-md-none">
+          <mat-toolbar color="primary" class="example-toolbar">
+            <i class="ft-menu" (click)="snav.toggle()"></i>
+          </mat-toolbar>
+        </li> -->
+
+        <li class="nav-item d-md-none"> <a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a> </li>
+      </ul>
+    </div>
+    <div class="navbar-container content">
+      <div class="collapse navbar-collapse" id="navbar-mobile">
+        <ul class="nav navbar-nav mr-auto float-left">
+          <!-- <li class="nav-item d-none d-md-block">
+            <mat-toolbar color="primary" class="example-toolbar">
+              <i class="ft-menu"  ></i>
+            </mat-toolbar>
+          </li> -->
+        </ul>
+        <ul class="nav navbar-nav float-right">  
+                     
+          <li class="dropdown dropdown-user nav-item">
+             <a class="dropdown-toggle nav-link dropdown-user-link" 
+              data-toggle="dropdown"> <span class="avatar avatar-online"> <img alt="avatar" src="assets/app-assets/images/avatar.png"><i></i></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" (click)="openDialog()"  ><i
+                  class="ft-user"></i> {{username}}</a> 
+              <div class="dropdown-divider"></div>
+
+              <!-- <button class="btn btn-primary form-small p-t-3 p-b-3 m-r-5" type="button" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Change Password" (click)="openDialog()"><i class="fas fa-edit" aria-hidden="true"></i> Change Password</button> -->
+              <a class="dropdown-item" (click)="openDialog()"><i class="fas fa-edit"></i> Change Password</a>
+              <a class="dropdown-item" (click)="logout()"><i class="ft-power"></i> Logout</a>
+            </div>
+          </li>         
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

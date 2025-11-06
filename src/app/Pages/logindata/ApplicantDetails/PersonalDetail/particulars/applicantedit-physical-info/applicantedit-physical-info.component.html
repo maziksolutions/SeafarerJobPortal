@@ -1,0 +1,117 @@
+<mat-dialog-content>
+    <form (ngSubmit)="onSubmit(form)" [formGroup]="form">
+      <div style="Color:red; padding-bottom:10px; font-size: 12px !important;">{{errorMsg}}</div>
+      <h4>{{data.modalTitle}}
+        <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
+      </h4>
+      <div class="row">
+        <div class="col s2">
+          <mat-form-field color="accent">
+            <mat-label>Height(cms)</mat-label>
+            <mat-select  formControlName="height" required>
+              <mat-option *ngFor="let height of heights" value="{{height}}">{{height}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="col s2">
+          <mat-form-field>
+            <mat-label>Weight(Kg)</mat-label>
+            <mat-select formControlName="weight" required>
+              <mat-option *ngFor="let weight of weights" value="{{weight}}">{{weight}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="col s2">
+          <mat-form-field color="accent">
+            <mat-label>Shoes Size</mat-label>
+            <mat-select  formControlName="shoesSize">
+              <mat-option value="5">5</mat-option>
+              <mat-option value="6">6</mat-option>
+              <mat-option value="7">7</mat-option>
+              <mat-option value="8">8</mat-option>
+              <mat-option value="9">9</mat-option>
+              <mat-option value="10">10</mat-option>
+              <mat-option value="11">11</mat-option>
+              <mat-option value="12">12</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="col s2">
+          <mat-form-field color="accent">
+            <mat-label>Boiler Suit Size</mat-label>
+            <mat-select  formControlName="boilerSuitSize">
+              <mat-option value="XS">XS</mat-option>
+              <mat-option value="S">S</mat-option>
+              <mat-option value="M">M</mat-option>
+              <mat-option value="L">L</mat-option>
+              <mat-option value="XL">XL</mat-option>
+              <mat-option value="XXL">XXL</mat-option>
+              <mat-option value="XXXL">XXXL</mat-option>
+              <mat-option value="XXXXL">XXXXL</mat-option>
+              
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="col s2">
+          <mat-form-field color="accent">
+            <mat-label>Shirt Size</mat-label>
+            <mat-select  formControlName="shirtSize">
+              <mat-option value="36">36</mat-option>
+              <mat-option value="38">38</mat-option>
+              <mat-option value="39">39</mat-option>
+              <mat-option value="40">40</mat-option>
+              <mat-option value="42">42</mat-option>
+              <mat-option value="44">44</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="col s2">
+          <mat-form-field color="accent">
+            <mat-label>Trouser Size</mat-label>
+            <mat-select formControlName="trouserSize">
+              <mat-option value="28">28</mat-option>
+              <mat-option value="30">30</mat-option>
+              <mat-option value="32">32</mat-option>
+              <mat-option value="34">34</mat-option>
+              <mat-option value="36">36</mat-option>
+              <mat-option value="38">38</mat-option>
+              <mat-option value="40">40</mat-option>
+              <mat-option value="42">42</mat-option>
+              <mat-option value="44">44</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="col s3">
+          <mat-form-field color="accent">
+            <mat-label>Hair Color</mat-label>
+            <input matInput  appAlphabetOnly formControlName="hairColor">
+          </mat-form-field>
+        </div>
+  
+        <div class="col s3">
+          <mat-form-field color="accent">
+            <mat-label>Eye Color</mat-label>
+            <input matInput  appAlphabetOnly formControlName="eyeColor">
+          </mat-form-field>
+        </div>
+  
+        <div class="col s3">
+          <mat-form-field color="accent">
+            <mat-label>Distinguish Mark</mat-label>
+            <input matInput  formControlName="distinguishMark">
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div>
+        <button type="button" mat-raised-button [style.background-color]="'coral'" [style.color]="'white'"
+                color="warn" (click)="dialogRef.close()"><i class="ft-x"></i>Close</button>&nbsp;
+        <button type="submit" mat-raised-button [style.background-color]="'#36454F'" color="primary" [disabled]="form.invalid"><i
+                  class="fa fa-check-square-o "></i>{{data.modalBtnTitle}}</button>
+      </div>

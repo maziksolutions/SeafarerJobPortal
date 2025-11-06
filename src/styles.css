@@ -1,0 +1,335 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import "assets/app-assets/css/vendors.css";
+  @import "assets/app-assets/vendors/css/charts/jquery-jvectormap-2.0.3.css";
+  @import "assets/app-assets/vendors/css/charts/morris.css";
+  @import "assets/app-assets/vendors/css/extensions/unslider.css";
+  @import "assets/app-assets/vendors/css/weather-icons/climacons.min.css";
+    
+    /* @import "assets/app-assets/vendors/css/forms/icheck/icheck.css"; */
+  @import "assets/app-assets/vendors/css/forms/icheck/custom.css";
+  @import "assets/app-assets/vendors/css/forms/toggle/switchery.min.css";
+  @import "assets/app-assets/vendors/css/forms/selects/select2.min.css";
+  @import "assets/app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css";
+    
+  @import "assets/app-assets/css/pages/users.css";  
+  @import "assets/app-assets/css/plugins/forms/switch.css";
+  @import "assets/app-assets/css/core/menu/menu-types/horizontal-menu.css";
+  @import "assets/app-assets/css/core/colors/palette-gradient.css";
+  @import "assets/app-assets/fonts/simple-line-icons/style.css";
+  @import "assets/app-assets/css/core/colors/palette-gradient.css";
+  @import "assets/app-assets/css/pages/timeline.css";
+  /* <!-- BEGIN STACK CSS--> */
+  @import "assets/app-assets/css/app.css";
+  /* <!-- END STACK CSS-->
+  <!-- BEGIN Page Level CSS--> */
+  @import "assets/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css";
+  /* <!-- link(rel='stylesheet', type='text/css', href=app_assets_path+'/css'+rtl+'/pages/users.css')-->
+  <!-- END Page Level CSS-->
+  <!-- BEGIN Custom CSS--> */
+  @import "assets/css/style.css";
+
+
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+   /*//////////////////////////////////////////////////////////////////
+ [ RESTYLE Snack Bar ]*/
+ /* .mat-mdc-snack-bar-container.mat-mdc-snack-bar-center {
+  margin-bottom: 50px !important;
+  transform: translateY(100%);
+} */
+/* .mat-mdc-snack-bar-container {
+  background: #233855;
+  color: #fff;
+} */
+
+/* ::ng-deep .blue-snackbar{
+background: #233855 !important;
+color:#fff;
+} 
+
+::ng-deep .red-snackbar{
+background: #ad2300 !important;
+color:#fff;
+} */
+
+::ng-deep .red-snackbar .mat-mdc-snack-bar-container {
+  background: #ad2300 !important;
+  color: #fff !important;
+}
+
+::ng-deep .blue-snackbar .mat-mdc-snack-bar-container {
+  background: #233855 !important;
+  color: #fff !important;
+}
+
+
+/*---------Mat Tables SettingsPAge specific-------------*/
+.table mat-header-cell, .table mat-cell{
+  padding: 4px 0.5rem 1px 0.5rem !important;
+    /* min-height: 50px; */
+}
+/* .table mat-cell{
+  padding: 5px 0.5rem !important;
+  min-height: 35px; 
+
+}*/
+.mat-mdc-mdc-table
+{
+  /* max-height: 65vh !important; */
+  max-height: calc(100vh - 300px) !important;
+  overflow-x: overlay;
+}
+.mat-mdc-row.highlighted {
+  background: #dcdcdc;
+}
+.mat-mdc-tooltip {
+  /* your own custom styles here */ 
+  /* e.g. */
+  background:#357ED2 !important;
+  color: white;
+}
+
+.mat-mdc-icon
+{    
+  font-size: 20px;
+   cursor: pointer;
+   color:#000 !important;
+   font-weight: bold;
+}
+
+
+ /*---------Mat Table Override CSS-------------------*/
+ .mat-mdc-header-cell{
+  vertical-align: top !important;
+  padding: 0.4rem !important;
+  border-collapse: collapse;
+  font-weight: 600 !important;
+  color:#233855;
+ min-height: 30px;
+ font-size: 12.4px;
+}
+
+.mat-mdc-cell{
+/* border-bottom: 1px solid #dfedf7; */
+  border-bottom: 1px solid #e8e8e8;
+
+  /* white-space: nowrap; */
+  position: relative;
+  padding: 0 0.5rem !important;
+  border-collapse: collapse;
+  min-height: 30px;   
+}
+.mat-mdc-cell a{
+color:#253A62 !important;
+}
+.mat-mdc-cell, .mat-mdc-footer-cell
+{
+  font-size: 12px !important;
+}
+.mat-mdc-header-row 
+{
+  min-height: 20px !important; 
+  top: -1px !important;   
+  border-bottom: 1px solid #aac4d7;   
+  background: #E3EBF3;
+}
+.mat-mdc-footer-row 
+{
+  min-height: 20px !important;
+}
+.mat-mdc-row
+{
+  min-height: 20px !important;
+  align-items: stretch; 
+}
+
+.mat-mdc-mdc-table {
+  width: 100%;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; 
+  border-collapse: collapse;
+  font-size: 12px !important;
+  /* padding: 1px !important; */
+  color: #000;
+}
+.table-hover mat-row:hover {
+background-color:#ccc}
+
+mat-footer-row, mat-header-row, mat-row
+{
+border: none !important;  
+min-height: none !important;  
+align-items:inherit;
+
+}
+
+.menu-icon {
+  width:20px;
+ background: url(/assets/menu-icon.png);
+}
+
+.multiselect-dropdown .dropdown-btn {
+  border: 0 !important;
+  margin-top: 0px;
+  border: 1px solid #ccd6e6 !important;
+  border-radius: 5px !important;
+  padding: 3px 12px !important;
+  min-width: 150px;
+}
+
+.multiselect-dropdown .dropdown-btn .dropdown-down {
+    border-top: 5px solid #757575 !important;
+    border-left: 5px solid transparent !important;
+    border-right: 5px solid transparent !important;
+}
+.multiselect-dropdown .dropdown-btn .dropdown-up {
+  
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-bottom: 5px solid #757575 !important;
+    border-left: 5px solid transparent !important;
+    border-right: 5px solid transparent !important;
+}
+
+/*Popover width overwrite*/
+::ng-deep .popover {
+  max-width: 700px !important;
+  color: #333;
+}
+:host ::ng-deep .popover {
+  max-width: 700px !important;
+  color: #333;
+}
+ .popover {
+  max-width: 700px !important;
+  color: #333;
+}
+
+::ng-deep .popover p {
+  margin-bottom: 2px !important;
+  padding: 1px;  
+  color: #333;
+}
+:host ::ng-deep .popover p { 
+  margin-bottom: 2px !important;
+  padding: 1px; 
+  color: #333;
+}
+ .popover p {  
+  margin-bottom: 2px !important;
+  padding: 1px; 
+  color: #333;
+}
+
+.card-header{
+  padding: 0.8rem!important;
+}
+.form-group {
+  margin-bottom: 0.7rem !important;
+  /* margin-top: 10px !important; */
+}
+
+form .form-group {
+  margin-bottom: 0.7rem !important;
+  /* margin-top: 10px !important; */
+}
+body{
+  font-size: 0.85rem !important;
+}
+.form-control
+{
+  padding: 0.6rem !important;
+  line-height: 1rem !important;
+}
+
+/*Testing vertical Align Top*/
+mat-header-cell {  
+  flex-direction: column;
+  display: unset !important;
+}
+
+.dialog-container-custom .mat-mdc-dialog-container {
+  background: #F1F3F7 !important;
+}
+
+.mat-mdc-select-panel {
+  max-width: 100% !important;
+  width: auto !important;
+  font:12px !important;
+}
+
+
+.mdc-snackbar__surface {
+  padding-right: 0px!important;
+}
+
+
+/* [ RESTYLE TAG ]*/ 
+ /* .navbar-nav .nav-link.active{color: #a01616 !important; }
+ .navbar-dark .navbar-nav .nav-link.active{color: #a01616 !important; } */
+ .mat-mdc-raised-button.mat-mdc-war
+ {
+   background-color:#6283ad;
+ }
+ .mat-mdc-icon-button.mat-mdc-accent{ color: #164978;}
+ mat-row:nth-child(odd){
+   background-color:#F2F2F2;
+   }
+   .mat-mdc-row:hover {
+   background-color:#ccc;
+   }
+ * {
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+ }
+ 
+ body, html { 
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important; 
+ }
+ 
+
+ button:hover {
+   cursor: pointer;
+ }
+ 
+ iframe {
+   border: none !important;
+ }
+
+ /*Button for crewdetails filters*/
+ .btnCrew {
+  padding: 5px 10px !important;
+ }
+ .mat-mdc-tooltip {
+  white-space: pre;
+}
+
+.mat-mdc-form-field-type-mat-input, .mat-mdc-form-field-type-mat-select {
+  width: 100%;
+}
+
+.mandatory-fields {
+  color: #f56969;
+  font-size: 11px;
+}
+.error-alert{
+  color: #f56969;
+  font-size: 11px;
+
+}
+/* mat-header-row.mat-mdc-header-row.mdc-data-table__header-row.cdk-header-row.ng-star-inserted.mat-mdc-table-sticky.mat-mdc-table-sticky-border-elem-top {
+  background: #E3EBF3;
+} */
+
+/* :host ::ng-deep  .mat-mdc-header-row {
+  background:  #E3EBF3 !important;
+} */
+

@@ -1,0 +1,97 @@
+<mat-dialog-content>
+    <form (ngSubmit)="onSubmit(applicantCoursefrm)" [formGroup]="applicantCoursefrm">
+      <div style="Color:red; padding-bottom:10px; font-size: 12px !important;"> {{errorMsg}}</div>
+      <div class="row">
+        <div class="col s6">
+          <h4>{{data.modalTitle}}
+            <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
+          </h4>
+          <div class="row">
+
+            <div class="col s4">
+              <mat-form-field>
+                <mat-label>Course</mat-label>
+                <mat-select 
+                
+                 formControlName="courseId" required>
+                  <mat-option *ngFor="let course of courseList" [value]="course.courseId">
+                    {{course.courseName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="col s4">
+              <mat-form-field color="accent">
+                <mat-label>Certificate Number</mat-label>
+                <input matInput  formControlName="certificateNumber" required>
+              </mat-form-field>
+            </div>
+
+            <div class="col s4">
+              <mat-form-field color="accent">
+                <mat-label>Place Of Issue</mat-label>
+                <input matInput  formControlName="placeOfIssue" required>
+              </mat-form-field>
+            </div>
+
+            <div class="col s4">
+              <mat-form-field>
+                <mat-label> Issue Date</mat-label>
+                <input matInput [matDatepicker]="picker1" (click)="picker1.open()"  (dateChange)="compareTwoDates()"
+                  formControlName="issueDate" required>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1 touchUi startView="month"></mat-datepicker>
+              </mat-form-field>
+            </div>
+ 
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col s4">
+          <mat-form-field>
+            <mat-label> Expiry Date</mat-label>
+            <input matInput [matDatepicker]="picker2" (click)="picker2.open()"  (dateChange)="compareTwoDates()"
+              formControlName="expiryDate" required>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 touchUi startView="month"></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col s4">
+          <mat-form-field>
+            <mat-label>Traning Institutes</mat-label>
+            <mat-select   formControlName="instituteId">
+              <mat-option *ngFor="let license of instituteList" [value]="license.instituteId">
+                {{license.instituteName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col s4">
+          <mat-form-field>
+            <mat-label>Authority</mat-label>
+            <mat-select   formControlName="authorityId">
+              <mat-option *ngFor="let state of authorityList" [value]="state.authorityId">
+                {{state.authorities}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col s4">
+          <!-- <mat-label>Certificate</mat-label> -->
+          <mat-label>Certificate</mat-label>
+          <input type="file" accept="application/pdf"  formControlName="attachment" (change)="handleCertificateFile($event)">
+        </div>
+      </div>
+
+      <div>
+        <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
+        <button type="submit" mat-raised-button color="primary"
+          [disabled]="applicantCoursefrm.invalid">{{data.modalBtnTitle}}</button>
+      </div>
+
+

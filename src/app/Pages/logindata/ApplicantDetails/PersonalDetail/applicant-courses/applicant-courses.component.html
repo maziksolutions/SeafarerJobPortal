@@ -1,0 +1,181 @@
+<!-- fixed-top-->
+<app-applicantdetailnav> </app-applicantdetailnav>
+<!-- / main menu-->
+<div>
+  <div class="content-wrapper">
+    <!-- <div class="content-header row">
+        <div class="col-xl-6 col-lg-12">
+          <h4 class="content-header-title m-b-10 m-t-5">Applicant Course</h4>
+        </div>
+        <div class="col-xl-6 col-lg-12 nopl">
+        </div>
+      </div> -->
+
+    <div class="content-header row">
+      <div class="col-xl-6 col-lg-12">
+        <h3 class="content-header-title m-b-10 m-t-5"><b>Applicant Course</b></h3>
+      </div>
+
+      <div style="margin-bottom: 10px;" class="col-sm-7 col-lg-12 d-flex justify-content-end "
+        *ngIf="userstatus === 'User'">
+        <a class="btn btn-primary form-small p-t-3 p-b-3 m-r-5" href="/logindata/ApplicantList" type="button"
+          data-index="0" data-bs-original-title="Back" aria-label="Back">
+          <i class="fas fa-angle-double-left back-btn"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="content-body">
+      <div class="row match-height" id="switch">
+        <div class="col-lg-12 col-md-12 col-12">
+
+          <!-- <ul class="nav nav-tabs nav-topline">
+              <li class="nav-item">
+                <a class="nav-link active" style="font-size: 12px;" id="base-tab21" data-toggle="tab" aria-controls="tab21" href="#tab21"
+                  aria-expanded="true">&nbsp;&nbsp; Document Details&nbsp;&nbsp;</a>
+              </li>
+    
+                <a class="nav-link" id="base-tab22" data-toggle="tab" aria-controls="tab22" href="#tab22"
+                  aria-expanded="false">&nbsp; &nbsp;Visa&nbsp;&nbsp;</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="base-tab23" data-toggle="tab" aria-controls="tab22" href="#tab23"
+                  aria-expanded="false">&nbsp;&nbsp;Seaman Book&nbsp;&nbsp;</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="base-tab24" data-toggle="tab" aria-controls="tab22" href="#tab24"
+                  aria-expanded="false">&nbsp;&nbsp;Yellow Fever Vaccination&nbsp;&nbsp;</a>
+              </li> 
+            </ul> -->
+
+          <div class="tab-content p-l-0 p-r-0 pt-1 border-grey border-lighten-2 border-0-top">
+            <div role="tabpanel" class="tab-pane active" id="tab21" aria-expanded="true" aria-labelledby="base-tab21">
+              <section id="descriptioin" class="card">
+                <div class="card-header">
+                  <div class="row">
+
+                    <div class="col-xl-6 col-lg-12">
+                      <!-- <h4 class="card-title p-t-5 proper-case">Travel Document Details</h4> -->
+                    </div>
+
+                    <div class="col-xl-6 col-lg-12">
+                      <form class="form-inline float-right">
+
+                        <select #test class="form-control form-small m-r-10"
+                          (change)="loadApplicantCourses($any($event.target).value)">
+                          <option value="0">Active Data</option>
+                          <option value="1">Archived Data</option>
+                        </select>
+
+                        <button class="btn btn-primary form-small p-t-3 p-b-3" type="button" data-toggle="tooltip"
+                          data-trigger="hover" (click)="addApplicantCourse()" data-placement="top" data-title="Add"><i class="fas fa-plus"
+                            ></i></button>
+
+                        <button class="btn btn-primary form-small p-t-3 p-b-3 m-l-5" type="button" data-toggle="popover"
+                          title="Help" data-html="true" data-placement="left">
+                          <i class="fas fa-question" aria-hidden="true"></i></button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="card-content">
+                  <div id="goal-list-scroll" class="table-responsive position-relative">
+                    <mat-table #table1 [dataSource]="dataApplicantCoursesSource" matSort
+                      class="table table-hover table-bordered mb-0 crew-table table-striped mat-cell">
+
+
+                      <ng-container matColumnDef="CourseId">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Course</mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.authority.authorities}}</mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="InstituteId">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Institute</mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.institutes.instituteName}}</mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="AuthorityId">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Authority</mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.authority.authorities }}</mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="CertificateNumber">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Certificate Number</mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.certificateNumber}}</mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="PlaceOfIssue">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>PlaceOfIssue</mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.placeOfIssue}}</mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="attachment">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Original PDF</mat-header-cell>
+                        <mat-cell *matCellDef="let row"><i class="fas fa-paperclip" data-toggle="tooltip"
+                            data-trigger="hover" data-placement="top" data-title="Attachement" aria-hidden="true"
+                            data-original-title="" title=""
+                            [ngClass]="{'file': row.filePath !== null,'nofile':row.filePath === null}"></i></mat-cell>
+                      </ng-container>
+
+                      <!-- <ng-container matColumnDef="PlaceOfIssue">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>PlaceOfIssue</mat-header-cell>
+                      <mat-cell *matCellDef="let row">{{row.placeOfIssue}}</mat-cell>
+                    </ng-container> -->
+
+                      <ng-container matColumnDef="IssueDate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Issue Date</mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.issueDate
+                          | date: 'dd-MMM-yyyy'}}</mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="ExpiryDate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Expiry Date</mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.expiryDate
+                          | date: 'dd-MMM-yyyy'}}</mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="actions">
+                        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+
+                        <!-- <mat-cell *matCellDef="let row; let i=index;">
+                        <i class="fas fa-edit m-r-10" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                         data-title="Edit" aria-hidden="true" (click)="updateApplicantCourses(row.applicantCoursesId)" ></i> 
+                         <i
+                          class="fa fa-archive" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                           data-title="Archive" aria-hidden="true" (click)="DeleteApplicantCourses(row.applicantCoursesId)" ></i>
+
+                      </mat-cell> -->
+
+                        <mat-cell *matCellDef="let row; let i=index;">
+                          <i class="fas fa-edit m-r-10" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                            data-title="Edit" aria-hidden="true"
+                            (click)="updateApplicantCourses(row.applicantCoursesId)"></i>
+
+                          <i class="fa fa-archive" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                            data-title="Archive" aria-hidden="true"
+                            (click)="DeleteApplicantCourses(row.applicantCoursesId)"></i>
+
+                        </mat-cell>
+                      </ng-container>
+
+                      <mat-header-row *matHeaderRowDef="displayedApplicantCoursesColumns"></mat-header-row>
+                      <mat-row *matRowDef="let row; columns: displayedApplicantCoursesColumns;"
+                        matTooltipClass="mat-tooltip">
+                      </mat-row>
+                    </mat-table>
+                    <mat-paginator #paginator [length]="dataApplicantCoursesSource.filteredData.length" [pageIndex]="0"
+                      [pageSize]="20" [pageSizeOptions]="[20, 40, 60, 100]">
+                    </mat-paginator>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

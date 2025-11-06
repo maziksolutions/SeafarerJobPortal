@@ -1,0 +1,89 @@
+<mat-dialog-content>
+    <form (ngSubmit)="onSubmit(applicantTravelfrm)" [formGroup]="applicantTravelfrm">
+      <div class="error-alert"> {{errorMsg}}</div>
+      <h4>{{data.modalTitle}}
+        <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
+      </h4>
+      <div class="row">
+        <div class="col-3 form">
+          <mat-form-field color="accent">
+            <mat-label>Select Country</mat-label>
+            <mat-select formControlName="countryId" required>
+              <mat-option *ngFor="let country of countries" [value]="country.countryId">
+                {{country.countryName}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="formErrors.countryId">
+              {{formErrors.countryId }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col-3 form">
+            <mat-form-field color="accent">
+                <mat-label>Select Doc Type</mat-label>
+              <mat-select  formControlName="docType" >
+                <mat-option value="CDC">CDC</mat-option>
+                <mat-option value="Passport">Passport</mat-option>
+                <mat-option value="Visa">Visa</mat-option>
+                <mat-option value="Indos">Indos</mat-option>
+                <mat-option value="Yellow fever">Yellow fever</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col form">
+            <mat-form-field color="accent">
+              <mat-label>Place of Issue</mat-label>
+              <input matInput  formControlName="place" required>
+            </mat-form-field>
+          </div>
+  
+        <div class="col form">
+          <mat-form-field color="accent">
+            <mat-label>Document Number</mat-label>
+            <input matInput  formControlName="documentNumber" required>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-3 form">
+          <mat-form-field color="accent">
+            <mat-label>Document Details</mat-label>
+            <input matInput  formControlName="documentDetail" required>
+          </mat-form-field>
+        </div>
+        <div class="col-3 form">
+          <mat-form-field>
+            <mat-label>Date Of Issue</mat-label>
+            <input matInput [matDatepicker]="picker1" (click)="picker1.open()"  (dateChange)="compareTwoDates()"
+              formControlName="doi" required>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1 touchUi startView="month"></mat-datepicker>
+          </mat-form-field>
+        </div>
+  
+        <div class="col-3 form">
+          <mat-form-field>
+            <mat-label>Date Of Expiry</mat-label>
+            <input matInput [matDatepicker]="picker2" (click)="picker2.open()"  (dateChange)="compareTwoDates()"
+              placeholder="Date Of Expiry" formControlName="doe" required>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 touchUi startView="month"></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="col-3 form">
+        <div class="col form">
+            <mat-label>file</mat-label>
+            <input type="file" accept="application/pdf"  formControlName="filePath" (change)="handleCertificateFile($event)">
+          </div>    
+</div>
+      </div>
+
+      <div>
+        <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
+        <button type="submit" mat-raised-button color="primary"
+          [disabled]="applicantTravelfrm.invalid">{{data.modalBtnTitle}}</button>
+      </div>
+    </form>

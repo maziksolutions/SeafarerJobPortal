@@ -1,0 +1,122 @@
+<mat-dialog-content>
+    <form (ngSubmit)="onSubmit(form)" [formGroup]="form">
+      <div style="Color:red; padding-bottom:10px; font-size: 12px !important;">{{errorMsg}}</div>
+      <h4>{{data.modalTitle}}
+        <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
+      </h4>
+      <div class="row">
+        <div class="col s2">
+          <mat-form-field color="accent">
+            <mat-label>First Name</mat-label>
+            <input matInput appTitleCase  pattern="[a-zA-Z ]*" formControlName="firstName" required>
+          </mat-form-field>
+        </div>
+  
+        <div class="col s2">
+          <mat-form-field color="accent">
+            <mat-label>Middle Name</mat-label>
+            <input matInput appTitleCase  pattern="[a-zA-Z ]*" formControlName="middleName">
+          </mat-form-field>
+        </div>
+  
+        <div class="col s2">
+          <mat-form-field color="accent">
+            <mat-label>Last Name</mat-label>
+            <input matInput  appTitleCase  pattern="^([^0-9]*)$" formControlName="lastName" required>
+          </mat-form-field>
+        </div>
+  
+   
+      </div>
+  
+      <div class="row">
+
+
+     <div class="col s3">
+          <mat-form-field>
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" (click)="picker.open()" [max]="avoidFuture" 
+              formControlName="dob" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+  
+        <div class="col s3">
+          <mat-form-field color="accent">
+            <mat-label>Place Of Birth</mat-label>
+            <input matInput  appTitleCase formControlName="placeOfBirth" required>
+          </mat-form-field>
+        </div>
+
+        <div class="col s3">
+          <mat-form-field>
+            <mat-label>Civil Status</mat-label>
+            <mat-select  formControlName="civilStatus" required>
+              <mat-option value="Married">Married</mat-option>
+              <mat-option value="Unmarried">Unmarried</mat-option>
+              <mat-option value="Divorced">Divorced</mat-option>
+              <mat-option value="Widower">Widower</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="col s3">
+          <mat-form-field>
+            <mat-label>Nationality</mat-label>
+            <mat-select  formControlName="countryId" required>
+              <mat-option *ngFor="let country of countries" [value]="country.countryId">
+                {{country.nationality}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="col s3">
+          <mat-form-field>
+            <mat-label>Gender</mat-label>
+            <mat-select  formControlName="gender">
+              <mat-option value="Male">Male</mat-option>
+              <mat-option value="Female">Female</mat-option>
+              <mat-option value="others">Others</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="col s3">
+          <mat-form-field>
+            <mat-label>Date Of Avail</mat-label>
+            <input matInput [matDatepicker]="picker2" (click)="picker2.open()" 
+              formControlName="doa" required>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col s6">
+          <mat-form-field>
+            <mat-label>English Fluency</mat-label>
+            <mat-select  formControlName="englishFluency" required>
+              <mat-option value="Good">Good</mat-option>
+              <mat-option value="Satisfactory">Satisfactory</mat-option>
+              <mat-option value="Need Improvement">Need Improvement</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <!-- <div class="col s12">
+          <label>Image</label><br>
+          <input type="file" accept="image/jpeg, image/jpg, image/png" formControlName="englishFluency"
+            >
+        </div> -->
+      
+      </div>
+  
+      <div>
+        <button type="button" mat-raised-button [style.background-color]="'coral'" [style.color]="'white'"
+                color="warn" (click)="dialogRef.close()"><i class="ft-x"></i>Cancel</button>&nbsp;
+        <button type="submit" mat-raised-button [style.background-color]="'#36454F'" color="primary" [disabled]="form.invalid"><i
+                  class="fa fa-check-square-o "></i>{{data.modalBtnTitle}}</button>
+      </div>

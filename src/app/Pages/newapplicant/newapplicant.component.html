@@ -1,0 +1,283 @@
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit(newapplicantfrm)" [formGroup]="newapplicantfrm">
+    <!-- <h3 class="text-center" style="font-size: 28px !important;color: rgb(4, 22, 61); ">
+      Seafarer Registration Form 
+      <span style="Color:rgb(3, 21, 59); font-size: 10px !important;"> (Note*)(You will recieve
+        Email after filling the complition of Registration form )</span>
+
+    </h3> -->
+    <h3 class="text-center" style="font-size: 28px; color: rgb(4, 22, 61);">
+      Job Registration Form
+    </h3>
+    <p class="text-center" style="color: rgb(3, 21, 59); font-size: 15px; margin-top: -3px;">
+  ( Your login credentials will be emailed to you once registration is complete.)
+
+    </p>
+
+    &nbsp;
+    <h2 class="form-section ">
+      <i class="fas fa-user-alt mr-2"></i>
+      <strong>Personal Details</strong> &nbsp;&nbsp;
+      <!-- <span style="Color:red; font-size: 10px !important;"> {{errorMsg}}</span>  -->
+    </h2>
+    <!-- <h4 class="form-section ">
+      <i class="fas fa-envelope "></i> Applicant Additional Details
+    </h4> -->
+    <div class="row mt-1 mb-0">
+      <div class="col-md-3">
+        <mat-form-field color="accent">
+          <mat-label>Rank Applied For </mat-label>
+          <mat-select formControlName="rankId" required>
+            <mat-option *ngFor="let rank of rankList" [value]="rank.rankId">
+              {{rank.rankName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-sm-3">
+        <mat-form-field color="accent" class="small-label">
+          <mat-label>First Name</mat-label>
+          <input matInput appTitleCase pattern="[a-zA-Z ]*" formControlName="firstName" required>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-3">
+        <mat-form-field color="accent" class="small-input">
+          <mat-label>Middle Name</mat-label>
+          <input matInput appTitleCase pattern="[a-zA-Z ]*" formControlName="middleName">
+        </mat-form-field>
+      </div>
+
+      <div class="col-sm-3">
+        <mat-form-field color="accent">
+          <mat-label>Last Name</mat-label>
+          <input matInput appTitleCase pattern="[a-zA-Z ]*" formControlName="lastName" required>
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div class="row mt-1 mb-0">
+
+      <div class="col-sm-3">
+        <mat-form-field color="accent">
+          <mat-label>DOB</mat-label>
+          <input matInput [matDatepicker]="picker1" (click)="picker1.open()" [max]="avoidFuture" formControlName="dob"
+            required>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker1></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-3">
+        <mat-form-field color="accent">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender" required>
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field color="accent">
+          <mat-label>Nationality</mat-label>
+          <mat-select formControlName="countryId" required>
+            <mat-option *ngFor="let country of countries" [value]="country.countryId">
+              {{country.nationality}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- <div class="col-md-3">
+        <mat-form-field color="accent">
+          <mat-label>Place of Birth</mat-label>
+          <input matInput formControlName="placeOfBirth">
+        </mat-form-field>
+      </div> -->
+<div class="col-sm-3">
+<mat-form-field color="accent" class="small-label">
+  <mat-label>Username</mat-label>
+  <input
+    type="text"
+    matInput
+    formControlName="userName"
+    [matAutocomplete]="auto"
+    placeholder="Type username"required
+  />
+
+  <mat-hint *ngIf="usernameMessage"
+            [style.color]="isUsernameAvailable ? 'green' : 'red'">
+    {{ usernameMessage }}
+  </mat-hint>
+</mat-form-field>
+
+<mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedUser($event)">
+  <mat-option *ngFor="let user of suggestions" [value]="user">
+    {{ user }}
+  </mat-option>
+</mat-autocomplete>
+</div>
+    </div>
+    <div class="row mt-1 mb-0">
+
+      <!-- <div class="col-md-3">
+        <mat-form-field color="accent">
+          <mat-label>CDC Number</mat-label>
+          <input matInput formControlName="cDC" required> -->
+      <!-- <mat-error>
+              Space & special characters are not allowed.
+            </mat-error> -->
+      <!-- </mat-form-field> -->
+      <!-- <i class="fas fa-question-circle" (click)="checkCDC()" style="cursor: pointer;" title="Check CDC"></i> -->
+      <!-- </div> -->
+
+
+      <!-- <div class="col-md-3">
+        <mat-form-field color="accent">
+          <mat-label>Country</mat-label>
+          <mat-select  formControlName="countryId">
+            <mat-option *ngFor="let country of countries" [value]="country.countryId">
+              {{country.countryName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div> -->
+
+
+
+      <!-- <div class="col-sm-3">
+        <mat-form-field color="accent" class="small-label">
+          <mat-label>User Name</mat-label>
+          <input matInput formControlName="userName" required>
+        </mat-form-field>
+      </div> -->
+   <!-- <div class="col-sm-3">
+  <mat-form-field color="accent" class="small-label">
+    <mat-label>User Name</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="userName"
+      [matAutocomplete]="auto"
+      placeholder="Type to generate suggestions" style="color: dimgray;" />
+
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedUser($event)">
+      <mat-option *ngFor="let user of filteredUsers | async" [value]="user">
+        {{ user }}
+      </mat-option>
+
+      <mat-option *ngIf="(filteredUsers | async)?.length === 0">
+        Type something to generate suggestions
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div> -->
+
+
+
+
+    </div>
+    <h2 class="form-section mt-2">
+     <i class="fas fa-user-alt mr-2"></i> <strong>CDC Details</strong>
+    </h2>
+    <div class="row">
+      <div class="col-md-3">
+        <mat-form-field color="accent">
+          <mat-label>CDC Number</mat-label>
+          <input matInput formControlName="cDC" required>
+          <!-- <mat-error>
+              Space & special characters are not allowed.
+            </mat-error> -->
+        </mat-form-field>
+        <!-- <i class="fas fa-question-circle" (click)="checkCDC()" style="cursor: pointer;" title="Check CDC"></i> -->
+      </div>
+      <div class="col-md-3">
+        <mat-form-field color="accent">
+          <mat-label>Date Of Issue</mat-label>
+          <input matInput [matDatepicker]="picker2" (click)="picker2.open()" [max]="avoidFuture" formControlName="doi"
+            (dateChange)="compareTwoDates()">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-3">
+        <mat-form-field color="accent">
+          <mat-label>Date Of Expiry</mat-label>
+          <input matInput [matDatepicker]="picker3" (click)="picker3.open()" formControlName="doe"
+            (dateChange)="compareTwoDates()">
+          <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker3></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="form-section mt-2">
+          <i class="fas fa-envelope "></i> <strong>Contact Details</strong>
+        </h2>
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field color="accent" style="padding-top: 12px;">
+              <mat-label>E-mail</mat-label>
+              <input matInput formControlName="email" required>
+              <mat-error>
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field color="accent" style="padding-top: 12px;">
+              <mat-label>Mobile Number</mat-label>
+              <input matInput  maxlength="15" formControlName="mobileNumber">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h2 class="form-section mt-2">
+          <i class="fa fa-file-text"></i> <strong>Upload Docs</strong>
+        </h2>
+
+        <div class="row">
+          <div class="col-md-6">
+            <!-- <mat-form-field color="accent">
+          <mat-label>Address1</mat-label>
+          <input matInput  formControlName="area">
+        </mat-form-field> -->
+
+            <label class="big-text"><strong>Resume</strong></label>
+            <br>
+            <label id="projectinput7" class="file center-block big-text">
+              <input type="file" formControlName="resume" id="file" (change)="handleResumeFile($event)">
+              <span class="file-custom"></span>
+            </label>
+
+          </div>
+
+          <div class="col-md-6">
+            <label class="big-text"><strong>Photo</strong></label>
+            <br>
+            <label id="projectinput7" class="file center-block big-text">
+              <input type="file" formControlName="photo" accept="image" (change)="onPhotoSelect($event)">
+              <span class="file-custom"></span>
+            </label>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 ">
+        <div class="form-actions ">
+          <button type="submit" mat-raised-button  color="primary"   [disabled]="newapplicantfrm.invalid"><i
+              class="fa fa-check-square-o "></i>{{data.modalBtnTitle}}</button>
+          <button type="button" mat-raised-button [style.background-color]="'coral'" [style.color]="'white'"
+            color="warn" (click)="dialogRef.close()"><i class="ft-x"></i>Close</button>&nbsp;
+        </div>
+      </div>
+    </div>
+
+  </form>
+</mat-dialog-content>
