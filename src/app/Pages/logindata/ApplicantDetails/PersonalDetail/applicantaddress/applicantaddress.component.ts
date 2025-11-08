@@ -80,7 +80,8 @@ export class ApplicantaddressComponent implements OnInit
   // Open dialoge to add
   openDialog(): void {
     const dialogRef = this.dialog.open(ApplicantaddaddressComponent, {
-      width: '1000px',
+      width: '70vw',
+      height: '80vh',
       data: { modalTitle: this.modalTitle, modalBtnTitle: this.modalBtnTitle, applicantId: this.applicantId }
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -102,7 +103,8 @@ updatePermanentCrewAddress(): void {
 // Open dialoge to edit
 openPerEditDialog(): void {
   const dialogRef = this.dialog.open(ApplicantEditAddressComponent, {
-    width: '1000px',
+    width: '70vw',
+     height: '80vh',
     data: { modalTitle: this.modalTitle, modalBtnTitle: this.modalBtnTitle, crew: this.permanentAddress }
   });
   dialogRef.afterClosed().subscribe(result => {

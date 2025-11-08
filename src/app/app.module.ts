@@ -16,6 +16,8 @@ import { LoginComponent } from './Pages/login/login.component';
 import { NewapplicantComponent } from './Pages/newapplicant/newapplicant.component';
 import { ChangePasswordComponent } from './Layout/change-password/change-password.component';
 import { RecaptchaModule } from 'ng-recaptcha';
+
+
 export function tokenGetter() {
 return localStorage.getItem(Keys.token);
 }
@@ -29,7 +31,7 @@ return localStorage.getItem(Keys.token);
     NewapplicantComponent,  
     ChangePasswordComponent
   ],
-  imports: [
+  imports: [   
     BrowserModule,
     CommonModule,
     AppRoutingModule,

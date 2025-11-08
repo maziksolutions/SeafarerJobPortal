@@ -1,6 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
-
 @import "assets/app-assets/css/vendors.css";
   @import "assets/app-assets/vendors/css/charts/jquery-jvectormap-2.0.3.css";
   @import "assets/app-assets/vendors/css/charts/morris.css";
@@ -30,14 +28,29 @@
   <!-- BEGIN Custom CSS--> */
   @import "assets/css/style.css";
 
-
-
-
-
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.mat-mdc-input-element,
+.mat-mdc-form-field-label,
+.mat-mdc-floating-label, .mat-mdc-select-value, .mat-mdc-option .mdc-list-item__primary-text {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 13px !important;
+
+}
+.mat-mdc-option {
+  min-height: 25px !important;  
+}
+.mat-mdc-text-field-wrapper.mdc-text-field--filled {
+  min-height: 40px !important; /* reduce height */
+  padding: 0 8px !important;   /* horizontal padding */
+}
+.mat-mdc-form-field-infix {
+    min-height: 30px !important;
+}
+.mat-mdc-form-field-subscript-wrapper:not(:has(.mat-mdc-form-field-error, .mat-mdc-form-field-hint)) {
+  display: none !important;
+}
    /*//////////////////////////////////////////////////////////////////
  [ RESTYLE Snack Bar ]*/
  /* .mat-mdc-snack-bar-container.mat-mdc-snack-bar-center {
@@ -58,6 +71,12 @@ color:#fff;
 background: #ad2300 !important;
 color:#fff;
 } */
+.mat-mdc-cell, .mat-mdc-footer-cell {
+    font-size: 13px !important;
+}
+
+
+
 
 ::ng-deep .red-snackbar .mat-mdc-snack-bar-container {
   background: #ad2300 !important;

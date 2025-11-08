@@ -6,7 +6,6 @@ PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 
 
-
 :host ::ng-deep .mat-mdc-header-row 
 {
   min-height: 20px !important; 
@@ -14,7 +13,6 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
   border-bottom: 1px solid #aac4d7 !important;   
   background: #E3EBF3 !important;
 }
-
 
 .fixed-navbar-inner {
   padding-top: 6.5rem !important;
@@ -111,12 +109,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
   color: #FFFFFF;
   font-size: 16px;
 }
-.form-small {
-  height: calc(1.75rem + 2px) !important;
-}
-.form-small-2 {
-  height: calc(2.1rem + 2px) !important;
-}
+
 .fa-ellipsis-v {
   position: absolute;
   right: 10px;
@@ -1185,11 +1178,11 @@ color: #2582be !important;
   z-index:0;
 }
 .black:before {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgb(0 0 0 / 74%);
 }
 
 .tagline {
-	font-size: 15px;	
+	font-size: 20px;	
 	border-bottom: 1px solid #000;
 	padding-bottom: 5px;
 	width: 80%;
@@ -1257,7 +1250,7 @@ color: #2582be !important;
 .login_logo{
   position: absolute;
   top: 12rem;
-  left: 6rem;
+  left: 9rem;
   width: 180px;
   height: 57px;
   /* background: url(.../Crewlink-logo.png) no-repeat; */

@@ -65,7 +65,7 @@ export class ApplicantAssignmentComponent implements OnInit {
   }
   openApplicantAssignment(): void {
     const dialogRef = this.dialog.open(AddApplicantAssignmentComponent, {
-      width: '55vw',
+      width: '80vw',
       data: { dbops: this.dbops, modalTitle: this.modalTitle, modalBtnTitle: this.modalBtnTitle, passports: this.applicantAssignment, ApplicantId: this.applicantId }
     });
     dialogRef.afterClosed().subscribe(result => {

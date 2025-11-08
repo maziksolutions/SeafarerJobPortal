@@ -31,7 +31,6 @@ export class CrewAddressService {
 
 
   CheckApplicantEmail(EmailId): Observable<any> {
-    alert(EmailId)
     return this.httpClient.get<any>(this.linkurl + 'CheckApplicantEmail?email=' + EmailId, httpOptions);
   }
   getPanamaAddress(id: number, crewId:number): Observable<CrewAddress[]> {

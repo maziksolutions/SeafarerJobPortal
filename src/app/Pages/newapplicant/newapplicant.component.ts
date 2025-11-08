@@ -180,19 +180,19 @@ usernameMessage: string = '';
       this.cdcService.checkCDCApplicant(this.newapplicantfrm.controls['cDC'].value)
         .subscribe((data) => {
           if (data.message == "CrewCdcNumberexit") {
-            this.showMessage('Please provide an alternative CDC number, as its alreday Used by Crew Member.', 'danger');
+            this.showMessage('Please provide an alternative CDC number, as its alreday in use.', 'danger');
           }
           else if (data.message == "ApplicantCdcNumberexit") {
-            this.showMessage('Please provide an alternative CDC number, as its alreday Used by Another Applicant.', 'danger');
+            this.showMessage('Please provide an alternative CDC number, as its alreday in use.', 'danger');
           }
           else {
             this.crewAddressService.CheckApplicantEmail(this.newapplicantfrm.controls['email'].value)
               .subscribe((x) => {
                 if (x.message == "CrewEmailexit") {
-                  this.showMessage('Please provide an alternative Email, as its alreday Used by Crew Member', 'danger');
+                  this.showMessage('Please provide an alternative Email, as its alreday in use', 'danger');
                 }
                 else if (x.message == "ApplicantEmailexit") {
-                  this.showMessage('Please provide an alternative Email, as its alreday Used by Email Member', 'danger');
+                  this.showMessage('Please provide an alternative Email, as its alreday in use', 'danger');
                 }
                 if (x.message == "ApplicantEmailCreate") {
                   let formData = new FormData();

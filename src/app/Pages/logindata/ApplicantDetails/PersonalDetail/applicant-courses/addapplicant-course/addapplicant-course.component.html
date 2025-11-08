@@ -1,19 +1,14 @@
 <mat-dialog-content>
     <form (ngSubmit)="onSubmit(applicantCoursefrm)" [formGroup]="applicantCoursefrm">
-      <div style="Color:red; padding-bottom:10px; font-size: 12px !important;"> {{errorMsg}}</div>
-      <div class="row">
-        <div class="col s6">
+      <div style="Color:red; padding-bottom:10px; font-size: 12px !important;"> {{errorMsg}}</div>     
           <h4>{{data.modalTitle}}
             <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
           </h4>
           <div class="row">
-
             <div class="col s4">
               <mat-form-field>
                 <mat-label>Course</mat-label>
-                <mat-select 
-                
-                 formControlName="courseId" required>
+                <mat-select formControlName="courseId" required>
                   <mat-option *ngFor="let course of courseList" [value]="course.courseId">
                     {{course.courseName}}
                   </mat-option>
@@ -45,10 +40,7 @@
               </mat-form-field>
             </div>
  
-          </div>
-        </div>
-      </div>
-  
+          </div>   
       <div class="row">
         <div class="col s4">
           <mat-form-field>
@@ -81,17 +73,18 @@
           </mat-form-field>
         </div>
 
-        <div class="col s4">
+        <div class="col s4"><br>
           <!-- <mat-label>Certificate</mat-label> -->
-          <mat-label>Certificate</mat-label>
+          <!-- <mat-label>Certificate</mat-label> -->
           <input type="file" accept="application/pdf"  formControlName="attachment" (change)="handleCertificateFile($event)">
         </div>
       </div>
 
-      <div>
+      <div class="mt-2">
         <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
         <button type="submit" mat-raised-button color="primary"
           [disabled]="applicantCoursefrm.invalid">{{data.modalBtnTitle}}</button>
       </div>
-
+</form>
+</mat-dialog-content>
 
