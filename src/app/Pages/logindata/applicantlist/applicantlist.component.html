@@ -20,6 +20,8 @@
                     <select class="form-control form-small" (change)="LoadApplicant($any($event.target).value)">
                       <option value="0">Active Data</option>
                       <option value="1">Archived Data</option>
+                      <option value="2">Shortlisted Candidate</option>
+                      <option value="3">Rejected Candidate</option>
                     </select>
                     <span class="p-l-10 p-r-10">|</span>
                     <input type="text" class="form-control form-small p-t-3 p-b-3 m-r-5"
@@ -124,8 +126,13 @@
                       <i class="fa fa-archive mr-1" data-toggle="tooltip" data-trigger="hover" data-placement="top"
                         data-title="Archive" aria-hidden="true" data-original-title=""
                         (click)="DeleteApplicant(row.applicantId)" title=""></i>
-                        <a   type="button" (click)="ApproveApplicant(row.applicantId)">
-                          <img src="assets/img/approve.png" alt="Approve" width="16" height="16" />
+                        <a type="button" (click)="ApproveApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
+                          title="Approve Applicant" *ngIf="row.approvedBy < 0||row.approvedBy==null&&row.applicantStatus !='Rejected Candidate'">
+                          <img src="assets/img/approve.png" alt="Approve" width="16" height="16" style="margin-bottom: 3px;" class="mr-1" />
+                        </a>
+                        <a type="button" (click)="RejectApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
+                          title="Reject Applicant" *ngIf="row.approvedBy < 0||row.approvedBy==null&&row.applicantStatus !='Rejected Candidate'">
+                          <i class="fas fa-times "></i>
                         </a>
 
 

@@ -177,23 +177,17 @@ DeleteApplicantCourses(id: number) {
   return this.httpClient.delete(this.linkurl+'DeleteApplicantCourse/' + id, httpOptions);
 }
 
-ApproveApplicant(id: number, approvedBy: any) {debugger
-
+ApproveApplicant(id: number, approvedBy: any) {
   return this.httpClient.post(`${this.linkurl}ApproveApplicant/${id}?approvedBy=${approvedBy}`,{},httpOptions);
-  
 }
-checkUsernameAvailability(username: string): Observable<{ available: boolean; message: string }> {
-  // if (!username || username.trim().length < 3) {
-  //   return of({ available: false, message: 'Enter at least 3 characters' });
-  // }
 
-  return this.httpClient
-    .get<{ available: boolean; message: string }>(
-      this.linkurl + 'checkUsername?username=' + username
-    )
-    .pipe(
-      catchError(() => of({ available: false, message: 'Error checking username' }))
-    );
+RejectApplicant(id: number, approvedBy: any) {
+  return this.httpClient.post(`${this.linkurl}RejectApplicant/${id}?approvedBy=${approvedBy}`,{},httpOptions);
+}
+
+checkUsernameAvailability(username: string): Observable<{ available: boolean; message: string }> {
+  return this.httpClient.get<{ available: boolean; message: string }>(this.linkurl + 'checkUsername?username=' + username)
+    .pipe(catchError(() => of({ available: false, message: 'Error checking username' })));
 }
 
 

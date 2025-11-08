@@ -73,7 +73,7 @@
                           </select>
 
                           <button class="btn btn-primary form-small p-t-3 p-b-3" type="button" data-toggle="tooltip"
-                            data-trigger="hover"(click)="addApplicantravel()" data-placement="top" data-title="Add"  ><i
+                            data-trigger="hover"(click)="addApplicantravel()"*ngIf="userstatus=='Applicant'" data-placement="top" data-title="Add"  ><i
                               class="fas fa-plus" ></i></button>
                               <button class="btn btn-primary form-small p-t-3 p-b-3 m-l-5" type="button"  data-toggle="popover" 
                         title="Help" data-html="true"  data-placement="left" >
@@ -130,7 +130,8 @@
 
                       <mat-cell *matCellDef="let row; let i=index;">
                         <i class="fas fa-edit m-r-10" data-toggle="tooltip" data-trigger="hover" data-placement="top"
-                         data-title="Edit" aria-hidden="true" (click)="updateApplicant(row.applicantCDCId)" ></i> <i
+                         data-title="Edit" aria-hidden="true"*ngIf="userstatus=='Applicant'" (click)="updateApplicant(row.applicantCDCId)" ></i>
+                          <i
                           class="fa fa-archive" data-toggle="tooltip" data-trigger="hover" data-placement="top"
                            data-title="Archive" aria-hidden="true" (click)="DeleteApplicantTravel(row.applicantCDCId)" ></i>
 
