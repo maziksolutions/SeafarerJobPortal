@@ -238,7 +238,9 @@ form {
     margin-bottom: 1.5rem; }
   form .form-control {
     border: 1px solid #ccd6e6;
-    color: #3f587e; }
+    color: #3f587e;
+  font-size: 13px !important;
+  }
     form .form-control::-webkit-input-placeholder {
       color: #b1c1d8; }
     form .form-control:-moz-placeholder {
@@ -420,6 +422,8 @@ Bootstrap Enhance */
     .btn
     {
       padding: 0.5rem 1rem !important;
+      font-size: 13px !important;
+      height: calc(2.75rem + 2px) !important;
     }
 
 button, html [type='button'], [type='reset'], [type='submit'] {
@@ -480,7 +484,9 @@ button, html [type='button'], [type='reset'], [type='submit'] {
     color: #626E82; }
   .dropdown .dropdown-menu .dropdown-item {
     padding: 10px 20px;
-    width: auto; }
+    width: auto;
+  font-size: 13px !important;
+  }
     .dropdown .dropdown-menu .dropdown-item:active {
       background-color: #f2f4f7 !important; }
 
@@ -2059,7 +2065,7 @@ padding: 0.5rem 0.5rem 0.5rem 0.25rem;
   /* background: #811800 !important; */
  }
 
- .mdc-text-field--filled .mdc-floating-label {
+ /* .mdc-text-field--filled .mdc-floating-label {
   font-size: 13px !important;
  }
 
@@ -2073,4 +2079,14 @@ padding: 0.5rem 0.5rem 0.5rem 0.25rem;
 
  .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
     top: 22px !important;
+} */
+
+
+.mat-mdc-paginator .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+.mat-mdc-paginator .mat-mdc-form-field-infix {
+    min-height: 25px  !important;
 }

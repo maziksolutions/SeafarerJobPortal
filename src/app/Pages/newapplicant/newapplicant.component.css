@@ -1,7 +1,12 @@
-::ng-deep .cdk-overlay-pane
+:host ::ng-deep .cdk-overlay-pane
 {
-  max-height: 98vh !important;
-  max-width: 90vw !important;
+  font-size: 12px !important;
+}
+
+form .form-section
+{
+  line-height: 3rem !important;
+    margin-bottom: 12px !important;
 }
 
 h4{
@@ -47,10 +52,10 @@ mat-dialog-content {
 overflow: enable; 
 max-height: 100%;  
 }
-.form-container {
+/* .form-container {
 max-height: 80vh;  
 overflow-y: auto;  
-}
+} */
 .form-actions button {
 margin-right: 10px; 
 }

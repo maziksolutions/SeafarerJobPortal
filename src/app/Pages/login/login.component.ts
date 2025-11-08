@@ -126,7 +126,8 @@ export class LoginComponent implements OnInit {
     }
     openAddDialog(): void {
       const dialogRef = this.dialog.open(NewapplicantComponent, {
-        width: '70vw',
+        width: '90vw',
+        height: '98vh',
         data: { modalTitle: this.modalTitle, modalBtnTitle: this.modalBtnTitle },
         position: { left: '10vw' }
       });

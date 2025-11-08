@@ -75,13 +75,14 @@
 
         <div class="col-3 form">
         <div class="col form">
-            <mat-label>file</mat-label>
+          <br>
+            <!-- <mat-label>file</mat-label> -->
             <input type="file" accept="application/pdf"  formControlName="filePath" (change)="handleCertificateFile($event)">
           </div>    
 </div>
       </div>
 
-      <div>
+      <div class="mt-2">
         <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
         <button type="submit" mat-raised-button color="primary"
           [disabled]="applicantTravelfrm.invalid">{{data.modalBtnTitle}}</button>
