@@ -50,9 +50,9 @@
                           *ngIf="isPermanentExist==false"   (click)="addPermanentApplicantAddress()" ><i class="fas fa-plus" aria-hidden="true"></i></button>
 
               <button class="btn btn-primary form-small p-t-3 p-b-3" type="button" data-toggle="tooltip"
-               data-trigger="hover"   (click)="updatePermanentCrewAddress()" *ngIf="isPermanentExist"data-placement="top" data-title="Edit"><i class="fas fa-edit" aria-hidden="true"></i></button>
+               data-trigger="hover"   (click)="updatePermanentCrewAddress()" *ngIf="isPermanentExist&&userstatus==='Applicant'"data-placement="top" data-title="Edit"><i class="fas fa-edit" aria-hidden="true"></i></button>
                </div>
-                        
+                         <!-- *ngIf="isPermanentExist && userstatus === 'Applicant'" -->
                     </div>
                 </div>
             </div>

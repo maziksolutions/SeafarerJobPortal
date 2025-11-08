@@ -47,7 +47,7 @@ export class ApplicantlistComponent implements OnInit {
   }
 
 
-  LoadApplicant(status: number): void {
+  LoadApplicant(status: number): void {debugger
     this.ApplicantService.GetAllApplicants(status)
       .subscribe(passports => {
         console.log(passports);
@@ -102,6 +102,21 @@ export class ApplicantlistComponent implements OnInit {
   .subscribe({
     next: (res: any) => {
       this.showMessage('Applicant approved successfully.');
+      this.LoadApplicant(this.status);
+    },
+    error: (err) => {
+      this.showMessage('Error approving applicant: ' + (err.error?.message || err.message));
+    }
+  });
+
+  }
+}
+RejectApplicant(id: number) {
+  if (confirm('Are you sure you want to approve this applicant?')) {
+    this.ApplicantService.RejectApplicant(id, this.loggedUserId)
+  .subscribe({
+    next: (res: any) => {
+      this.showMessage('Applicant rejected successfully.');
       this.LoadApplicant(this.status);
     },
     error: (err) => {

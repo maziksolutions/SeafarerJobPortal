@@ -64,7 +64,7 @@ usernameMessage: string = '';
     public dialogRef: MatDialogRef<LoginComponent>
   ) { this.avoidFuture.setDate(this.avoidFuture.getDate()) }
 
-  ngOnInit() {debugger
+  ngOnInit() {
     this.loadCountries(); // Declare function to load countries
     this.loadRanks();
     this.newapplicantfrm = this.fb.group({
@@ -83,7 +83,7 @@ usernameMessage: string = '';
       doe: [''],
       residentialPhone: [''],
       mobileNumber: [''],
-      email: [''],
+      email: ['',Validators.email],
       area: [''],
       street: [''],
       postCode: [''],
@@ -137,9 +137,7 @@ usernameMessage: string = '';
 
   while (suggestions.size < 5) {
     const randomNum = Math.floor(10 + Math.random() * 990); 
-
     const randomStr = Math.random().toString(36).substring(2, 4); 
-
     const patterns = [
       `${cleanBase}${randomNum}`,
       `${cleanBase}_${randomStr}`,
@@ -147,18 +145,17 @@ usernameMessage: string = '';
       `${cleanBase}${randomStr}${randomNum}`,
       `${cleanBase}_${randomNum}${randomStr}`
     ];
-
     const userName = patterns[Math.floor(Math.random() * patterns.length)];
     suggestions.add(userName);
   }
-
   return Array.from(suggestions);
-}
+  }
 
-  selectedUser(event: any) {debugger
+  selectedUser(event: any) {
     console.log('Selected username:', event.option.value);
   }
-  onSubmit(form: any) {debugger
+  
+  onSubmit(form: any) {
     if (form.invalid) {
       return;
     }
