@@ -74,9 +74,9 @@
                   </div>
                 </div>
               </div>
-              <nav class="navbar navbar-profile align-self-end m-r-30">
-                <div id="navigation">
-                  <ul>
+              <nav class="navbar navbar-profile align-self-end m-r-20">
+                <div id="navigation" class="d-flex justify-content-between align-items-center">
+                  <ul  class="nav-list d-flex">
                     <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantDetails', applicantId]">Personal Details</a>
                       <ul>
                       <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantDetails', applicantId]" >Particulars</a></li>
@@ -93,8 +93,54 @@
                       <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantTravel', applicantId]">Travel Documents</a></li>
                     <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantAssignment', applicantId]">Sea services</a></li>
                     <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantCourses', applicantId]">Courses</a></li>
+                    
                   </ul>
+                  <div *ngIf="userstatus === 'User'">
+                    <a class="btn btn-primary form-small p-t-3 p-b-3 m-l-5" href="/logindata/ApplicantList" type="button" data-index="0"
+                      data-bs-original-title="Back" style="padding: 0.5rem 2rem !important;" aria-label="Back">
+                      <i class="fas fa-angle-double-left back-btn "></i>
+                    </a>
+                  </div>
                 </div>
+                <!-- <div id="navigation" class="d-flex justify-content-between align-items-center">
+                  <ul class="nav-list d-flex">
+                    <li routerLinkActive="active">
+                      <a [routerLink]="['/logindata/ApplicantDetails', applicantId]">Personal Details</a>
+                      <ul>
+                        <li routerLinkActive="active">
+                          <a [routerLink]="['/logindata/ApplicantDetails', applicantId]">Particulars</a>
+                        </li>
+                        <li routerLinkActive="active">
+                          <a [routerLink]="['/logindata/Applicantaddress', applicantId]">Address</a>
+                        </li>
+                      </ul>
+                    </li>
+                
+                    <li routerLinkActive="active">
+                      <a [routerLink]="['/logindata/ApplicantLicense', applicantId]">Licenses</a>
+                    </li>
+                
+                    <li routerLinkActive="active">
+                      <a [routerLink]="['/logindata/ApplicantTravel', applicantId]">Travel Documents</a>
+                    </li>
+                
+                    <li routerLinkActive="active">
+                      <a [routerLink]="['/logindata/ApplicantAssignment', applicantId]">Sea Services</a>
+                    </li>
+                
+                    <li routerLinkActive="active">
+                      <a [routerLink]="['/logindata/ApplicantCourses', applicantId]">Courses</a>
+                    </li>
+                  </ul>
+                
+                  <div *ngIf="userstatus === 'User'">
+                    <a class="btn btn-primary form-small p-t-3 p-b-3 m-r-5" href="/logindata/ApplicantList" type="button" data-index="0"
+                      data-bs-original-title="Back" style="padding: 0.5rem 2rem !important;" aria-label="Back">
+                      <i class="fas fa-angle-double-left back-btn"></i>
+                    </a>
+                  </div>
+                </div> -->
+
               </nav>
             </div>
           </div>

@@ -126,14 +126,26 @@
                       <i class="fa fa-archive mr-1" data-toggle="tooltip" data-trigger="hover" data-placement="top"
                         data-title="Archive" aria-hidden="true" data-original-title=""
                         (click)="DeleteApplicant(row.applicantId)" title=""></i>
-                        <a type="button" (click)="ApproveApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
+                        <!-- <a type="button" (click)="ApproveApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
                           title="Approve Applicant" *ngIf="row.approvedBy < 0||row.approvedBy==null&&row.applicantStatus !='Rejected Candidate'">
                           <img src="assets/img/approve.png" alt="Approve" width="16" height="16" style="margin-bottom: 3px;" class="mr-1" />
                         </a>
                         <a type="button" (click)="RejectApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
                           title="Reject Applicant" *ngIf="row.approvedBy < 0||row.approvedBy==null&&row.applicantStatus !='Rejected Candidate'">
                           <i class="fas fa-times "></i>
+                        </a> -->
+                        <a type="button" (click)="ApproveApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
+                          title="Approve Applicant"
+                          *ngIf="(row.approvedBy < 0 || row.approvedBy == null) && row.applicantStatus != 'Rejected Candidate'">
+                          <img src="assets/img/approve.png" alt="Approve" width="16" height="16" class="mr-1" style="vertical-align: middle;" />
                         </a>
+                        
+                        <a type="button" (click)="RejectApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
+                          title="Reject Applicant"
+                          *ngIf="(row.approvedBy < 0 || row.approvedBy == null) && row.applicantStatus != 'Rejected Candidate'">
+                          <i class="fas fa-times" style="vertical-align: middle;"></i>
+                        </a>
+
 
 
 

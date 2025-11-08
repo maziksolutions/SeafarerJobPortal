@@ -15,7 +15,7 @@ export class ApplicantdetailnavComponent implements OnInit
   applicantdata:any[]
   applicantId:any;
   applicantfullname:any;
-  rank:any;
+  rank:any;userstatus:any;
   userimage: string; showimage: string;
   constructor(private applicantserice:ApplicantService,
     private userService: UserService,
@@ -23,6 +23,7 @@ export class ApplicantdetailnavComponent implements OnInit
   ngOnInit(): void 
   {
    this.applicantId = this.route.snapshot.paramMap.get('id');
+   this.userstatus=localStorage.getItem("UserType");
    this.loadapplicantbyId()
   }
   loadapplicantbyId() { 
