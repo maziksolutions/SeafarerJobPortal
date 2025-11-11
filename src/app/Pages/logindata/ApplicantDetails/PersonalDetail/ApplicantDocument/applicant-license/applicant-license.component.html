@@ -65,7 +65,7 @@
                       <form class="form-inline float-right">
 
 
-                        <select #test class="form-control form-small m-r-10"                         >
+                        <select #test class="form-control form-small m-r-10"   (change)="loadapplicantLicense($any($event.target).value)"                       >
                           <option value="0">Active Data</option>
                           <option value="1">Archived Data</option>
                         </select>
@@ -106,11 +106,11 @@
                     </ng-container>
 
                     <ng-container matColumnDef="attachment">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>Original PDF</mat-header-cell>
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Attachment</mat-header-cell>
                       <mat-cell *matCellDef="let row"><i class="fas fa-paperclip" data-toggle="tooltip"
                           data-trigger="hover" data-placement="top" data-title="Attachement" aria-hidden="true"
                           (click)="showAttachment(row.attachment)" data-original-title="" title=""
-                          [ngClass]="{'file': row.attachment !== null,'nofile':row.attachment === null}"></i></mat-cell>
+                           [ngClass]="{'file-exists': row.attachment,'no-file': !row.attachment}"></i></mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="place">

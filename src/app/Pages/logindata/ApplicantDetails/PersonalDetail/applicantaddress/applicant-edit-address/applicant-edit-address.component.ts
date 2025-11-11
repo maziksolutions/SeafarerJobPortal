@@ -52,7 +52,7 @@ seletedairportId:any;userId:any;
     public dialogRef: MatDialogRef<ApplicantaddressComponent>,
     private http: HttpClient) { }
   ngOnInit(): void 
-  {debugger
+  {
     this.userId=localStorage.getItem('ApplicantId');
     this.loadAirports(); // Declare function to load Airport data
     
@@ -212,7 +212,7 @@ seletedairportId:any;userId:any;
         })
     }
 
-    onSubmit(form: any) {debugger
+    onSubmit(form: any) {
       let formData = new FormData();
       formData.append('data', JSON.stringify(form.value));
       this.applicantservice.updateApplicantaddress(formData).subscribe(

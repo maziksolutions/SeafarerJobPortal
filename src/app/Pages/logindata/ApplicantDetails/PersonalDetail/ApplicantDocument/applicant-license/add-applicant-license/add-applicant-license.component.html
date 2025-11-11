@@ -88,10 +88,10 @@
       </div>
   
       <div class="mt-2">
-        <button type="button" mat-raised-button [style.background-color]="'coral'" [style.color]="'white'"
-                color="warn" (click)="dialogRef.close()"><i class="ft-x"></i>Close</button>&nbsp;
-        <button type="submit"mat-raised-button  color="primary"
-          [disabled]="applicantLicensefrm.invalid"><i
-                  class="fa fa-check-square-o "></i>{{data.modalBtnTitle}}</button>
-      </div>
+        <button type="button" mat-raised-button [style.background-color]="'coral'" [style.color]="'white'" color="warn"
+          (click)="dialogRef.close()"><i class="ft-x"></i>Close</button>&nbsp;
+        <button type="submit" mat-raised-button class="custom-btn"
+          [ngClass]="{'btn-enabled': applicantLicensefrm.valid,'btn-disabled': applicantLicensefrm.invalid }"
+          [disabled]="applicantLicensefrm.invalid"><i class="fa fa-check-square-o"></i> {{ data.modalBtnTitle }}</button>
+        </div>
 

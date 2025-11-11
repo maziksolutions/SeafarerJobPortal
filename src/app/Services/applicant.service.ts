@@ -32,7 +32,7 @@ export class ApplicantService {
   //   alert(id)
   //   return this.httpClient.get<any>(this.linkurl +'GetAllApplicants?id='+id, httpOptions);  
   //   }
-  changeapplicantPassword(formdata: any): Observable<any> {debugger
+  changeapplicantPassword(formdata: any): Observable<any> {
     return this.httpClient.post(this.linkurl + 'updateConfirmPassword', formdata)
       .pipe(catchError(this.handleError));
   }

@@ -59,6 +59,7 @@
 
       <div class="col-3 form">
         <mat-form-field color="accent">
+          <mat-label>Vessel Type </mat-label>
           <mat-select placeholder="Vessel Type" formControlName="shipId" required>
             <mat-option *ngFor="let ship of shipTypeList" [value]="ship.shipId">
               {{ship.type}}
@@ -125,6 +126,7 @@
    
       <div class="col-3 form">
         <mat-form-field color="accent">
+            <mat-label>Country </mat-label>
           <mat-select placeholder="Country" (selectionChange)="LoadPortByCountryId($event.value)"
             formControlName="countryId" required>
             <mat-option *ngFor="let country of countryList" [value]="country.countryId">
@@ -170,8 +172,13 @@
     </div>
 
     <div>
-      <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
+      <!-- <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
       <button type="submit" mat-raised-button color="primary"
-        [disabled]="ApplicantAssignmentfrm.invalid">{{data.modalBtnTitle}}</button>
+        [disabled]="ApplicantAssignmentfrm.invalid">{{data.modalBtnTitle}}</button> -->
+        <button type="button" mat-raised-button [style.background-color]="'coral'" [style.color]="'white'"
+                color="warn" (click)="dialogRef.close()"><i class="ft-x"></i>Close</button>&nbsp;
+        <button type="submit" mat-raised-button class="custom-btn"
+                 [ngClass]="{'btn-enabled': ApplicantAssignmentfrm.valid,'btn-disabled': ApplicantAssignmentfrm.invalid }"
+                  [disabled]="ApplicantAssignmentfrm.invalid"><i class="fa fa-check-square-o"></i> {{ data.modalBtnTitle }}</button>
     </div>
   </form>

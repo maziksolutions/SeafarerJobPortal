@@ -1386,6 +1386,19 @@ color: #2582be !important;
   transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
 	font-weight: 900;
 }
+.btn-enabled {
+  background-color: #36454f !important;
+  color: #fff !important;
+}
+
+/* Disabled state (grey look like your screenshot) */
+.btn-disabled {
+  background-color: #ddd !important;
+  color: #888 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+
 @-webkit-keyframes animRipple {
   to {
     -webkit-transform: scale(3.5);

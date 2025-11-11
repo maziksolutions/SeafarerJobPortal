@@ -47,7 +47,7 @@ export class ApplicantlistComponent implements OnInit {
   }
 
 
-  LoadApplicant(status: number): void {debugger
+  LoadApplicant(status: number): void {
     this.ApplicantService.GetAllApplicants(status)
       .subscribe(passports => {
         console.log(passports);
@@ -96,7 +96,7 @@ export class ApplicantlistComponent implements OnInit {
       panelClass: type == 'danger' ? ['red-snackbar'] : ['blue-snackbar']
     });
   }
-  ApproveApplicant(id: number) {debugger
+  ApproveApplicant(id: number) {
   if (confirm('Are you sure you want to approve this applicant?')) {
     this.ApplicantService.ApproveApplicant(id, this.loggedUserId)
   .subscribe({
