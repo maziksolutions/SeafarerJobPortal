@@ -44,7 +44,7 @@
         </div>
       </div> -->
 
-      <div id="user-profile" style="margin-top: 21px;">
+      <div id="user-profile" style="margin-top: 21px;"(contextmenu)="$event.preventDefault()">
         <div class="row">
           <div class="col-12">
             <div class="card profile-with-cover m-b-0">
@@ -54,7 +54,22 @@
                   <!-- <img *ngIf="showimage=='yes'" src="{{userimage}}" class="rounded-circle img-border height-100"
                     alt="Card image"> -->
 
-                    <img *ngIf="showimage === 'yes'" [src]="userimage" class="rounded-circle img-border " alt="Card image" style="height:90px;width: 90px;">
+                    <!-- <img *ngIf="showimage === 'yes'" [src]="userimage" class="rounded-circle img-border " alt="Card image" style="height:90px;width: 90px;"> -->
+                     <!-- Small image -->
+                  <img *ngIf="showimage === 'yes'" [src]="userimage" class="rounded-circle img-border" alt="Profile image"
+                    style="height:90px; width:90px; cursor: pointer;" (click)="openImageModal()" (contextmenu)="$event.preventDefault()"/>
+
+                  <!-- Modal for enlarged image -->
+
+                  <div class="modal fade show" tabindex="-1" *ngIf="isModalOpen" style="display: block; background: rgba(0,0,0,0.6);"
+                    (click)="closeImageModal()">
+                  
+                    <div class="d-flex justify-content-center align-items-center" style="height:100vh;width: 100vw;">
+                      <img [src]="userimage" alt="Full size image" [style.transform]="'scale(' + scale + ')'" (wheel)="onWheel($event)"
+                        style="max-width: 80vw; max-height: 80vh; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);"(contextmenu)="$event.preventDefault()" />
+                    </div>
+                  </div>
+
                   <div *ngIf="showimage=='no'" id="profileImage">{{getShortName(applicantfullname)}}</div>
                 </div>
 

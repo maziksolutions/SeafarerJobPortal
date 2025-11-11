@@ -77,15 +77,16 @@
         <div class="col form">
           <br>
             <!-- <mat-label>file</mat-label> -->
-            <input type="file" accept="application/pdf"  formControlName="filePath" (change)="handleCertificateFile($event)">
+            <input type="file" accept="application/pdf"  formControlName="filePath" style="margin-left: -16px;" (change)="handleCertificateFile($event)">
           </div>    
 </div>
       </div>
 
       <div class="mt-2">
-        <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
-        <button type="submit" mat-raised-button color="primary"
-          [disabled]="applicantTravelfrm.invalid">{{data.modalBtnTitle}}</button>
+           <button type="button" mat-raised-button [style.background-color]="'coral'" [style.color]="'white'"
+                color="warn" (click)="dialogRef.close()"><i class="ft-x"></i>Close</button>&nbsp;
+        <button type="submit" mat-raised-button [style.background-color]="'#36454F'" color="primary" [disabled]="applicantTravelfrm.invalid"><i
+                  class="fa fa-check-square-o "></i>{{data.modalBtnTitle}}</button>
       </div>
     </form>
 

@@ -13,8 +13,8 @@ export class ApplicantdetailnavComponent implements OnInit
 
 {
   applicantdata:any[]
-  applicantId:any;
-  applicantfullname:any;
+  applicantId:any;isModalOpen = false;
+  applicantfullname:any;scale: number = 1;
   rank:any;userstatus:any;
   userimage: string; showimage: string;
   constructor(private applicantserice:ApplicantService,
@@ -59,5 +59,21 @@ export class ApplicantdetailnavComponent implements OnInit
   logout() {
     this.userService.logoutUser()
   }
+  
+  openImageModal() {
+  this.isModalOpen = true;
+  }
 
+  closeImageModal() {
+  this.isModalOpen = false;
+  }
+
+  onWheel(event: WheelEvent) {
+    event.preventDefault();
+    if (event.deltaY < 0) {
+      this.scale += 0.1;
+    } else if (event.deltaY > 0 && this.scale > 0.2) {
+      this.scale -= 0.1;
+    }
+  }
 }

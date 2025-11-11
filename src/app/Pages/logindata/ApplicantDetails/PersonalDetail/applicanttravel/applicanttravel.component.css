@@ -8,3 +8,13 @@
 ::ng-deep  .mat-mdc-header-row {
     background:  #E3EBF3 !important;
   }
+
+  .file-exists {
+  color: #0057c9; /* blue */
+  cursor: pointer;
+}
+
+.no-file {
+  color: #0e0303; /* light grey */
+  /* cursor: not-allowed; */
+}

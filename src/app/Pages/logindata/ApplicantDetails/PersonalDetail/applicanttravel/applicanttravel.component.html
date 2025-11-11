@@ -103,11 +103,11 @@
                     </ng-container>
 
                     <ng-container matColumnDef="attachment">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>Original PDF</mat-header-cell>
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Attachment</mat-header-cell>
                       <mat-cell *matCellDef="let row"><i class="fas fa-paperclip" data-toggle="tooltip"
                           data-trigger="hover" data-placement="top" data-title="Attachement" aria-hidden="true"
                           data-original-title="" title="" (click)="showAttachment(row.filePath)"
-                          [ngClass]="{'file': row.filePath !== null,'nofile':row.filePath === null}"></i></mat-cell>
+                         [ngClass]="{'file-exists': row.filePath,'no-file': !row.filePath}"></i></mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="place">

@@ -34,7 +34,7 @@ public dialog: MatDialog  ,
  private applicantserice:ApplicantService,
 ){}
 ngOnInit(): void 
-{debugger
+{
   this.applicantId = this.route.snapshot.paramMap.get('id'); 
   this.userstatus=localStorage.getItem("UserType");
   this.loadApplicantTravel(0);

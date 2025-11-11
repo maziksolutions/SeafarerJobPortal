@@ -81,9 +81,14 @@
       </div>
 
       <div class="mt-2">
-        <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
+        <!-- <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
         <button type="submit" mat-raised-button color="primary"
-          [disabled]="applicantCoursefrm.invalid">{{data.modalBtnTitle}}</button>
+          [disabled]="applicantCoursefrm.invalid">{{data.modalBtnTitle}}</button> -->
+           <button type="button" mat-raised-button [style.background-color]="'coral'" [style.color]="'white'"
+                color="warn" (click)="dialogRef.close()"><i class="ft-x"></i>Close</button>&nbsp;
+        <button type="submit" mat-raised-button class="custom-btn"
+                 [ngClass]="{'btn-enabled': applicantCoursefrm.valid,'btn-disabled': applicantCoursefrm.invalid }"
+                  [disabled]="applicantCoursefrm.invalid"><i class="fa fa-check-square-o"></i> {{ data.modalBtnTitle }}</button>
       </div>
 </form>
 </mat-dialog-content>
