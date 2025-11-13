@@ -64,6 +64,7 @@ seletedairportId:any;userId:any;
       cityId: [''],
       address: [''],
       postcode: [''],
+      email:[''],
       countryCode: [''],          
       stateCode: [''],
       phoneNumber: [''],

@@ -47,7 +47,7 @@
                         <div class="float-right">
                           <button class="btn btn-primary form-small p-t-3 p-b-3 m-r-5" type="button" data-toggle="tooltip"
                           data-trigger="hover" data-placement="top" data-title="Add" data-original-title="" title=""
-                          *ngIf="isPermanentExist==false"   (click)="addPermanentApplicantAddress()" ><i class="fas fa-plus" aria-hidden="true"></i></button>
+                          *ngIf="isPermanentExist==false&&userstatus=='Applicant'"   (click)="addPermanentApplicantAddress()" ><i class="fas fa-plus" aria-hidden="true"></i></button>
 
               <button class="btn btn-primary form-small p-t-3 p-b-3" type="button" data-toggle="tooltip"
                data-trigger="hover"   (click)="updatePermanentCrewAddress()" *ngIf="isPermanentExist&&userstatus==='Applicant'"data-placement="top" data-title="Edit"><i class="fas fa-edit" aria-hidden="true"></i></button>

@@ -22,7 +22,7 @@ export class ApplicanttravelComponent implements OnInit
   applicantId:any;
   status;
   applicantTravel:any;
-  displayedapplicanttravelColumns = ['documentNumber','documentDetail','countryName', 'place', 'doi', 'doe', 'attachment','actions'];
+  displayedapplicanttravelColumns = ['documentNumber','documentType','documentDetail','countryName', 'place', 'doi', 'doe', 'attachment','actions'];
   dataPassportSource = new MatTableDataSource<any>();
   userstatus;
   certificateFile: File | null = null; // Allow certificateFile to be nullable

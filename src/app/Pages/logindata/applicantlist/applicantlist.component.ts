@@ -112,7 +112,7 @@ export class ApplicantlistComponent implements OnInit {
   }
 }
 RejectApplicant(id: number) {
-  if (confirm('Are you sure you want to approve this applicant?')) {
+  if (confirm('Are you sure you want to Reject this applicant?')) {
     this.ApplicantService.RejectApplicant(id, this.loggedUserId)
   .subscribe({
     next: (res: any) => {
