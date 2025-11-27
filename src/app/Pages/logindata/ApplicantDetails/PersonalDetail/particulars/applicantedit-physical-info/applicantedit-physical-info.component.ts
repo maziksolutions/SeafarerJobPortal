@@ -86,7 +86,9 @@ ngOnInit(): void
       userCode:[""],
       mobile:[""],
       mobilePhone:[""],
-      nationality:[""]
+      nationality:[""],
+      lastWage:[''],foodHabit:[''],
+      lowerRank:['']
     });
 
     this.form.valueChanges.subscribe(data => this.onValueChanged(data));

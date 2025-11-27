@@ -95,7 +95,7 @@
       </div>
   
       <div class="row">
-        <div class="col s6">
+        <div class="col s4">
           <mat-form-field>
             <mat-label>English Fluency</mat-label>
             <mat-select  formControlName="englishFluency" required>
@@ -105,7 +105,22 @@
             </mat-select>
           </mat-form-field>
         </div>
-  
+  <div class="col s4">
+          <mat-form-field>
+            <mat-label>Willing to accept lower rank? </mat-label>
+            <mat-select  formControlName="lowerRank" required>
+              <mat-option value="Yes">Yes</mat-option>
+              <mat-option value="No">No</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+         <div class="col s3">
+          <mat-form-field color="accent">
+            <mat-label>Last Wages</mat-label>
+            <input matInput  appTitleCase formControlName="lastWage" required>
+          </mat-form-field>
+        </div>
         <!-- <div class="col s12">
           <label>Image</label><br>
           <input type="file" accept="image/jpeg, image/jpg, image/png" formControlName="englishFluency"

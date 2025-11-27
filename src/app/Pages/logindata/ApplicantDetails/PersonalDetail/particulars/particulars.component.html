@@ -58,15 +58,7 @@
                        |date:'dd-MMM-yyyy' }}</td>
                         <th width="13.3%">Place Of Birth</th>
                         <td width="20%">{{data.placeOfBirth}}</td>
-                      </tr>
-                      <tr>
-                        <th>Passport No</th>
-                        <td>NA</td>
-                        <th>Seaman Book No</th>
-                        <td>MUM79821</td>
-                        <th>INDOS No</th>
-                        <td>----</td>
-                      </tr>
+                      </tr>                     
                       <tr>
                         <th>Civil Status</th>
                         <td>{{data.civilStatus}}</td>
@@ -75,6 +67,14 @@
                         <th>English Fluency</th>
                         <td>{{data.englishFluency}}</td>
                       </tr>
+                       <tr>
+                        <th>Seaman Book No.</th>
+                        <td>{{data.cdcNumber}}</td>
+                        <th>Willing to accept lower rank?</th>
+                        <td>{{data.lowerRank}}</td>
+                        <th>Last Wages</th>
+                        <td>{{data.lastWage}}</td>
+                      </tr>  
                       </tbody>
                   </table>
                 </div>
@@ -147,8 +147,8 @@
                       <tr>
                         <th>Trouser Size (inch)</th>
                         <td>{{data.trouserSize}}</td>
-                        <th>&nbsp;</th>
-                        <td>&nbsp;</td>
+                        <th>Food Habit</th>
+                        <td>{{data.foodHabit}}</td>
                         <th>&nbsp;</th>
                         <td>&nbsp;</td>
                         </tr>
