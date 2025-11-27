@@ -23,10 +23,8 @@ const httpOptions = {
 })
 export class CrewService {
   private google : any;
-  baseUrl = environment.apiurl;
-  stepUrl = environment.stepAPIURL;
-  private linkurl = this.baseUrl + 'CrewDetails/';
-  private steplinkUrl = this.stepUrl + 'CrewlinkAPI/';
+  baseUrl = environment.apiurl; 
+  private linkurl = this.baseUrl + 'CrewDetails/'; 
   private linkdashboardurl = this.baseUrl + 'DashboardChart/';
   private pdfURL = this.baseUrl + 'pdf/';
   UserStatus: any[];
@@ -181,27 +179,14 @@ GetCrewForSearch(): Observable<CrewSearch[]> {
       );
   }
 
-passdatatoSTEP(crewid: number,vesseltype:any): Observable<any>{
-  return this.httpClient.post(this.steplinkUrl + 'getcrewdata?crewid=' + crewid +'&vesseltype='+vesseltype, httpOptions).pipe(catchError(this.handleError));
-}
-CheckIATStatus(crewid: number,rank: number,vesseltype: number): Observable<any>{
-  // const newurl = `${this.steplinkUrl + 'getcrewdata?crewid=' + crewid}`;
-  return this.httpClient.post(this.steplinkUrl + 'sendIATStatus?crewid=' + crewid +'&rank=' + rank+'&vesseltype=' + vesseltype, httpOptions).pipe(catchError(this.handleError));
-}
-getSTEPdata(crewid: number): Observable<any>{
-  // const newurl = `${this.steplinkUrl + 'getcrewdata?crewid=' + crewid}`;
-  return this.httpClient.get<any>(this.steplinkUrl + 'getcrewstepdata?crewid=' + crewid, httpOptions).pipe(catchError(this.handleError));
-}
+
+
   // Reject Approval from pending approvals
   rejectApproval(crewid: number,crewListId : number): Observable<any> {
     const newurl = `${this.linkurl + 'rejectPendingApproval?crewId=' + crewid+'&crewListId='+crewListId}`;
     return this.httpClient.put(newurl, httpOptions)
       .pipe(catchError(this.handleError));
   }
-
- 
-
-
   
   // Reject Applicant from crewdetails
   rejectApplicant(crewid: number): Observable<any> {
