@@ -83,13 +83,13 @@
                   <mat-table #table1 [dataSource]="dataPassportSource" matSort
                     class="mat-cell table table-hover table-bordered mb-0 crew-table table-striped">
 
-                    <ng-container matColumnDef="Authorities">
+                    <ng-container matColumnDef="authorities">
                       <mat-header-cell *matHeaderCellDef mat-sort-header>Authorities</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.authority.authorities}}</mat-cell>
                     </ng-container>
 
 
-                    <ng-container matColumnDef="LicenceName">
+                    <ng-container matColumnDef="licenceName">
                       <mat-header-cell *matHeaderCellDef mat-sort-header>Licence Name</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.licenceRegister.licenceName }}</mat-cell>
                     </ng-container>
@@ -105,7 +105,7 @@
                     </ng-container>
 
                     <ng-container matColumnDef="attachment">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>Attachment</mat-header-cell>
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>&nbsp;</mat-header-cell>
                       <mat-cell *matCellDef="let row"><i class="fas fa-paperclip" data-toggle="tooltip"
                           data-trigger="hover" data-placement="top" data-title="Attachement" aria-hidden="true"
                           (click)="showAttachment(row.attachment)" data-original-title="" title=""

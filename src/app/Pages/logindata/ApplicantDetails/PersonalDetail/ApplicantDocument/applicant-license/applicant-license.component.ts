@@ -28,7 +28,7 @@ export class ApplicantLicenseComponent implements OnInit
   status;
   loadingPassport: boolean;
   applicantLicense:any;
-  displayedApplicantLicenseColumns = ['Authorities','LicenceName', 'licenseNumber','countryId', 'doi', 'doe','place', 'attachment', 'actions'];
+  displayedApplicantLicenseColumns = ['attachment','licenceName', 'licenseNumber','countryId', 'doi', 'doe','place',  'authorities','actions'];
   ApplicantLicense:any[];
   certificateFile: File | null = null; // Allow certificateFile to be nullable
   dataPassportSource = new MatTableDataSource<any>();

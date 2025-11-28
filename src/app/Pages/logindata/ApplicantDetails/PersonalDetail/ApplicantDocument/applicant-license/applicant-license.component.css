@@ -21,3 +21,17 @@
   color: #0e0303; /* light grey */
   /* cursor: not-allowed; */
 }
+
+.mat-column-licenceName {
+  flex: 0 0 250px;
+  }
+  .mat-column-authorities {
+  flex: 0 0 250px;
+  }
+  .mat-column-attachment {
+  flex: 0 0 30px;
+  }
+.mat-column-actions {
+  flex: 0 0 70px;
+  }
+  
