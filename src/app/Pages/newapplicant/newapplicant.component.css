@@ -6,7 +6,7 @@
 form .form-section
 {
   line-height: 3rem !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 10px !important;
 }
 
 h4{
@@ -75,10 +75,19 @@ margin-right: 10px;
   background: #233855 !important;
   color: #fff !important;
 }
-
-
-
-
+form .form-actions
+{
+  padding: 8px 0 !important;
+}
+.mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix
+{
+  padding-top:20px !important;
+ padding-bottom:6px !important;
+}
+form .form-section i
+{
+  font-size: 14px !important;
+}
 
 
 

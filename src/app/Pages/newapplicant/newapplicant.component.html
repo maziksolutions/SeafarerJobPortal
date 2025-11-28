@@ -7,7 +7,7 @@
   ( Your login credentials will be emailed to you once registration is complete.)
 
     </p>  
-    <h3 class="form-section ">
+    <h3 class="form-section " style="font-size: 13px;">
       <i class="fas fa-user-alt mr-2"></i>
       <strong>Personal Details</strong>     
     </h3>
@@ -76,6 +76,8 @@
           </mat-select>
         </mat-form-field>
       </div>    
+      <div class="col">     
+      </div>
 <!-- <div class="col">
 <mat-form-field color="accent" class="small-label">
   <mat-label>Username</mat-label>
@@ -100,7 +102,7 @@
 </mat-autocomplete>
 </div> -->
     </div>   
-    <h3 class="form-section mt-3">
+    <h3 class="form-section mt-2" style="font-size: 13px;">
      <i class="fas fa-user-alt mr-2"></i> <strong>CDC Details</strong>
     </h3>
     <div class="row">
@@ -135,9 +137,9 @@
       </div>
     </div>
 
-    <div class="row mt-3">
+    <div class="row mt-2">
       <div class="col-md-6">
-        <h3 class="form-section mt-2">
+        <h3 class="form-section  mt-2" style="font-size: 13px;">
           <i class="fas fa-envelope "></i> <strong>Contact Details</strong>
         </h3>
         <div class="row">
@@ -159,7 +161,7 @@
         </div>
       </div>
       <div class="col-md-6">
-        <h3 class="form-section mt-2">
+        <h3 class="form-section mt-2" style="font-size: 13px;">
           <i class="fa fa-file-text"></i> <strong>Upload Docs</strong>
         </h3>
 
@@ -170,9 +172,9 @@
           <input matInput  formControlName="area">
         </mat-form-field> -->
 
-            <label class="big-text"><strong>Resume</strong></label>
+            <label>Resume</label>
             <br>
-            <label id="projectinput7" class="file center-block big-text">
+            <label id="projectinput7" class="file center-block">
               <input type="file" style="width: 100%;" formControlName="resume" id="file" (change)="handleResumeFile($event)">
               <span class="file-custom"></span>
             </label>
@@ -180,9 +182,9 @@
           </div>
 
           <div class="col">
-            <label class="big-text"><strong>Photo</strong></label>
+            <label>Photo</label>
             <br>
-            <label id="projectinput7" class="file center-block big-text">
+            <label id="projectinput7" class="file center-block">
               <input type="file" style="width: 100%;" formControlName="photo" accept="image" (change)="onPhotoSelect($event)">
               <span class="file-custom"></span>
             </label>

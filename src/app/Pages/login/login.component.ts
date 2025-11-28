@@ -45,13 +45,17 @@ export class LoginComponent implements OnInit {
     public dialog: MatDialog) { }
 
     ngOnInit()  
-    {
+    {     
+    document.body.classList.add('login-background');
       this.loginForm = this.formBuilder.group({
         userName: ['', [Validators.required]],
         password: ['', [Validators.required]]
       });
       
     }
+    ngOnDestroy() {
+    document.body.classList.remove('login-background');
+  }
     get returnFormControl() {
       return this.loginForm.controls;
     }

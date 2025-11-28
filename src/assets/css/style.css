@@ -6,12 +6,12 @@ PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 
 
-:host ::ng-deep .mat-mdc-header-row 
+::ng-deep .mat-mdc-header-row 
 {
   min-height: 20px !important; 
   top: -1px !important;   
   border-bottom: 1px solid #aac4d7 !important;   
-  background: #E3EBF3 !important;
+  background: #9faab4 !important;
 }
 
 .fixed-navbar-inner {
@@ -1109,7 +1109,8 @@ html, body {
   font-size: 62.5%;
   height: 100%;
   overflow: hidden;
-}
+   background-image: url("/assets/img/slider.png") !important;
+  }
 @media (max-width: 768px) {
   html, body {
     font-size: 50%;
@@ -1436,3 +1437,4 @@ color: #2582be !important;
     stroke-dashoffset: 0;
   }
 }
+

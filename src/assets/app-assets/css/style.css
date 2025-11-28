@@ -1,23 +1,17 @@
-
-   ::ng-deep  .mat-mdc-table mat-header-row.mat-mdc-header-row {
-    background:  #e5f7ff !important; 
-  }
-   
-   :host  .login-page .red-snackbar .mat-mdc-simple-snack-bar {
-    background: #ad2300 !important;
-    color: #fff !important;
-  }
-  
-   :host  .login-page .blue-snackbar .mat-mdc-simple-snack-bar {
-    background: #233855 !important;
-    color: #fff !important;
-  }
-  ::ng-deep :root {
-  --primary-color: #c6c3c3;
-  --second-color: #ffffff;
-  --black-color: #000000;
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  font-family: "Poppins", sans-serif !important;
 }
- ::ng-deep .login-background {
+
+:root {
+  --primary-color: #c6c3c3 !important;
+  --second-color: #ffffff !important;
+  --black-color: #000000 !important;
+}
+
+body {
   background-image: url("/assets/img/back.png") !important;
   background-position: center !important;
   background-size: cover !important;
@@ -25,16 +19,16 @@
   background-attachment: fixed !important;
 }
 
- :host  .login-page a {
+a {
   text-decoration: none !important;
   color: var(--second-color) !important;
 }
 
- :host  .login-page a:hover {
+a:hover {
   text-decoration: underline !important;
 }
 
- :host  .wrapper {
+.wrapper {
   width: 100% !important;
   display: flex !important;
   justify-content: center !important;
@@ -43,10 +37,10 @@
   background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
- :host  .login-page .login_box {
+.login_box {
   position: relative !important;
-  width: 420px !important;
-  backdrop-filter: blur(35px) !important;
+  width: 450px !important;
+  backdrop-filter: blur(25px) !important;
   border: 2px solid #ffffff !important;
   border-radius: 15px !important;
   padding: 7.5em 2.5em 4em 2.5em !important;
@@ -54,7 +48,7 @@
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
- :host  .login-page .login-header {
+.login-header {
   position: absolute !important;
   top: 0 !important;
   left: 50% !important;
@@ -63,17 +57,17 @@
   align-items: center !important;
   justify-content: center !important;
   background-color: #ffffff !important;
-  width: 220px !important;
-  height: 75px !important;
+  width: 230px !important;
+  height: 85px !important;
   border-radius: 0 0 20px 20px !important;
 }
 
- :host  .login-page .login-header span {
+.login-header span {
   /* //font-size: 30px !important; */
   color: var(--black-color) !important;
 }
 
- :host  .login-page .login-header::before {
+.login-header::before {
   content: "" !important;
   position: absolute !important;
   top: 0 !important;
@@ -85,7 +79,7 @@
   box-shadow: 15px 0 0 0 #ffffff !important;
 }
 
- :host  .login-page .login-header::after {
+.login-header::after {
   content: "" !important;
   position: absolute !important;
   top: 0 !important;
@@ -97,17 +91,17 @@
   box-shadow: -15px 0 0 0 #ffffff !important; /* Removed space before --primary-color */
 }
 
- :host  .login-page .input_box {
+.input_box {
   position: relative !important;
   display: flex !important;
   flex-direction: column !important;
   margin: 20px 0 !important;
 }
 
- :host  .login-page .input-field {
+.input-field {
   width: 100% !important;
   height: 55px !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
   background: transparent !important;
   color: var(--second-color) !important;
   padding-inline: 20px 50px !important;
@@ -116,21 +110,20 @@
   outline: none !important;
 }
 
- :host  .login-page #user {
+#user {
   margin-bottom: 10px !important;
 }
 
- :host  .login-page .label {
+.label {
   position: absolute !important;
   top: 15px !important;
   left: 20px !important;
   transition: 0.2s !important;
-  visibility: hidden !important;
 }
 
- :host  .login-page .input-field:focus ~ .label,
- :host  .login-page .input-field:valid ~ .label,
- :host  .login-page .input-field:focus-within ~  :host  .login-page .label {
+.input-field:focus ~ .label,
+.input-field:valid ~ .label,
+.input-field:focus-within ~ .label {
   position: absolute !important;
   top: -10px !important;
   left: 20px !important;
@@ -139,27 +132,26 @@
   border-radius: 30px !important;
   color: var(--black-color) !important;
   padding: 0 10px !important;
-  visibility: visible !important;
 }
 
- :host  .login-page .icon {
+.icon {
   position: absolute !important;
   top: 18px !important;
   right: 25px !important;
-  font-size: 20px !important; 
+  font-size: 20px !important;
 }
 
- :host  .login-page .remember-forgot {
+.remember-forgot {
   display: flex !important;
   justify-content: space-between !important;
   font-size: 15px !important;
 }
 
- :host  .login-page .input-submit {
+.input-submit {
   width: 100% !important;
-  height: 45px !important;
+  height: 50px !important;
   background: #ececec !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
   font-weight: 500 !important;
   border: none !important;
   border-radius: 30px !important;
@@ -167,25 +159,24 @@
   transition: 0.3s !important;
 }
 
- :host  .login-page .input-submit:hover {
+.input-submit:hover {
   background: var(--second-color) !important;
 }
 
- :host  .login-page .register {
+.register {
   text-align: center !important;
-  font-size: 1.4rem !important;
 }
 
- :host  .login-page .register a {
+.register a {
   font-weight: 500 !important;
 }
 
 @media only screen and (max-width: 564px) {
-   :host  .login-page .wrapper {
+  .wrapper {
     padding: 20px !important;
   }
 
-   :host  .login-page .login_box {
+  .login_box {
     padding: 7.5em 1.5em 4em 1.5em !important;
   }
 }

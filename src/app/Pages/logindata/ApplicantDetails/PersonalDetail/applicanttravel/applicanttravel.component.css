@@ -5,9 +5,6 @@
     min-width: 0;
     width: 141px;
 }
-::ng-deep  .mat-mdc-header-row {
-    background:  #E3EBF3 !important;
-  }
 
   .file-exists {
   color: #0057c9; /* blue */

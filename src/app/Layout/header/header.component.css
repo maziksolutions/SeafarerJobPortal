@@ -1,89 +1,101 @@
-
-.mat-option-text{font-size: 12px !important; color: #253A62 !important;}
-.mat-option{font-size: 12px !important; color: #253A62 !important;line-height: 30px !important;height: 30px !important;
-border-bottom: 1px dotted;}
-.mat-menu-item {
-    line-height: 40px !important;
-    height: 50px !important;
-    border-bottom: 1px solid #e2e2e2 !important;
-    font-size: 14px !important;
+.mat-option-text {
+  font-size: 12px !important;
+  color: #253A62 !important;
 }
 
+.mat-option {
+  font-size: 12px !important;
+  color: #253A62 !important;
+  line-height: 30px !important;
+  height: 30px !important;
+  border-bottom: 1px dotted;
+}
 
+.mat-menu-item {
+  line-height: 40px !important;
+  height: 50px !important;
+  border-bottom: 1px solid #e2e2e2 !important;
+  font-size: 14px !important;
+}
+
+::ng-deep .mat-mdc-table mat-header-row.mat-mdc-header-row {
+  background: #e5f7ff !important; 
+}
 
 
 .example-container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    
-  }
-  
-  .example-is-mobile .example-toolbar {
-    position: fixed;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-    z-index: 2;
-  }
-  
-  .example-sidenav-container {
-    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-    flex: 1;  
-  }
-  
-  .example-is-mobile .example-sidenav-container {
-    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
        `<body>` to be our scrolling element for mobile layouts. */
-    flex: 1 0 auto;
-  }
+  flex: 1 0 auto;
+}
 
-  ::ng-deep .mat-toolbar.mat-primary {
-    color: #fff;
-    cursor: pointer;
+::ng-deep .mat-toolbar.mat-primary {
+  color: #fff;
+  cursor: pointer;
 }
 
 
-::ng-deep .mat-toolbar-row, .mat-toolbar-single-row {
-    height: 50px !important;
+::ng-deep .mat-toolbar-row,
+.mat-toolbar-single-row {
+  height: 50px !important;
 }
-::ng-deep .mat-expansion-panel-header {  
+
+::ng-deep .mat-expansion-panel-header {
   padding: 0 16px !important;
 }
 
 
-::ng-deep .dropdown-content
-{
-position: absolute !important;
- 
+::ng-deep .dropdown-content {
+  position: absolute !important;
+
 }
-::ng-deep .dropdown-content a
-{
+
+::ng-deep .dropdown-content a {
   border-bottom: 1px solid #ccc !important;
-    font-size: 12px !important;
-    line-height: normal !important;
-    padding: 5px !important;
+  font-size: 12px !important;
+  line-height: normal !important;
+  padding: 5px !important;
 }
 
-::ng-deep .abc input
-{
-margin:0px !important;
-padding-top: 7px !important; padding-bottom: 7px !important; font-size: 12px !important; font-weight: 100 !important;
+::ng-deep .abc input {
+  margin: 0px !important;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+  font-size: 12px !important;
+  font-weight: 100 !important;
 }
 
-.all-vessel
-{
+.all-vessel {
   position: relative;
-    top: 13px;
-    right: 10px;
-    color: #fff;
+  top: 13px;
+  right: 10px;
+  color: #fff;
 }
 
-:host ::ng-deep .mat-checkbox-frame
-{
+:host ::ng-deep .mat-checkbox-frame {
   border-color: rgb(231, 177, 1) !important;
 }
 
@@ -106,14 +118,14 @@ padding-top: 7px !important; padding-bottom: 7px !important; font-size: 12px !im
 /* Notification CSS starts here */
 
 
-h1{
- float: left;
+h1 {
+  float: left;
   padding: 10px 30px
 }
 
 
 
-.icons{
+.icons {
   display: inline;
   float: right
 }
@@ -124,7 +136,7 @@ h1{
   display: inline-block;
 } */
 
-.number{
+.number {
   height: 21px;
   width: 21px;
   background-color: #d63031;
@@ -141,15 +153,15 @@ h1{
 }
 
 .number:empty {
-   display: none;
+  display: none;
 }
 
-.notBtn{
+.notBtn {
   transition: 0.3s;
   cursor: pointer
 }
 
-.box{
+.box {
   width: 300px;
   height: 0px;
   border-radius: 5px;
@@ -167,7 +179,7 @@ h1{
   z-index: 999;
 }
 
-.notBtn:hover > .box{
+.notBtn:hover>.box {
   height: 40vh
 }
 
@@ -178,20 +190,20 @@ h1{
   text-align: left;
 } */
 
-.gry{
+.gry {
   background-color: #F4F4F4;
 }
 
-.top{
+.top {
   color: #233855;
   padding: 10px
 }
 
-.display{
+.display {
   position: relative;
 }
 
-.cont{
+.cont {
   position: absolute;
   top: 0;
   width: 100%;
@@ -199,68 +211,66 @@ h1{
   background-color: #F4F4F4;
 }
 
-.cont:empty{
+.cont:empty {
   display: none;
 }
 
-.stick{
-  text-align: center;  
+.stick {
+  text-align: center;
   display: block;
   font-size: 50pt;
   padding-top: 70px;
   padding-left: 80px
 }
 
-.stick:hover{
+.stick:hover {
   color: #233855;
 }
 
-.cent{
+.cent {
   text-align: center;
   display: block;
 }
 
-.sec{
+.sec {
   padding: 10px;
   background-color: #F4F4F4;
   transition: 0.3s;
 }
 
-.profCont{
+.profCont {
   padding-left: 15px;
 }
 
-.profile{
+.profile {
   -webkit-clip-path: circle(50% at 50% 50%);
   clip-path: circle(50% at 50% 50%);
   width: 75px;
   float: left;
 }
-.txt{
+
+.txt {
   vertical-align: top;
   font-size: 0.9rem;
   padding: 5px;
-  color:#333;
+  color: #333;
   line-height: 1.1rem;
 }
 
-.sub{
+.sub {
   font-size: .8rem;
   color: grey;
 }
 
-.new{
+.new {
   border-style: none none solid none;
   border-color: #233855;
 }
 
-.sec:hover{
+.sec:hover {
   background-color: #BFBFBF;
 }
-::ng-deep .content-wrapper
-{
-   padding: 2rem !important;
+
+::ng-deep .content-wrapper {
+  padding: 0 2rem !important;
 }
-
-
-

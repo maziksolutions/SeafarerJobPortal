@@ -1,4 +1,4 @@
-<div class="cont overlay black">
+<!-- <div class="cont overlay black">
     <form>
         <div class="description-outer">
       <div class="description">
@@ -12,7 +12,7 @@
     </div>
     <div class="login-outer">
       <div class="login">
-        <div class="login_logo"></div>   
+        <div class="login_logo"></div>    -->
         <!-- <form [formGroup]="loginForm" (ngSubmit)="login()">      
         <div class="login__form">
             <p class="tagline">Seafarer Portal</p>
@@ -34,7 +34,7 @@
       </form>   -->
       
       
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <!-- <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="login__form">
           <p class="tagline">Seafarer Job Portal</p>
       
@@ -50,7 +50,7 @@
               <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
             </svg>
             <input type="password" class="login__input pass" formControlName="password" placeholder="Password" required />
-          </div>
+          </div> -->
       
           <!-- reCAPTCHA -->
           <!-- <div class="login__row">
@@ -60,24 +60,63 @@
             </re-captcha>
           </div> -->
          
-          <button type="submit" class="login__submit" >Sign in</button>
+          <!-- <button type="submit" class="login__submit" >Sign in</button>
       
           <div *ngIf="error" class="alert alert-danger">{{error}}</div>
         </div>
-      </form>
-      
-
-
-
-
-
-
-
-
+      </form>      
       </div>    
     </div>
   </form>  
+  </div> -->
+
+<div class="wrapper login-page">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="login_box">
+    <div class="login-header">
+      <span><img src="/assets/img/logo.png" style="width: 150px;"></span>
+    </div>	
+	<div class="mt-5 mb-3" style="text-align:center">
+<h1>Seafarer Job Portal</h1>
+	</div>
+
+
+    <div class="input_box">
+      <input type="text" id="user" class="input-field" formControlName="userName" required>
+
+      <label for="user" class="label">Username</label>
+      <i class="bx bx-user icon"></i>
+    </div>
+
+    <div class="input_box">
+      <input type="password" id="pass" class="input-field" formControlName="password" required>
+      <label for="pass" class="label">Password</label>
+      <i class="bx bx-lock-alt icon"></i>
+    </div>
+
+    <div class="remember-forgot">
+      <div class="remember-me">
+        <!-- <input type="checkbox" id="remember">
+        <label for="remember">Remember me</label> -->
+      </div>
+
+      <div class="forgot">
+        <a href="#">Forgot password?</a>
+      </div>
+    </div>
+
+    <div class="input_box">
+      <input type="submit" class="input-submit" value="Login">
+    </div>
+
+    <div class="register">
+      <span>Don't have an account? <a (click)="addApplicant()" ><u>Register</u></a></span>
+    </div>
   </div>
+   <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+  </form>
+</div>
+
   
   
   

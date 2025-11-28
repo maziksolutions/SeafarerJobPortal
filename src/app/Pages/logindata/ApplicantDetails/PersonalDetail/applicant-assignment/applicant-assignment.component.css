@@ -1,6 +1,4 @@
-::ng-deep  .mat-mdc-header-row {
-  background:  #E3EBF3 !important;
-}
+
 .btn i {
   pointer-events: none; /* good: ensures click passes through icon */
 }

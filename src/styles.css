@@ -31,6 +31,9 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+
+
 .mat-mdc-input-element,
 .mat-mdc-form-field-label,
 .mat-mdc-floating-label, .mat-mdc-select-value, .mat-mdc-option .mdc-list-item__primary-text {
@@ -130,7 +133,7 @@ color:#fff;
   padding: 0.4rem !important;
   border-collapse: collapse;
   font-weight: 600 !important;
-  color:#233855;
+  color:#333;
  min-height: 30px;
  font-size: 12.4px;
 }
@@ -344,11 +347,5 @@ mat-header-cell {
   font-size: 11px;
 
 }
-/* mat-header-row.mat-mdc-header-row.mdc-data-table__header-row.cdk-header-row.ng-star-inserted.mat-mdc-table-sticky.mat-mdc-table-sticky-border-elem-top {
-  background: #E3EBF3;
-} */
 
-/* :host ::ng-deep  .mat-mdc-header-row {
-  background:  #E3EBF3 !important;
-} */
 

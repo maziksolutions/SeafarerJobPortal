@@ -1,6 +1,4 @@
-::ng-deep  .mat-mdc-header-row {
-    background:  #E3EBF3 !important;
-  }
+
   ::ng-deep .form-inline .form-control.form-small {
   min-width: 180px;   /* width badhayi */
  height: 30px !important; 
