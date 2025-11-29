@@ -45,11 +45,11 @@
                     class="mat-cell table table-hover table-bordered mb-0 crew-table table-striped">
 
                     <ng-container matColumnDef="documentNumber">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>Degree Type</mat-header-cell>
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Qualification Type</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.degreeType}}</mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="documentType">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>Class</mat-header-cell>
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Degree/Diploma/Class</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.class}}</mat-cell>
                     </ng-container>
 
@@ -64,7 +64,7 @@
                       <mat-cell *matCellDef="let row">{{row.country?.countryName}}</mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="instituteName">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>InstititeName</mat-header-cell>
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Institite</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.instituteName}}</mat-cell>
                     </ng-container>
 
