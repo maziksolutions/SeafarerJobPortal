@@ -26,7 +26,7 @@ export class ApplicantCoursesComponent implements OnInit {
   applicantApplicantCourses: any;
   ApplicantCourses: any[];
   loadingState = false;
-  displayedApplicantCoursesColumns = ['CourseId', 'InstituteId', 'AuthorityId', 'CertificateNumber', 'PlaceOfIssue', 'IssueDate', 'ExpiryDate', 'actions'];
+  displayedApplicantCoursesColumns = ['courseName',  'certificateNumber', 'placeOfIssue', 'issueDate', 'expiryDate', 'instituteName', 'authorities','actions'];
   dataApplicantCoursesSource = new MatTableDataSource<any>();
   userstatus: any;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;

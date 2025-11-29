@@ -85,13 +85,13 @@
 
                     <ng-container matColumnDef="authorities">
                       <mat-header-cell *matHeaderCellDef mat-sort-header>Authorities</mat-header-cell>
-                      <mat-cell *matCellDef="let row">{{row.authority.authorities}}</mat-cell>
+                      <mat-cell *matCellDef="let row">{{row.authority?.authorities}}</mat-cell>
                     </ng-container>
 
 
                     <ng-container matColumnDef="licenceName">
                       <mat-header-cell *matHeaderCellDef mat-sort-header>Licence Name</mat-header-cell>
-                      <mat-cell *matCellDef="let row">{{row.licenceRegister.licenceName }}</mat-cell>
+                      <mat-cell *matCellDef="let row">{{row.licenceRegister?.licenceName }}</mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="licenseNumber">
@@ -101,7 +101,7 @@
 
                     <ng-container matColumnDef="countryId">
                       <mat-header-cell *matHeaderCellDef mat-sort-header>Country</mat-header-cell>
-                      <mat-cell *matCellDef="let row">{{row.country.countryName }}</mat-cell>
+                      <mat-cell *matCellDef="let row">{{row.country?.countryName }}</mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="attachment">

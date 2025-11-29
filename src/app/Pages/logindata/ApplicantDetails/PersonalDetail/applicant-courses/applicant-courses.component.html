@@ -84,29 +84,27 @@
                   <div id="goal-list-scroll" class="table-responsive position-relative">
                     <mat-table #table1 [dataSource]="dataApplicantCoursesSource" matSort
                       class="table table-hover table-bordered mb-0 crew-table table-striped mat-cell">
-
-
-                      <ng-container matColumnDef="CourseId">
+                      <ng-container matColumnDef="courseName">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Course</mat-header-cell>
-                        <mat-cell *matCellDef="let row">{{row.authority.authorities}}</mat-cell>
+                        <mat-cell *matCellDef="let row">{{row.courseRegister?.courseName}}</mat-cell>
                       </ng-container>
 
-                      <ng-container matColumnDef="InstituteId">
+                      <ng-container matColumnDef="instituteName">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Institute</mat-header-cell>
-                        <mat-cell *matCellDef="let row">{{row.institutes.instituteName}}</mat-cell>
+                        <mat-cell *matCellDef="let row">{{row.institutes?.instituteName}}</mat-cell>
                       </ng-container>
 
-                      <ng-container matColumnDef="AuthorityId">
+                      <ng-container matColumnDef="authorities">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Authority</mat-header-cell>
-                        <mat-cell *matCellDef="let row">{{row.authority.authorities }}</mat-cell>
+                        <mat-cell *matCellDef="let row">{{row.authority?.authorities }}</mat-cell>
                       </ng-container>
 
-                      <ng-container matColumnDef="CertificateNumber">
+                      <ng-container matColumnDef="certificateNumber">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Certificate Number</mat-header-cell>
                         <mat-cell *matCellDef="let row">{{row.certificateNumber}}</mat-cell>
                       </ng-container>
 
-                      <ng-container matColumnDef="PlaceOfIssue">
+                      <ng-container matColumnDef="placeOfIssue">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Place of Issue</mat-header-cell>
                         <mat-cell *matCellDef="let row">{{row.placeOfIssue}}</mat-cell>
                       </ng-container>
@@ -124,13 +122,13 @@
                       <mat-cell *matCellDef="let row">{{row.placeOfIssue}}</mat-cell>
                     </ng-container> -->
 
-                      <ng-container matColumnDef="IssueDate">
+                      <ng-container matColumnDef="issueDate">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Issue Date</mat-header-cell>
                         <mat-cell *matCellDef="let row">{{row.issueDate
                           | date: 'dd-MMM-yyyy'}}</mat-cell>
                       </ng-container>
 
-                      <ng-container matColumnDef="ExpiryDate">
+                      <ng-container matColumnDef="expiryDate">
                         <mat-header-cell *matHeaderCellDef mat-sort-header>Expiry Date</mat-header-cell>
                         <mat-cell *matCellDef="let row">{{row.expiryDate
                           | date: 'dd-MMM-yyyy'}}</mat-cell>
