@@ -40,6 +40,12 @@ seletedcityId:any;
 seletedcountryId:any;
 CountryId:any;
 StateId:any;
+countryId:any;
+stateId:any;
+cityId:any;
+stateData: any[];
+cityData: any[];
+countryData: any[];
 seletedairportId:any;userId:any;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
@@ -83,7 +89,12 @@ seletedairportId:any;userId:any;
       // city:[''],
       airport:[''],
       applicant:[''],
-      cityName:['']
+      cityName:[''],
+      ccountryId: [''],
+      cstateId: [''],
+      ccityId: [''],
+      caddress: [''],
+      cpostcode: [''],
     });
     this.crewaddressfrm.valueChanges.subscribe(data => this.onValueChanged(data));
     this.onValueChanged();
@@ -92,13 +103,19 @@ seletedairportId:any;userId:any;
     this.fillAirport();
 
       this.seletedcountryId=this.data.crew[0].countryId;
-      this.CountryId = this.data.crew[0].country.countryId;
-      this.StateId = this.data.crew[0].state.stateId;
+      this.CountryId = this.data.crew[0].country?.countryId;
+      this.StateId = this.data.crew[0].state?.stateId;
+      this.countryId = this.data.crew[0].ccountry?.countryId;
+      this.stateId = this.data.crew[0].sstate?.stateId;
+      this.cityId = this.data.crew[0].ccity?.cityId;
       this.crewaddressfrm.controls.countryId.setValue(this.CountryId);
       this.crewaddressfrm.controls.stateId.setValue(this.StateId);
       this.loadStates(); 
       this.loadCities(); 
       this.loadCountries(); 
+      this.loadCountrie();
+      this.loadState(); 
+      this.loadCitie(); 
         
 }
   getAirPorts(airport) {
@@ -119,13 +136,24 @@ seletedairportId:any;userId:any;
           this.countryList = data;         
         });
     }
+      loadCountrie() {
+      this.countryService.GetCountryList(this.countryId)
+        .subscribe(data => {
+          this.countryData = data;         
+        });
+    }
 
     // Define Function to load State data
     loadStates() {
       this.stateService.filterStatesByCountryId(this.CountryId)
         .subscribe(data => {
           this.stateList = data;
-          console.log(this.stateList)
+        })
+    }
+      loadState() {
+      this.stateService.filterStatesByCountryId(this.countryId)
+        .subscribe(data => {
+          this.stateData = data;
         })
     }
 
@@ -134,6 +162,12 @@ seletedairportId:any;userId:any;
       this.cityService.filterCitiesByStateId(this.StateId)
         .subscribe(data => {
           this.cityList = data;
+        })
+    }
+    loadCitie() {
+      this.cityService.filterCitiesByStateId(this.stateId)
+        .subscribe(data => {
+          this.cityData = data;
         })
     }
 
@@ -199,19 +233,102 @@ seletedairportId:any;userId:any;
       // },
     };
 
-    changeCountry(countryId) {
-      this.stateService.filterStatesByCountryId(countryId)
-        .subscribe(data => {
-          this.stateList = data;
-        })
-    }
-    // Function to filter city based on state selection 
-    changeState(stateId) {
-      this.cityService.filterCitiesByStateId(stateId)
-        .subscribe(data => {
-          this.cityList = data;
-        })
-    }
+    changeCountry(countryId: number) {
+  this.crewaddressfrm.patchValue({
+    stateId: '',
+    cityId: ''
+  });
+
+  this.stateList = [];
+  this.cityList = [];
+
+  this.stateService.filterStatesByCountryId(countryId).subscribe(data => {
+    this.stateList = data;
+  });
+}
+
+changeState(stateId: number) {
+
+  this.crewaddressfrm.patchValue({
+    cityId: ''
+  });
+
+  this.cityList = [];
+
+  this.cityService.filterCitiesByStateId(stateId).subscribe(data => {
+    this.cityList = data;
+  });
+}
+
+   changeCountryCurrent(countryId: number) {
+
+  this.crewaddressfrm.patchValue({
+    cstateId: '',
+    ccityId: ''
+  });
+
+  this.stateData = [];
+  this.cityData = [];
+
+  this.stateService.filterStatesByCountryId(countryId).subscribe(data => {
+    this.stateData = data;
+  });
+}
+
+changeStateCurrent(stateId: number) {
+
+  this.crewaddressfrm.patchValue({
+    ccityId: ''
+  });
+  this.cityData = [];
+  this.cityService.filterCitiesByStateId(stateId).subscribe(data => {
+    this.cityData = data;
+  });
+}
+
+ sameAddress(event: any) {
+  const isChecked = event.target.checked;
+
+  if (isChecked) {
+    const perm = {
+      address: this.crewaddressfrm.controls.address.value,
+      postcode: this.crewaddressfrm.controls.postcode.value,
+      countryId: this.crewaddressfrm.controls.countryId.value,
+      stateId: this.crewaddressfrm.controls.stateId.value,
+      cityId: this.crewaddressfrm.controls.cityId.value
+    };
+
+    this.crewaddressfrm.controls['ccountryId'].setValue(perm.countryId);
+
+    this.stateService.filterStatesByCountryId(perm.countryId).subscribe(states => {
+      this.stateData = states;
+
+      this.crewaddressfrm.controls['cstateId'].setValue(perm.stateId);
+
+      this.cityService.filterCitiesByStateId(perm.stateId).subscribe(cities => {
+        this.cityData = cities;
+
+        this.crewaddressfrm.controls['ccityId'].setValue(perm.cityId);
+
+        this.crewaddressfrm.patchValue({
+          caddress: perm.address,
+          cpostcode: perm.postcode
+        });
+      });
+    });
+
+  } else {
+    this.crewaddressfrm.patchValue({
+      caddress: '',
+      cpostcode: '',
+      ccountryId: '',
+      cstateId: '',
+      ccityId: ''
+    });
+    this.stateData = [];
+    this.cityData = [];
+  }
+}
 
     onSubmit(form: any) {
       let formData = new FormData();

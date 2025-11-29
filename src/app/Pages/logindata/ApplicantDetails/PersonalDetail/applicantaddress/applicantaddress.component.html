@@ -1,9 +1,9 @@
 <app-applicantdetailnav> </app-applicantdetailnav>
 
-<!-- / main menu--> 
-<div >
-    <div class="content-wrapper">
-      <!-- <div class="content-header row">
+<!-- / main menu-->
+<div>
+  <div class="content-wrapper">
+    <!-- <div class="content-header row">
         <div class="col-xl-6 col-lg-12">
           <h3 class="content-header-title m-b-10 m-t-5"> <B>Address</B> </h3>
         </div>
@@ -12,12 +12,24 @@
       </div> -->
 
 
-      <div class="content-header row">
-        <div class="col-xl-6 col-lg-12">
-          <h2 class="content-header-title m-b-10 m-t-5"><b>Address</b></h2>
-        </div>
-      
-        <!-- <div style="margin-bottom: 10px;"  class="col-sm-7 col-lg-12 d-flex justify-content-end " *ngIf="userstatus === 'User'">
+   <div class="content-header row d-flex align-items-center">
+
+  <!-- <div class="col-xl-6 col-lg-12">
+    <h2 class="content-header-title m-b-10 m-t-5"><b>Address</b></h2>
+  </div> -->
+
+  <button class="btn btn-primary form-small p-t-3 p-b-3 mt-2 ml-auto "style="margin-right: 14px;!important"
+          type="button" 
+          data-toggle="tooltip"
+          data-trigger="hover"
+          (click)="updatePermanentCrewAddress()"
+          *ngIf="isPermanentExist && userstatus==='Applicant'"
+          data-placement="top"
+          data-title="Edit">
+      <i class="fas fa-edit" aria-hidden="true"></i>
+  </button>
+
+      <!-- <div style="margin-bottom: 10px;"  class="col-sm-7 col-lg-12 d-flex justify-content-end " *ngIf="userstatus === 'User'">
           <a 
             class="btn btn-primary form-small p-t-3 p-b-3 m-r-5" 
             href="/logindata/ApplicantList" 
@@ -28,142 +40,134 @@
             <i class="fas fa-angle-double-left back-btn"></i>
           </a>
         </div> -->
-      </div>
-      
+    </div>
 
 
-      <div class="content-body">
-        <div class="row match-height" id="switch">
-          <div class="col-xl-12 col-lg-12">
-  
-                <section id="descriptioin" class="card">
+
+    <div class="content-body">
+      <div class="row equal-height" id="switch">
+        <div class="col-xl-6 col-lg-12">
+
+          <section id="descriptioin" class="card">
             <div class="card-header">
-                <div class="row" style="font-size: 12px;">
-                      <div class="col-xl-6 col-lg-12">
-              <h2 class="card-title p-t-5 proper-case">Permanent Address</h2>
-                          </div>
-                    
+              <div class="row" style="font-size: 12px;">
                 <div class="col-xl-6 col-lg-12">
-                        <div class="float-right">
-                          <button class="btn btn-primary form-small p-t-3 p-b-3 m-r-5" type="button" data-toggle="tooltip"
-                          data-trigger="hover" data-placement="top" data-title="Add" data-original-title="" title=""
-                          *ngIf="isPermanentExist==false&&userstatus=='Applicant'"   (click)="addPermanentApplicantAddress()" ><i class="fas fa-plus" aria-hidden="true"></i></button>
-
-              <button class="btn btn-primary form-small p-t-3 p-b-3" type="button" data-toggle="tooltip"
-               data-trigger="hover"   (click)="updatePermanentCrewAddress()" *ngIf="isPermanentExist&&userstatus==='Applicant'"data-placement="top" data-title="Edit"><i class="fas fa-edit" aria-hidden="true"></i></button>
-               </div>
-                         <!-- *ngIf="isPermanentExist && userstatus === 'Applicant'" -->
-                    </div>
+                 <h2 class="content-header-title">Permanent Address</h2>
                 </div>
-            </div>
-              <div class="card-body pt-0">
+
+                <div class="col-xl-6 col-lg-12">
+                  <div class="float-right">
+                    <button class="btn btn-primary form-small p-t-3 p-b-3 m-r-5" type="button" data-toggle="tooltip"
+                      data-trigger="hover" data-placement="top" data-title="Add" data-original-title="" title=""
+                      *ngIf="isPermanentExist==false&&userstatus=='Applicant'"
+                      (click)="addPermanentApplicantAddress()"><i class="fas fa-plus" aria-hidden="true"></i></button>
+
                   
-                <div class="table-responsive" style="font-size: 12px;">
-                  <table class="table" *ngFor="let address of permanentAddress">
-                    <tbody>
-                      <!-- <tr>
+                  </div>
+                  <!-- *ngIf="isPermanentExist && userstatus === 'Applicant'" -->
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-0">
+
+              <div class="table-responsive" style="font-size: 12px;">
+                <table class="table" *ngFor="let address of permanentAddress">
+                  <tbody>
+                    <!-- <tr>
                         <th width="50%">Flat, House no., Building</th>
                         <td width="50%">14,UIT Scheme, Sakatpura, Kota</td>
                       </tr> -->
-                      <tr>
-                        <th>Area, Colony, Street, Sector, Village</th>
+                    <tr>
+                      <th>Area, Colony, Street, Sector, Village</th>
                       <td width="50%"> {{address.address}}</td>
-                      </tr>
-                      <tr>
-                        <th>Country</th>
-                        <td>{{address.country?.countryName}}</td>
-                      </tr>
-                        <tr>
-                        <th>State</th>
-                        <td>{{address.state?.stateName}}</td>
-                      </tr>
-                        <tr>
-                        <th>Town / City</th>
-                        <td>{{address.city?.cityName}}</td>
-                      </tr>
-                              <tr>
-                        <th>Email</th>
-                        <td>{{address.applicant?.email}}</td>
-                      </tr>             
-                      <tr>
-                        <th>Mobile Number</th>
-                        <td>{{address.mobileCode}} {{address.mobileNumber}}</td>
-                      </tr>
-                    
-                        <tr>
-                        <th>Nearest Airport</th>
-                        <td>{{address.airport?.cityName}}</td>
-                      </tr>
-                      </tbody>
-                  </table>
-                </div>
+                    </tr>
+                    <tr>
+                      <th>Country</th>
+                      <td>{{address.country?.countryName}}</td>
+                    </tr>
+                    <tr>
+                      <th>State</th>
+                      <td>{{address.state?.stateName}}</td>
+                    </tr>
+                    <tr>
+                      <th>Town / City</th>
+                      <td>{{address.city?.cityName}}</td>
+                    </tr>
+                    <tr>
+                      <th>Email</th>
+                      <td>{{address.applicant?.email}}</td>
+                    </tr>
+                    <tr>
+                      <th>Mobile Number</th>
+                      <td>{{address.mobileCode}} {{address.mobileNumber}}</td>
+                    </tr>
+
+                    <tr>
+                      <th>Nearest Airport</th>
+                      <td>{{address.airport?.cityName}}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-            
-            
-          </section>
-              </div>
-          <div class="col-xl-6 col-lg-12">
-  
-                <!-- <section id="descriptioin" class="card">
-            <div class="card-header">
-                <div class="row">
-                      <div class="col-xl-6 col-lg-12">
-              <h4 class="card-title p-t-5 proper-case">Correspondence</h4>
-                          </div>
-                    
-                <div class="col-xl-6 col-lg-12" style="font-size: 12px;">
-                        <div class="float-right"> 
-                            <input type="checkbox"> Same as Permanent
-            <button class="btn btn-primary form-small p-t-3 p-b-3" type="button" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Edit"><i class="fas fa-edit" aria-hidden="true"></i></button>
-          </div>
-                        
-                    </div>
-                </div>
             </div>
-              <div class="card-body pt-0">
-                  <div class="table-responsive" style="font-size: 12px;">
-                  <table class="table">
-                    <tbody>
-           
-                      <tr>
-                        <th>Area, Colony, Street, Sector, Village</th>
-                        <td>Keezha Konam, Nagercoil </td>
-                      </tr>
-                      <tr>
-                        <th>Country</th>
-                        <td>India</td>
-                      </tr>
-                        <tr>
-                        <th>State</th>
-                        <td>Tamil Nadu</td>
-                      </tr>
-                        <tr>
-                        <th>Town / City</th>
-                        <td>Nagercoil</td>
-                      </tr>
-                        <tr>
-                        <th>Postcode</th>
-                        <td>629004</td>
-                      </tr>
-                      <tr>
-                        <th>Other Mobile Number</th>
-                        <td>8760511873</td>
-                      </tr>
-                        <tr>
-                        <th>Nearest Airport</th>
-                        <td>Ahmedabad</td>
-                      </tr>
-                      </tbody>
-                  </table>
+
+
+          </section>
+        </div>
+        <div class="col-xl-6 col-lg-12">
+
+          <section id="descriptioin" class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-xl-6 col-lg-12">
+                 <h2 class="content-header-title">Correspondence</h2>
                 </div>
-                
+
+                <div class="col-xl-6 col-lg-12 " style="font-size: 12px;">
+                  <!-- <div class="float-right">
+                    <input type="checkbox"> Same as Permanent
+                    <button class="btn btn-primary form-small p-t-3 p-b-3" type="button"
+                      (click)="updatePermanentCrewAddress()" data-toggle="tooltip" data-trigger="hover"
+                      data-placement="top" data-title="Edit"><i class="fas fa-edit" aria-hidden="true"></i></button>
+                  </div> -->
+                </div>
               </div>
-            
-            
-          </section> -->
-          </div>
+            </div>
+            <div class="card-body pt-0">
+              <div class="table-responsive" style="font-size: 12px;">
+                <table class="table" *ngFor="let address of permanentAddress">
+                  <tbody>
+                    <tr>
+                      <th>Area, Colony, Street, Sector, Village</th>
+                        <td width="50%"> {{address.caddress}}</td>
+                    </tr>
+                    <tr>
+                      <th>Country</th>
+                      <td>{{address.ccountry?.countryName}}</td>
+                    </tr>
+                    <tr>
+                      <th>State</th>
+                    <td>{{address.sstate?.stateName}}</td>
+                    </tr>
+                    <tr>
+                      <th>Town / City</th>
+                         <td>{{address.ccity?.cityName}}</td>
+                    </tr>
+                    <tr>
+                      <th>Postcode</th>
+                      <td>{{address.cpostcode}}</td>
+                    </tr>
+                    <tr>                
+                    </tr>
+                    <tr>       
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
-      
   </div>
+</div>

@@ -1,0 +1,114 @@
+<mat-dialog-content>
+    <form (ngSubmit)="onSubmit(qualificationfrm)" [formGroup]="qualificationfrm">
+      <div class="error-alert"> {{errorMsg}}</div>
+      <h2>{{data.modalTitle}}
+        <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
+      </h2>
+      <div class="row">
+      
+         <div class="col form">
+              <mat-form-field>
+                <mat-label>Country</mat-label>
+                <mat-select (selectionChange)="selectedCountry($event)" formControlName="countryId">
+                  <mat-option *ngFor="let country of countries" [value]="country.countryId">
+                    {{country.countryName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+  
+            <div class="col form">
+              <mat-form-field>
+                <mat-label>State</mat-label>
+                <mat-select  (selectionChange)="selectedState($event)" formControlName="stateId">
+                  <mat-option *ngFor="let state of stateList" [value]="state.stateId">
+                    {{state.stateName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+  
+            <div class="col form">
+              <mat-form-field>
+                <mat-label>City</mat-label>
+                <mat-select formControlName="cityId">
+                  <mat-option *ngFor="let city of cityList" [value]="city.cityId">
+                    {{city.cityName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+        
+
+        <div class="col form">
+            <mat-form-field color="accent">
+                <mat-label>Select Degree Type</mat-label>
+              <mat-select  formControlName="degreeType" >
+                <mat-option value="School">School</mat-option>
+                <mat-option value="College">College</mat-option>
+                <mat-option value="Pre-Sea Training">Pre-Sea Training</mat-option>
+                <mat-option value="Other Qualifications">Other Qualifications</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col form">
+            <mat-form-field color="accent">
+              <mat-label>Institution / University</mat-label>
+              <input matInput  formControlName="instituteName" required>
+            </mat-form-field>
+          </div>
+  
+        
+      </div>
+  
+      <div class="row">
+        <div class="col form mt-2">
+          <mat-form-field color="accent">
+            <mat-label>Class</mat-label>
+            <input   matInput  formControlName="class" required>
+          </mat-form-field>
+        </div>
+        <div class="col form mt-2">
+          <mat-form-field color="accent">
+            <mat-label>Passing Year</mat-label>
+            <input type="number" matInput  formControlName="yearOfPassing" required>
+          </mat-form-field>
+        </div>
+        <div class="col form mt-2">
+          <mat-form-field>
+            <mat-label>From</mat-label>
+            <input matInput [matDatepicker]="picker1" (click)="picker1.open()"  (dateChange)="compareTwoDates()"
+              formControlName="from" required>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1 touchUi startView="month"></mat-datepicker>
+          </mat-form-field>
+        </div>
+  
+        <div class="col form mt-2">
+          <mat-form-field>
+            <mat-label>To</mat-label>
+            <input matInput [matDatepicker]="picker2" (click)="picker2.open()"  (dateChange)="compareTwoDates()"
+              placeholder="" formControlName="to" required>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 touchUi startView="month"></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col form">
+
+        </div>
+
+        <!-- <div class="col-3 form">    
+           <br>
+            <input type="file" accept="application/pdf"  formControlName="filePath" (change)="handleCertificateFile($event)">             
+</div> -->
+      </div>
+
+      <div class="mt-2">
+        <button type="button" mat-raised-button [style.background-color]="'coral'" [style.color]="'white'" color="warn"
+          (click)="dialogRef.close()"><i class="ft-x"></i>Close</button>&nbsp;
+        <button type="submit" mat-raised-button class="custom-btn"
+          [ngClass]="{'btn-enabled': qualificationfrm.valid,'btn-disabled': qualificationfrm.invalid }"
+          [disabled]="qualificationfrm.invalid"><i class="fa fa-check-square-o"></i> {{ data.modalBtnTitle }}</button>     
+      </div>
+    </form>
+    </mat-dialog-content>

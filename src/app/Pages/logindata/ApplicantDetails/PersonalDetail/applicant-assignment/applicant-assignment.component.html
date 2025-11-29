@@ -100,12 +100,12 @@
                     </ng-container>
 
                     <ng-container matColumnDef="signonDate">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>SignonDate</mat-header-cell>
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Sign on Date</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.signonDate| date: 'dd-MMM-yyyy'}}</mat-cell>
                     </ng-container>
             
                     <ng-container matColumnDef="signoffDate">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>signoffDate</mat-header-cell>
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Sign off Date</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.signoffDate | date: 'dd-MMM-yyyy'}}</mat-cell>
                     </ng-container>
 
@@ -115,7 +115,7 @@
                     </ng-container>
 
                     <ng-container matColumnDef="ShipId">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>Ship type</mat-header-cell>
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Ship Type</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.shipType.type}}</mat-cell>
                     </ng-container>
 <!-- 

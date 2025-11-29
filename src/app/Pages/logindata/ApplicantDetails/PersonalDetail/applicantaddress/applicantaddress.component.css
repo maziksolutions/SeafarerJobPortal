@@ -30,3 +30,13 @@ html body.fixed-navbar{padding-top:0px !important}
     -webkit-overflow-scrolling: touch;
 }
 
+::ng-deep  .mat-mdc-header-row {
+    background:  #E3EBF3 !important;
+  }
+  .equal-height {
+    display: flex;
+    align-items: stretch;
+}
+.equal-height .card {
+    height: 100%;
+}

@@ -9,6 +9,7 @@ import { ApplicanttravelComponent } from './ApplicantDetails/PersonalDetail/appl
 import { ApplicantLicenseComponent } from './ApplicantDetails/PersonalDetail/ApplicantDocument/applicant-license/applicant-license.component';
 import { ApplicantAssignmentComponent } from './ApplicantDetails/PersonalDetail/applicant-assignment/applicant-assignment.component';
 import { ApplicantCoursesComponent } from './ApplicantDetails/PersonalDetail/applicant-courses/applicant-courses.component';
+import { QualificationDetailsComponent } from './ApplicantDetails/PersonalDetail/qualification-details/qualification-details.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
         {path: 'ApplicantLicense/:id',component: ApplicantLicenseComponent}, 
         {path: 'ApplicantAssignment/:id',component: ApplicantAssignmentComponent}, 
         {path: 'ApplicantCourses/:id',component: ApplicantCoursesComponent}, 
+        {path: 'QualificationDetails/:id',component: QualificationDetailsComponent}, 
       ]
     }
 

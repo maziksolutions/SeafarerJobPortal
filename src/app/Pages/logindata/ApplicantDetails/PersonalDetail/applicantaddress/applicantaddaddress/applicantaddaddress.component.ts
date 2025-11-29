@@ -12,6 +12,8 @@ import { StateService } from 'src/app/Services/state.service';
 import { CityService } from 'src/app/Services/city.service';
 import { debounceTime, finalize, switchMap, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { stateModel } from 'src/app/Models/state.model';
+import { cityModel } from 'src/app/Models/city.model';
 @Component({
   selector: 'app-applicantaddaddress',
   templateUrl: './applicantaddaddress.component.html',
@@ -22,6 +24,9 @@ export class ApplicantaddaddressComponent implements OnInit
 {
   countryList: any[]; // Country Model
   stateList: any[];// state Model
+  stateData: any[];// state Model
+  cityData: any[];// state Model
+  countryData: any[];// state Model
   filterState: any[];// Filter State Model
   cityList: any[];// City Model
   filterCity: any[];// filter City Model
@@ -41,7 +46,7 @@ private fb: FormBuilder,
   public dialogRef: MatDialogRef<ApplicantaddressComponent>){}
 
   ngOnInit(): void 
-  {
+  {debugger
     
     this.loadCountries(); 
     this.crewaddressfrm = this.fb.group({
@@ -60,6 +65,11 @@ private fb: FormBuilder,
       otherMobileCode: [''],
       otherMobileNumber: [''],
       airportId: [''],
+      ccountryId: [''],
+      cstateId: [''],
+      ccityId: [''],
+      caddress: [''],
+      cpostcode: [''],
     });
  
     this.crewaddressfrm.valueChanges.subscribe(data => this.onValueChanged(data));
@@ -83,6 +93,7 @@ private fb: FormBuilder,
     this.countryService.GetCountryList(0)
       .subscribe(data => {
         this.countryList = data;
+        this.countryData = data;
       });
   }
   onValueChanged(data?: any) {
@@ -98,7 +109,56 @@ private fb: FormBuilder,
       }
     }
   }
+sameAddress(event: any) {
+  const isChecked = event.target.checked;
 
+  if (isChecked) {
+    const perm = {
+      address: this.crewaddressfrm.controls.address.value,
+      postcode: this.crewaddressfrm.controls.postcode.value,
+      countryId: this.crewaddressfrm.controls.countryId.value,
+      stateId: this.crewaddressfrm.controls.stateId.value,
+      cityId: this.crewaddressfrm.controls.cityId.value
+    };
+
+    this.crewaddressfrm.controls['ccountryId'].setValue(perm.countryId);
+
+    this.stateService.filterStatesByCountryId(perm.countryId).subscribe(states => {
+      this.stateData = states;
+
+      this.crewaddressfrm.controls['cstateId'].setValue(perm.stateId);
+
+      this.cityService.filterCitiesByStateId(perm.stateId).subscribe(cities => {
+        this.cityData = cities;
+
+        this.crewaddressfrm.controls['ccityId'].setValue(perm.cityId);
+
+        this.crewaddressfrm.patchValue({
+          caddress: perm.address,
+          cpostcode: perm.postcode
+        });
+      });
+    });
+
+  } else {
+    this.crewaddressfrm.patchValue({
+      caddress: '',
+      cpostcode: '',
+      ccountryId: '',
+      cstateId: '',
+      ccityId: ''
+    });
+    this.stateData = [];
+    this.cityData = [];
+  }
+}
+
+   showMessage(msg: string,type:string='') {
+    this.snackBar.open(msg, '', {
+      duration: 1500,
+      panelClass:type=='danger'? ['red-snackbar']:['blue-snackbar']
+    });
+  }
   formErrors = {
     'address1': '',
     'postcode': '',
@@ -160,6 +220,21 @@ private fb: FormBuilder,
         this.cityList = data;
       });
   }
+
+selectedCurrentCountry(event: any) {
+  this.stateService.filterStatesByCountryId(event.value)
+    .subscribe((data) => {
+      this.stateData = data;   
+    });
+}
+
+selectedCurrentState(event: any) {
+  this.cityService.filterCitiesByStateId(event.value)
+    .subscribe((data) => {
+      this.cityData = data;    
+    });
+}
+
   SetControlsState(isEnable: boolean) {
     isEnable ? this.crewaddressfrm.enable() : this.crewaddressfrm.disable();
   }

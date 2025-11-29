@@ -107,7 +107,22 @@ getApplicantAddress(id,applicantId): Observable<any> {
   }
 
 //#endregion
+//#region 
+GetQualificationDetails(status: number,crewId: any): Observable<any[]> {
+    return this.httpClient.get<any>(this.linkurl + 'filterQualificationDetails?status=' + status + '&crewId=' +crewId, httpOptions);
+  }
+   AddQualificationDetails(formData: any): Observable<any> {
+    return this.httpClient.put(this.linkurl + 'addQualificationDetails', formData)
+      .pipe(catchError(this.handleError));
+  }
+  updateQualificationDetails(id: number, formData: any): Observable<any> {debugger
+  return this.httpClient.put(this.linkurl + 'updateQualificationDetails', formData, httpOptions)
+}
 
+  DeleteQualificationDetails(id: number) {
+    return this.httpClient.delete(this.linkurl +'DeleteQualificationDetails/'+ id, httpOptions);
+  }
+  //#endregion
 //#region  Applicant License
 
 addApplicantLicense(formData: any): Observable<any> {

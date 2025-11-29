@@ -68,7 +68,7 @@ usernameMessage: string = '';
     this.loadCountries(); // Declare function to load countries
     this.loadRanks();
     this.newapplicantfrm = this.fb.group({
-      userName: ['', [Validators.required,  Validators.minLength(4), Validators.maxLength(20)]],
+      // userName: ['', [Validators.required,  Validators.minLength(4), Validators.maxLength(20)]],
       firstName: ['',],
       middleName: [''],
       lastName: [''],

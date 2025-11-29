@@ -1,0 +1,117 @@
+
+<app-applicantdetailnav> </app-applicantdetailnav>
+
+
+<div>
+    <div class="content-wrapper">
+    
+      
+      <div class="content-body">
+        <div class="row match-height" id="switch">
+          <div class="col-lg-12 col-md-12 col-12">
+  
+           
+  
+            <div class="tab-content p-l-0 p-r-0 pt-1 border-grey border-lighten-2 border-0-top">
+              <div role="tabpanel" class="tab-pane active" id="tab21" aria-expanded="true" aria-labelledby="base-tab21">
+                <section id="descriptioin" class="card">
+                  <div class="card-header">
+                    <div class="row">
+
+                      <div class="col-xl-6 col-lg-12">
+                      <h3 class="content-header-title m-b-10 m-t-5"><b>Qualification Details</b></h3></div>
+  
+                      <div class="col-xl-6 col-lg-12">
+                        <form class="form-inline float-right">
+   
+
+                          <select  #test class="form-control form-small m-r-10"  (change)="loadQualificationDetails($any($event.target).value)">
+                            <option value="0">Active Data</option>
+                            <option value="1">Archived Data</option>
+                          </select>
+
+                          <button class="btn btn-primary form-small p-t-3 p-b-3" type="button" data-toggle="tooltip"
+                            data-trigger="hover"(click)="addQualificationDetails()"*ngIf="userstatus=='Applicant'" data-placement="top" data-title="Add"  ><i
+                              class="fas fa-plus" ></i></button>
+                              <button class="btn btn-primary form-small p-t-3 p-b-3 m-l-5" type="button"  data-toggle="popover" 
+                        title="Help" data-html="true"  data-placement="left" >
+                        <i class="fas fa-question" aria-hidden="true"></i></button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="goal-list-scroll" class="table-responsive position-relative">
+                    <mat-table #table1 [dataSource]="dataqualificationSource" matSort
+                    class="mat-cell table table-hover table-bordered mb-0 crew-table table-striped">
+
+                    <ng-container matColumnDef="documentNumber">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Degree Type</mat-header-cell>
+                      <mat-cell *matCellDef="let row">{{row.degreeType}}</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="documentType">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Class</mat-header-cell>
+                      <mat-cell *matCellDef="let row">{{row.class}}</mat-cell>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="documentDetail">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Year of Passing</mat-header-cell>
+                      <mat-cell *matCellDef="let row">{{row.yearOfPassing}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="countryName">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Country</mat-header-cell>
+                      <mat-cell *matCellDef="let row">{{row.country?.countryName}}</mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="instituteName">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>InstititeName</mat-header-cell>
+                      <mat-cell *matCellDef="let row">{{row.instituteName}}</mat-cell>
+                    </ng-container>
+
+                    <!-- <ng-container matColumnDef="attachment">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Attachment</mat-header-cell>
+                      <mat-cell *matCellDef="let row"><i class="fas fa-paperclip" data-toggle="tooltip"
+                          data-trigger="hover" data-placement="top" data-title="Attachement" aria-hidden="true"
+                          data-original-title="" title="" (click)="showAttachment(row.filePath)"
+                         [ngClass]="{'file-exists': row.filePath,'no-file': !row.filePath}"></i></mat-cell>
+                    </ng-container> -->
+
+                    
+
+                    <ng-container matColumnDef="actions">
+                      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+
+                      <mat-cell *matCellDef="let row; let i=index;">
+                        <i class="fas fa-edit m-r-10" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                         data-title="Edit" aria-hidden="true"*ngIf="userstatus=='Applicant'" (click)="updateQualificationDetails(row.applicantQualificationId)" ></i>
+                          <i
+                          class="fa fa-archive" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                           data-title="Archive" aria-hidden="true" (click)="DeleteQualificationDetails(row.applicantQualificationId)" ></i>
+
+                      </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedqualificationDetailsColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedqualificationDetailsColumns;"
+                     matTooltipClass="mat-tooltip"
+                      >
+                    </mat-row>
+                  </mat-table>   
+                  <mat-paginator #paginator [length]="dataqualificationSource.filteredData.length" [pageIndex]="0" [pageSize]="20"
+                  [pageSizeOptions]="[20, 40, 60, 100]">
+                </mat-paginator>            
+                  </div>
+                </section>
+              </div>          
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+

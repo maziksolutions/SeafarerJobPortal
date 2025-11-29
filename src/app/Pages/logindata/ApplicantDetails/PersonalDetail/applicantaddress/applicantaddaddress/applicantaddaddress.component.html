@@ -78,6 +78,62 @@
           
           </div>
       
+  <h2 style="margin-top: 10px!important;margin-bottom: 10px!important;">
+   Current Address 
+  <input type="checkbox" (change)="sameAddress($event)"> 
+  Same as Permanent
+</h2>
+
+<div class="row">
+
+  <div class="col s4">
+    <mat-form-field color="accent">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="caddress" required>
+    </mat-form-field>
+  </div>
+
+  <div class="col s4">
+    <mat-form-field color="accent">
+      <mat-label>Post code</mat-label>
+      <input matInput formControlName="cpostcode" required>
+    </mat-form-field>
+  </div>
+
+  <div class="col s4">
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <mat-select (selectionChange)="selectedCurrentCountry($event)" formControlName="ccountryId">
+        <mat-option *ngFor="let country of countryData" [value]="country.countryId">
+          {{country.countryName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="col s4">
+    <mat-form-field>
+      <mat-label>State</mat-label>
+      <mat-select (selectionChange)="selectedCurrentState($event)" formControlName="cstateId">
+        <mat-option *ngFor="let state of stateData" [value]="state.stateId">
+          {{state.stateName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="col s4">
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <mat-select formControlName="ccityId">
+        <mat-option *ngFor="let city of cityData" [value]="city.cityId">
+          {{city.cityName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+</div>
   
       <h2 class="mt-2"><b>{{mobile}}</b></h2>
       <div class="row">
