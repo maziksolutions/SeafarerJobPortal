@@ -1,3 +1,11 @@
+.mat-form-field {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 141px;
+}
+
 
 ::ng-deep .red-snackbar .mat-mdc-simple-snack-bar {
     background: #ad2300 !important;

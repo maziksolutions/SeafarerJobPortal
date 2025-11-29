@@ -1,202 +1,203 @@
 <mat-dialog-content>
-    <form (ngSubmit)="onSubmit(crewaddressfrm)" [formGroup]="crewaddressfrm">
-      <div style="Color:red; padding-bottom:10px; font-size: 12px !important;"> {{errorMsg}}</div>
-    
-          <h2>{{data.modalTitle}}
-            <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
-          </h2>
-          <div class="row">
-       
-            <div class="col-4">
-              <mat-form-field color="accent">
-                <mat-label>Address</mat-label>
-                <input matInput  formControlName="address" required>
-              </mat-form-field>
-            </div>
-  
-            <div class="col-2">
-              <mat-form-field color="accent">
-                <mat-label>Post code</mat-label>
-                <input matInput  formControlName="postcode" required>
-              </mat-form-field>
-            </div>
-  
-            <div class="col-2">
-              <mat-form-field>
-                <mat-label>Country</mat-label>
-                <mat-select (selectionChange)="selectedCountry($event)" formControlName="countryId">
-                  <mat-option *ngFor="let country of countryList" [value]="country.countryId">
-                    {{country.countryName}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-  
-            <div class="col-2">
-              <mat-form-field>
-                <mat-label>State</mat-label>
-                <mat-select  (selectionChange)="selectedState($event)" formControlName="stateId">
-                  <mat-option *ngFor="let state of stateList" [value]="state.stateId">
-                    {{state.stateName}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-  
-            <div class="col-2">
-              <mat-form-field>
-                <mat-label>City</mat-label>
-                <mat-select formControlName="cityId">
-                  <mat-option *ngFor="let city of cityList" [value]="city.cityId">
-                    {{city.cityName}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-
-              <div class="col-4">
-              <mat-form-field>
-                <mat-label>Airport</mat-label>
-                <input matInput  [matAutocomplete]="auto" formControlName="airportId">
-                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)"
-                (optionSelected)="getAirPorts($event.option.value)">
-                  <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
-                  <ng-container *ngIf="!isLoading">
-                    <mat-option *ngFor="let city of airportList" [value]="city.cityId">
-                      <span>{{city.cityName}}</span>
-                    </mat-option>
-                  </ng-container>
-                </mat-autocomplete>
-              </mat-form-field>
-            </div>
-             <div class="col-4">
-          <mat-form-field color="accent">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email" type="text" required>
-          </mat-form-field>
-        </div>
-          
+  <form (ngSubmit)="onSubmit(crewaddressfrm)" [formGroup]="crewaddressfrm">
+    <div style="Color:red; padding-bottom:10px; font-size: 12px !important;"> {{errorMsg}}</div>
+   
+        <h2>{{data.modalTitle}}
+          <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
+        </h2>
+        <div class="row">
+          <div class="col-4">
+            <mat-form-field color="accent">
+              <mat-label>Address</mat-label>
+              <input matInput placeholder="Address" formControlName="address" required>
+            </mat-form-field>
           </div>
-  <hr class="mt-2 mb-2">
-  <h2 style="margin-top: 10px!important;margin-bottom: 10px!important;">
-   Current Address 
-  (<input type="checkbox" (change)="sameAddress($event)"> 
-  <span style="font-size: smaller;">Same as Permanent</span>)
-</h2>
 
-<div class="row">
+        
+          <div class="col-2">
+            <mat-form-field color="accent">
+              <mat-label>Post Code</mat-label>
+              <input matInput placeholder="Postcode" formControlName="postcode" required>
+            </mat-form-field>
+          </div>
+          <!-- </div>
 
-  <div class="col-4">
-    <mat-form-field color="accent">
-      <mat-label>Address</mat-label>
-      <input matInput formControlName="caddress" required>
-    </mat-form-field>
-  </div>
+        <div class="row"> -->
+          <div class="col-2">
+            <mat-form-field>
+              <mat-label>Country</mat-label>
+             <mat-select formControlName="countryId" (selectionChange)="changeCountry($event.value)">
+                <mat-option *ngFor="let country of countryList" [value]="country.countryId">
+                  {{country.countryName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
 
-  <div class="col-2">
-    <mat-form-field color="accent">
-      <mat-label>Post code</mat-label>
-      <input matInput formControlName="cpostcode" required>
-    </mat-form-field>
-  </div>
+          <div class="col-2">
+            <mat-form-field>
+              <mat-label>State</mat-label>
+             <mat-select formControlName="stateId" (selectionChange)="changeState($event.value)">
+                <mat-option *ngFor="let state of stateList" [value]="state.stateId">
+                  {{state.stateName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          
+          <div class="col-2">
+            <mat-form-field>
+              <mat-label>City</mat-label>
+              <mat-select placeholder="City" formControlName="cityId">
+                <mat-option *ngFor="let city of cityList" [value]="city.cityId">
+                  {{city.cityName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-4 mt-2">
+            <mat-form-field>
+              <mat-label>Air Port</mat-label>
+              <input matInput  value="selectedAirport"   placeholder="Airport"  [matAutocomplete]="auto" formControlName="airportId">
+              <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)"
+              (optionSelected)="getAirPorts($event.option.value)">
+                <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
+                <ng-container *ngIf="!isLoading">
+                  <mat-option *ngFor="let city of airportLists" [value]="city.cityId">
+                    <span>{{city.cityName}}</span>
+                  </mat-option>
+                </ng-container>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+           <div class="col-4 mt-2">
+        <mat-form-field color="accent">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="email" required type="text">
+        </mat-form-field>
+      </div>      
+      </div>
+              <hr class="mt-2 mb-2">        
+        <h2 style="margin-top: 10px!important;margin-bottom: 10px!important;">
+           Current Address
+          (<input type="checkbox" formcontrolName="sameAddress" (change)="sameAddress($event)">
+          <span style="font-size: smaller;">Same as Permanent</span>)
+        </h2>
+        <div class="row">
+          <div class="col-4">
+            <mat-form-field color="accent">
+              <mat-label>Address</mat-label>
+              <input matInput placeholder="Address" formControlName="caddress" required>
+            </mat-form-field>
+          </div>
 
-  <div class="col-2">
-    <mat-form-field>
-      <mat-label>Country</mat-label>
-      <mat-select (selectionChange)="selectedCurrentCountry($event)" formControlName="ccountryId">
-        <mat-option *ngFor="let country of countryData" [value]="country.countryId">
-          {{country.countryName}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+        
+          <div class="col-2">
+            <mat-form-field color="accent">
+              <mat-label>Post Code</mat-label>
+              <input matInput placeholder="Postcode" formControlName="cpostcode" required>
+            </mat-form-field>
+          </div>
+          <!-- </div>
 
-  <div class="col-2">
-    <mat-form-field>
-      <mat-label>State</mat-label>
-      <mat-select (selectionChange)="selectedCurrentState($event)" formControlName="cstateId">
-        <mat-option *ngFor="let state of stateData" [value]="state.stateId">
-          {{state.stateName}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+        <div class="row"> -->
+          <div class="col-2">
+            <mat-form-field>
+              <mat-label>Country</mat-label>
+             <mat-select formControlName="ccountryId" (selectionChange)="changeCountryCurrent($event.value)">
+                <mat-option *ngFor="let country of countryData" [value]="country.countryId">
+                  {{country.countryName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
 
-  <div class="col-2">
-    <mat-form-field>
-      <mat-label>City</mat-label>
-      <mat-select formControlName="ccityId">
-        <mat-option *ngFor="let city of cityData" [value]="city.cityId">
-          {{city.cityName}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+          <div class="col-2">
+            <mat-form-field>
+              <mat-label>State</mat-label>
+            <mat-select formControlName="cstateId" (selectionChange)="changeStateCurrent($event.value)">
+                <mat-option *ngFor="let state of stateData" [value]="state.stateId">
+                  {{state.stateName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
 
-</div>
+          <div class="col-2">
+            <mat-form-field>
+              <mat-label>City</mat-label>
+              <mat-select placeholder="City" formControlName="ccityId">
+                <mat-option *ngFor="let city of cityData" [value]="city.cityId">
+                  {{city.cityName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>        
+        </div>   
   <hr class="mt-2 mb-2">
     <div class="row">
-      <div class="col-8">
+      <div class="col-6">
       <h2 class="mt-2">{{mobile}}</h2>
       </div>
-      <div class="col-4">
+      <div class="col-6">
       <h2 class="mt-2">{{residential}}</h2>
       </div>
       </div>
-      <div class="row">
-        <div class="col-2">
-          <mat-form-field color="accent">
-            <mat-label>ex:+91</mat-label>
-            <input matInput  formControlName="mobileCode" required type="text">
-          </mat-form-field>
-        </div>
-  
-        <div class="col-2">
-          <mat-form-field color="accent">
-            <mat-label>"Mobile No.</mat-label>
-            <input matInput  formControlName="mobileNumber" required type="number">
-          </mat-form-field>
-        </div>
-  
-        <div class="col-2">
-          <mat-form-field color="accent">
-            <mat-label>ex:+91</mat-label>
-            <input matInput formControlName="otherMobileCode" type="text">
-          </mat-form-field>
-        </div>
-  
-        <div class="col-2">
-          <mat-form-field color="accent">
-            <mat-label>Other Mobile</mat-label>
-            <input matInput  formControlName="otherMobileNumber" type="number">
-          </mat-form-field>
-        </div>
-  <div class="col-2">
-          <mat-form-field color="accent">
-            <mat-label>ex:+91</mat-label>
-            <input matInput  formControlName="countryCode" type="number">
-          </mat-form-field>
-        </div>
-  
-        <!-- <div class="col-2">
-          <mat-form-field color="accent">
-            <mat-label>State Code</mat-label>
-            <input matInput formControlName="stateCode" type="number">
-          </mat-form-field>
-        </div> -->
-  
-        <div class="col-2">
-          <mat-form-field color="accent">
-            <mat-label>Residential Phone</mat-label>
-            <input matInput  formControlName="phoneNumber">
-          </mat-form-field>
-        </div>
-      </div>       
-  
-      <div class="mt-2">
-        <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
-        <button type="submit" mat-raised-button color="primary"
-          [disabled]="crewaddressfrm.invalid">{{data.modalBtnTitle}}</button>
+    <div class="row">
+      <div class="col-1">
+        <mat-form-field color="accent">
+          <mat-label>ex:+91</mat-label>
+          <input matInput placeholder="ex:+91" formControlName="mobileCode" required type="text">
+        </mat-form-field>
       </div>
-      </form> 
-      </mat-dialog-content>
+
+      <div class="col-2">
+        <mat-form-field color="accent">
+          <mat-label>Mobile No</mat-label>
+          <input matInput placeholder="Mobile No." formControlName="mobileNumber" required type="number">
+        </mat-form-field>
+      </div>
+
+      <div class="col-1">
+        <mat-form-field color="accent">
+          <mat-label>ex:+91</mat-label>
+          <input matInput  formControlName="otherMobileCode" type="text">
+        </mat-form-field>
+      </div>
+
+      <div class="col-2">
+        <mat-form-field color="accent">
+          <mat-label>Other Mobile</mat-label>
+          <input matInput  formControlName="otherMobileNumber" type="number">
+        </mat-form-field>
+      </div>
+
+      <div class="col-1">
+        <mat-form-field color="accent">
+          <mat-label>ex:+91</mat-label>
+          <input matInput  formControlName="countryCode" type="text">
+        </mat-form-field>
+      </div>
+
+      <div class="col-2">
+        <mat-form-field color="accent">
+          <mat-label>State Code</mat-label>
+          <input matInput  formControlName="stateCode" type="text">
+        </mat-form-field>
+      </div>
+
+      <div class="col-3">
+        <mat-form-field color="accent">
+          <mat-label>Residential Phone</mat-label>
+          <input matInput  formControlName="phoneNumber" type="text">
+        </mat-form-field>
+      </div>      
+    </div>
+
+    <div class="mt-2">
+      <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
+      <button type="submit" mat-raised-button color="primary"
+        [disabled]="crewaddressfrm.invalid">{{data.modalBtnTitle}}</button>
+    </div>
+  </form>
+</mat-dialog-content>

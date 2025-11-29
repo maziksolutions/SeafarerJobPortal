@@ -19,7 +19,7 @@
           </mat-form-field>
         </div>
 
-        <div class="col-3 form">
+        <div class="col-3">
             <mat-form-field>
                 <mat-label>Select Doc Type</mat-label>
               <mat-select  formControlName="docType" >
@@ -47,13 +47,13 @@
       </div>
   
       <div class="row">
-        <div class="col-3 form">
+        <div class="col-3">
           <mat-form-field color="accent">
             <mat-label>Document Details</mat-label>
             <input matInput  formControlName="documentDetail" required>
           </mat-form-field>
         </div>
-        <div class="col-3 form">
+        <div class="col-3">
           <mat-form-field>
             <mat-label>Date Of Issue</mat-label>
             <input matInput [matDatepicker]="picker1" (click)="picker1.open()"  (dateChange)="compareTwoDates()"
@@ -63,7 +63,7 @@
           </mat-form-field>
         </div>
   
-        <div class="col-3 form">
+        <div class="col-3">
           <mat-form-field>
             <mat-label>Date Of Expiry</mat-label>
             <input matInput [matDatepicker]="picker2" (click)="picker2.open()"  (dateChange)="compareTwoDates()"
@@ -73,12 +73,11 @@
           </mat-form-field>
         </div>
 
-        <div class="col-3 form">
-        <div class="col form">
+        <div class="col-3">
           <br>
             <!-- <mat-label>file</mat-label> -->
-            <input type="file" accept="application/pdf"  formControlName="filePath" style="margin-left: -16px;" (change)="handleCertificateFile($event)">
-          </div>    
+            <input type="file" style="width: 100%;" accept="application/pdf"  formControlName="filePath" (change)="handleCertificateFile($event)">
+         
 </div>
       </div>
 
