@@ -7,21 +7,21 @@
           </h2>
           <div class="row">
        
-            <div class="col s4">
+            <div class="col-4">
               <mat-form-field color="accent">
                 <mat-label>Address</mat-label>
                 <input matInput  formControlName="address" required>
               </mat-form-field>
             </div>
   
-            <div class="col s4">
+            <div class="col-2">
               <mat-form-field color="accent">
                 <mat-label>Post code</mat-label>
                 <input matInput  formControlName="postcode" required>
               </mat-form-field>
             </div>
   
-            <div class="col s4">
+            <div class="col-2">
               <mat-form-field>
                 <mat-label>Country</mat-label>
                 <mat-select (selectionChange)="selectedCountry($event)" formControlName="countryId">
@@ -32,7 +32,7 @@
               </mat-form-field>
             </div>
   
-            <div class="col s4">
+            <div class="col-2">
               <mat-form-field>
                 <mat-label>State</mat-label>
                 <mat-select  (selectionChange)="selectedState($event)" formControlName="stateId">
@@ -43,7 +43,7 @@
               </mat-form-field>
             </div>
   
-            <div class="col s4">
+            <div class="col-2">
               <mat-form-field>
                 <mat-label>City</mat-label>
                 <mat-select formControlName="cityId">
@@ -54,7 +54,7 @@
               </mat-form-field>
             </div>
 
-              <div class="col s4">
+              <div class="col-4">
               <mat-form-field>
                 <mat-label>Airport</mat-label>
                 <input matInput  [matAutocomplete]="auto" formControlName="airportId">
@@ -69,38 +69,38 @@
                 </mat-autocomplete>
               </mat-form-field>
             </div>
-             <div class="col s4">
+             <div class="col-4">
           <mat-form-field color="accent">
             <mat-label>Email</mat-label>
-            <input matInput formControlName="email" type="text">
+            <input matInput formControlName="email" type="text" required>
           </mat-form-field>
         </div>
           
           </div>
-      
+  <hr class="mt-2 mb-2">
   <h2 style="margin-top: 10px!important;margin-bottom: 10px!important;">
    Current Address 
-  <input type="checkbox" (change)="sameAddress($event)"> 
-  Same as Permanent
+  (<input type="checkbox" (change)="sameAddress($event)"> 
+  <span style="font-size: smaller;">Same as Permanent</span>)
 </h2>
 
 <div class="row">
 
-  <div class="col s4">
+  <div class="col-4">
     <mat-form-field color="accent">
       <mat-label>Address</mat-label>
       <input matInput formControlName="caddress" required>
     </mat-form-field>
   </div>
 
-  <div class="col s4">
+  <div class="col-2">
     <mat-form-field color="accent">
       <mat-label>Post code</mat-label>
       <input matInput formControlName="cpostcode" required>
     </mat-form-field>
   </div>
 
-  <div class="col s4">
+  <div class="col-2">
     <mat-form-field>
       <mat-label>Country</mat-label>
       <mat-select (selectionChange)="selectedCurrentCountry($event)" formControlName="ccountryId">
@@ -111,7 +111,7 @@
     </mat-form-field>
   </div>
 
-  <div class="col s4">
+  <div class="col-2">
     <mat-form-field>
       <mat-label>State</mat-label>
       <mat-select (selectionChange)="selectedCurrentState($event)" formControlName="cstateId">
@@ -122,7 +122,7 @@
     </mat-form-field>
   </div>
 
-  <div class="col s4">
+  <div class="col-2">
     <mat-form-field>
       <mat-label>City</mat-label>
       <mat-select formControlName="ccityId">
@@ -134,68 +134,64 @@
   </div>
 
 </div>
-  
-      <h2 class="mt-2"><b>{{mobile}}</b></h2>
+  <hr class="mt-2 mb-2">
+    <div class="row">
+      <div class="col-8">
+      <h2 class="mt-2">{{mobile}}</h2>
+      </div>
+      <div class="col-4">
+      <h2 class="mt-2">{{residential}}</h2>
+      </div>
+      </div>
       <div class="row">
-        <div class="col s2">
+        <div class="col-2">
           <mat-form-field color="accent">
             <mat-label>ex:+91</mat-label>
             <input matInput  formControlName="mobileCode" required type="text">
           </mat-form-field>
         </div>
   
-        <div class="col s2">
+        <div class="col-2">
           <mat-form-field color="accent">
             <mat-label>"Mobile No.</mat-label>
             <input matInput  formControlName="mobileNumber" required type="number">
           </mat-form-field>
         </div>
   
-        <div class="col s2">
+        <div class="col-2">
           <mat-form-field color="accent">
             <mat-label>ex:+91</mat-label>
             <input matInput formControlName="otherMobileCode" type="text">
           </mat-form-field>
         </div>
   
-        <div class="col s2">
+        <div class="col-2">
           <mat-form-field color="accent">
             <mat-label>Other Mobile</mat-label>
             <input matInput  formControlName="otherMobileNumber" type="number">
           </mat-form-field>
         </div>
-  
-      </div>
-  
-      <h2 class="mt-2"><b> {{residential}}</b></h2>
-      <div class="row">
-        <div class="col s2 ">
+  <div class="col-2">
           <mat-form-field color="accent">
             <mat-label>ex:+91</mat-label>
             <input matInput  formControlName="countryCode" type="number">
           </mat-form-field>
         </div>
   
-        <div class="col s2">
+        <!-- <div class="col-2">
           <mat-form-field color="accent">
             <mat-label>State Code</mat-label>
             <input matInput formControlName="stateCode" type="number">
           </mat-form-field>
-        </div>
+        </div> -->
   
-        <div class="col s2">
+        <div class="col-2">
           <mat-form-field color="accent">
             <mat-label>Residential Phone</mat-label>
             <input matInput  formControlName="phoneNumber">
           </mat-form-field>
         </div>
-        <div class="col s2">
-        </div>
-        <div class="col s2">
-        </div>
-        <div class="col s2">
-        </div>
-      </div>
+      </div>       
   
       <div class="mt-2">
         <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
