@@ -72,7 +72,7 @@ export class ApplicantaddressComponent implements OnInit
     // condition to add new record if any record doesn't exist
     else {
       this.dbops = DBOperation.create;
-      this.modalTitle = 'Add Permanent Address';
+      this.modalTitle = 'Permanent Address';
       this.modalBtnTitle = 'Add';
       this.openDialog();
     }
@@ -96,7 +96,7 @@ export class ApplicantaddressComponent implements OnInit
 // Edit Record
 updatePermanentCrewAddress(): void {
   this.dbops = DBOperation.update;
-  this.modalTitle = 'Update Permanent Address';
+  this.modalTitle = 'Permanent Address';
   this.modalBtnTitle = 'Update';
   this.openPerEditDialog();
 }
