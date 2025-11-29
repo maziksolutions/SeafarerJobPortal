@@ -14,6 +14,7 @@ import { Country } from 'src/app/Models/country.model';
 import { stateModel } from 'src/app/Models/state.model';
 import { cityModel } from 'src/app/Models/city.model';
 import { NewapplicantComponent } from '../newapplicant/newapplicant.component';
+import { ForgotPasswordComponent } from 'src/app/Layout/forgot-password/forgot-password.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -144,6 +145,14 @@ export class LoginComponent implements OnInit {
         }
       });
     }
+    openForgotPassword() {
+   this.dialog.open(ForgotPasswordComponent, {
+    width: '600px',
+    height:'300px',
+    disableClose: true
+  });
+}
+
     loadCountries() {
       this.countryService.GetCountryList(0)
         .subscribe((data) => {

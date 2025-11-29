@@ -94,11 +94,12 @@
                   <ul  class="nav-list d-flex">
                     <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantDetails', applicantId]">Personal Details</a>
                       <ul>
-                      <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantDetails', applicantId]" >Particulars</a></li>
-                        <li routerLinkActive="active"><a [routerLink]="['/logindata/Applicantaddress', applicantId]">Address</a></li>
+                      <!-- <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantDetails', applicantId]" >Particulars</a></li> -->
+                      
 
                     </ul>
                       </li>
+                        <li routerLinkActive="active"><a [routerLink]="['/logindata/Applicantaddress', applicantId]">Address</a></li>
                     <li  routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantLicense', applicantId]">Licenses</a>
                       <!-- <ul>
                           <li><a [routerLink]="['/logindata/ApplicantLicense', applicantId]">License</a></li>

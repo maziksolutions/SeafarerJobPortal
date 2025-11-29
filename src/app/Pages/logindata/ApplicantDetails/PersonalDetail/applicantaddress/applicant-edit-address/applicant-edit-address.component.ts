@@ -98,7 +98,14 @@ seletedairportId:any;userId:any;
     });
     this.crewaddressfrm.valueChanges.subscribe(data => this.onValueChanged(data));
     this.onValueChanged();
-    this.crewaddressfrm.patchValue(this.data.crew[0]);  
+    // this.crewaddressfrm.patchValue(this.data.crew[0]);  
+    const crew = this.data.crew[0];
+
+    this.crewaddressfrm.patchValue({
+      ...crew, 
+      email: crew.applicant?.email
+    });
+
     this.selectedAirport=this.data.crew[0].airport?this.data.crew[0].airport.cityName:'';
     this.fillAirport();
 

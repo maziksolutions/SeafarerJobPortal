@@ -19,6 +19,7 @@ export class CrewAddressService {
   baseUrl = environment.apiurl;
   private linkurl = this.baseUrl + 'CrewAddress/';
   private corresLinkUrl = this.baseUrl + 'CrewCorrespondenceAddress/';
+  private resetLinkUrl = this.baseUrl + 'Applicant/';
   constructor(private httpClient: HttpClient) { }
   // Get
   getCrewAddress(id: number,crewid: string): Observable<CrewAddress[]> {
@@ -33,6 +34,13 @@ export class CrewAddressService {
   CheckApplicantEmail(EmailId): Observable<any> {
     return this.httpClient.get<any>(this.linkurl + 'CheckApplicantEmail?email=' + EmailId, httpOptions);
   }
+
+resetPassword(email: string): Observable<any> {
+  const body = { email: email };
+  return this.httpClient.post<any>(this.resetLinkUrl + 'resetPassword', body, httpOptions);
+}
+
+
   getPanamaAddress(id: number, crewId:number): Observable<CrewAddress[]> {
     return this.httpClient.get<CrewAddress[]>(this.linkurl + 'filter?id=' + id + '&crewId=' + crewId, httpOptions);
   }
