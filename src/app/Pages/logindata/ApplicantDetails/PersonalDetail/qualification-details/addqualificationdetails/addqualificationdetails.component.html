@@ -51,30 +51,31 @@
               </mat-select>
             </mat-form-field>
           </div>
-          <div class="col form">
-            <mat-form-field color="accent">
-              <mat-label>Institution / University</mat-label>
-              <input matInput  formControlName="instituteName" required>
-            </mat-form-field>
-          </div>
+          
   
         
       </div>
   
       <div class="row">
-        <div class="col form mt-2">
+        <div class="col-3 form mt-2">
+            <mat-form-field color="accent">
+              <mat-label>Institution / University</mat-label>
+              <input matInput  formControlName="instituteName" required>
+            </mat-form-field>
+          </div>
+        <div class="col-3 form mt-2">
           <mat-form-field color="accent">
             <mat-label>Class</mat-label>
             <input   matInput  formControlName="class" required>
           </mat-form-field>
         </div>
-        <div class="col form mt-2">
+        <div class="col-2 form mt-2">
           <mat-form-field color="accent">
             <mat-label>Passing Year</mat-label>
             <input type="number" matInput  formControlName="yearOfPassing" required>
           </mat-form-field>
         </div>
-        <div class="col form mt-2">
+        <div class="col-2 form mt-2">
           <mat-form-field>
             <mat-label>From</mat-label>
             <input matInput [matDatepicker]="picker1" (click)="picker1.open()"  (dateChange)="compareTwoDates()"
@@ -84,7 +85,7 @@
           </mat-form-field>
         </div>
   
-        <div class="col form mt-2">
+        <div class="col-2 form mt-2">
           <mat-form-field>
             <mat-label>To</mat-label>
             <input matInput [matDatepicker]="picker2" (click)="picker2.open()"  (dateChange)="compareTwoDates()"

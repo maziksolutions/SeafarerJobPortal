@@ -21,7 +21,7 @@ dbops: DBOperation;
   applicantId:any;
   status;
   qualificationDetails:any;
-  displayedqualificationDetailsColumns = ['documentNumber','documentType','documentDetail','countryName','instituteName', 'actions'];
+  displayedqualificationDetailsColumns = ['documentNumber','documentType','documentDetail','duration','countryName','instituteName', 'actions'];
   dataqualificationSource = new MatTableDataSource<any>();
   userstatus;
   certificateFile: File | null = null; // Allow certificateFile to be nullable

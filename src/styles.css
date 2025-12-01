@@ -94,7 +94,7 @@ color:#fff;
 
 /*---------Mat Tables SettingsPAge specific-------------*/
 .table mat-header-cell, .table mat-cell{
-  padding: 4px 0.5rem 1px 0.5rem !important;
+  padding: 4px 0.5rem 1px 1.1rem !important;
     /* min-height: 50px; */
 }
 /* .table mat-cell{

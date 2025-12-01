@@ -2,3 +2,10 @@
 .btn i {
   pointer-events: none; /* good: ensures click passes through icon */
 }
+
+ .mat-column-signonDate {
+  flex: 0 0 115px;
+  }
+  .mat-column-signoffDate {
+  flex: 0 0 115px;
+  }

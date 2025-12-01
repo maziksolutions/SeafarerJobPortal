@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-     'Authorization': 'Bearer ' + localStorage.getItem('token')
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
   })
 };
 
@@ -39,21 +39,21 @@ export class ApplicantService {
 
 
   DeleteApplicant(id: number) {
-    return this.httpClient.delete(this.linkurl+'DeleteApplicant/' + id, httpOptions);
+    return this.httpClient.delete(this.linkurl + 'DeleteApplicant/' + id, httpOptions);
   }
 
-  
-    GetAllApplicants(status: number): Observable<any[]> {
-      return this.httpClient.get<any[]>(this.linkurl + 'GetAllApplicants?status=' + status , httpOptions);
-    }
 
-    ApplicantByid(id):Observable<any>{      
-      return  this.httpClient.get<any>(this.linkurl+'ApplicantById/'+id,httpOptions).pipe(catchError(this.handleError));
-              }
+  GetAllApplicants(status: number): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.linkurl + 'GetAllApplicants?status=' + status, httpOptions);
+  }
 
-              GetApplicantbyidd(id: number): Observable<any> {
-                return this.httpClient.get<any>(this.linkurl + 'GetAppl/' + id, httpOptions).pipe(catchError(this.handleError));
-                }
+  ApplicantByid(id): Observable<any> {
+    return this.httpClient.get<any>(this.linkurl + 'ApplicantById/' + id, httpOptions).pipe(catchError(this.handleError));
+  }
+
+  GetApplicantbyidd(id: number): Observable<any> {
+    return this.httpClient.get<any>(this.linkurl + 'GetAppl/' + id, httpOptions).pipe(catchError(this.handleError));
+  }
 
   // Update
   updateApplicantPersonalInfo(formData: any): Observable<any> {
@@ -66,36 +66,35 @@ export class ApplicantService {
     return this.httpClient.put(this.linkurl + 'updateApplicantPhysicalInfo', formData)
       .pipe(catchError(this.handleError));
   }
-  
-//#region Applicant Address 
-addApplicantAddress(applicant: any, applicantId: number): Observable<any> 
-{
-  return this.httpClient.post(this.linkurl + 'addApplicantAddress?applicantId=' + applicantId, JSON.stringify(applicant), httpOptions)
-    .pipe(catchError(this.handleError));
-}
+
+  //#region Applicant Address 
+  addApplicantAddress(applicant: any, applicantId: number): Observable<any> {
+    return this.httpClient.post(this.linkurl + 'addApplicantAddress?applicantId=' + applicantId, JSON.stringify(applicant), httpOptions)
+      .pipe(catchError(this.handleError));
+  }
   updateApplicantaddress(formData: any): Observable<any> {
     return this.httpClient.put(this.linkurl + 'updateApplicantaddress', formData)
       .pipe(catchError(this.handleError));
   }
 
-getApplicantAddress(id,applicantId): Observable<any> {
-  return this.httpClient.get<any>(`${this.linkurl}getApplicantAddress/${id}/${applicantId}`, httpOptions);
-}
-//#endregion
+  getApplicantAddress(id, applicantId): Observable<any> {
+    return this.httpClient.get<any>(`${this.linkurl}getApplicantAddress/${id}/${applicantId}`, httpOptions);
+  }
+  //#endregion
 
 
-//#region Applicant Travel
+  //#region Applicant Travel
 
   //Get Passport Data
-  GetApplicantTravel(status: number,crewId: any): Observable<any[]> {
-    return this.httpClient.get<any>(this.linkurl + 'filterApplicant?status=' + status + '&crewId=' +crewId, httpOptions);
+  GetApplicantTravel(status: number, crewId: any): Observable<any[]> {
+    return this.httpClient.get<any>(this.linkurl + 'filterApplicant?status=' + status + '&crewId=' + crewId, httpOptions);
   }
 
   AddApplicantTravel(formData: any): Observable<any> {
     return this.httpClient.put(this.linkurl + 'addApplicantTravel', formData)
       .pipe(catchError(this.handleError));
   }
-  
+
   updateApplicantTravel(formData: any): Observable<any> {
     return this.httpClient.put(this.linkurl + 'UpdateApplicantTravel', formData)
       .pipe(catchError(this.handleError));
@@ -106,110 +105,111 @@ getApplicantAddress(id,applicantId): Observable<any> {
     return this.httpClient.delete(this.linkurl + id, httpOptions);
   }
 
-//#endregion
-//#region 
-GetQualificationDetails(status: number,crewId: any): Observable<any[]> {
-    return this.httpClient.get<any>(this.linkurl + 'filterQualificationDetails?status=' + status + '&crewId=' +crewId, httpOptions);
+  //#endregion
+  //#region 
+  GetQualificationDetails(status: number, crewId: any): Observable<any[]> {
+    return this.httpClient.get<any>(this.linkurl + 'filterQualificationDetails?status=' + status + '&crewId=' + crewId, httpOptions);
   }
-   AddQualificationDetails(formData: any): Observable<any> {
+  AddQualificationDetails(formData: any): Observable<any> {
     return this.httpClient.put(this.linkurl + 'addQualificationDetails', formData)
       .pipe(catchError(this.handleError));
   }
-  updateQualificationDetails(id: number, formData: any): Observable<any> {debugger
-  return this.httpClient.put(this.linkurl + 'updateQualificationDetails', formData, httpOptions)
-}
+  updateQualificationDetails(id: number, formData: any): Observable<any> {
+    debugger
+    return this.httpClient.put(this.linkurl + 'updateQualificationDetails', formData, httpOptions)
+  }
 
   DeleteQualificationDetails(id: number) {
-    return this.httpClient.delete(this.linkurl +'DeleteQualificationDetails/'+ id, httpOptions);
+    return this.httpClient.delete(this.linkurl + 'DeleteQualificationDetails/' + id, httpOptions);
   }
   //#endregion
-//#region  Applicant License
+  //#region  Applicant License
 
-addApplicantLicense(formData: any): Observable<any> {
-  return this.httpClient.post(this.linkurl + 'addApplicantLicence', formData)
-    .pipe(catchError(this.handleError));
-}
+  addApplicantLicense(formData: any): Observable<any> {
+    return this.httpClient.post(this.linkurl + 'addApplicantLicence', formData)
+      .pipe(catchError(this.handleError));
+  }
 
-GetApplicantLicense(status: number,applicantId: any): Observable<any[]> {
-  return this.httpClient.get<any>(this.linkurl + 'filterApplicantLicence?status=' + status + '&applicantid=' +applicantId, httpOptions);
-}
+  GetApplicantLicense(status: number, applicantId: any): Observable<any[]> {
+    return this.httpClient.get<any>(this.linkurl + 'filterApplicantLicence?status=' + status + '&applicantid=' + applicantId, httpOptions);
+  }
 
-updateApplicantLicense(formData: any): Observable<any> {
-  return this.httpClient.put(this.linkurl + 'updateApplicantLicense', formData)
-    .pipe(catchError(this.handleError));
-}
-
-
-DeleteApplicantLicence(id: number) {
-  return this.httpClient.delete(this.linkurl+'DeleteApplicantLicence/' + id, httpOptions);
-}
-
-//#endregion
+  updateApplicantLicense(formData: any): Observable<any> {
+    return this.httpClient.put(this.linkurl + 'updateApplicantLicense', formData)
+      .pipe(catchError(this.handleError));
+  }
 
 
+  DeleteApplicantLicence(id: number) {
+    return this.httpClient.delete(this.linkurl + 'DeleteApplicantLicence/' + id, httpOptions);
+  }
 
-//#region Aplicant Assignments
-
-AddApplicantAssignments(formData: any): Observable<any> {
-  return this.httpClient.post(this.linkurl + 'addApplicantAssignments', formData)
-    .pipe(catchError(this.handleError));
-}
-
-GetApplicantAssignments(status: number,applicantid: any): Observable<any[]> {
-  return this.httpClient.get<any>(this.linkurl + 'filterAplicantAssignments?status=' + status + '&applicantid=' +applicantid, httpOptions);
-}
-
-updateApplicantAssignments(formData: any): Observable<any> {
-  return this.httpClient.put(this.linkurl + 'updateApplicantAssignments', formData)
-    .pipe(catchError(this.handleError));
-}
-
-DeleteApplicantAssignments(id: number) {
-  return this.httpClient.delete(this.linkurl+'DeleteApplicantAssignments/' + id, httpOptions);
-}
-
-//#endregion
+  //#endregion
 
 
 
-//#region Applicant Courses
+  //#region Aplicant Assignments
 
-addApplicantCourses(formData: any): Observable<any> {
-  return this.httpClient.post(this.linkurl + 'addApplicantCourses', formData)
-    .pipe(catchError(this.handleError));
-}
+  AddApplicantAssignments(formData: any): Observable<any> {
+    return this.httpClient.post(this.linkurl + 'addApplicantAssignments', formData)
+      .pipe(catchError(this.handleError));
+  }
 
-GetApplicantCourses(status: number,applicantId: any): Observable<any[]> {
-  return this.httpClient.get<any>(this.linkurl + 'filterAplicantCourses?status=' + status + '&applicantid=' +applicantId, httpOptions);
-}
+  GetApplicantAssignments(status: number, applicantid: any): Observable<any[]> {
+    return this.httpClient.get<any>(this.linkurl + 'filterAplicantAssignments?status=' + status + '&applicantid=' + applicantid, httpOptions);
+  }
 
-updateApplicantCourses(formData: any): Observable<any> {
-  return this.httpClient.put(this.linkurl + 'updateApplicantCourses', formData)
-    .pipe(catchError(this.handleError));
-}
+  updateApplicantAssignments(formData: any): Observable<any> {
+    return this.httpClient.put(this.linkurl + 'updateApplicantAssignments', formData)
+      .pipe(catchError(this.handleError));
+  }
 
-DeleteApplicantCourses(id: number) {
-  return this.httpClient.delete(this.linkurl+'DeleteApplicantCourse/' + id, httpOptions);
-}
+  DeleteApplicantAssignments(id: number) {
+    return this.httpClient.delete(this.linkurl + 'DeleteApplicantAssignments/' + id, httpOptions);
+  }
 
-ApproveApplicant(id: number, approvedBy: any) {
-  return this.httpClient.post(`${this.linkurl}ApproveApplicant/${id}?approvedBy=${approvedBy}`,{},httpOptions);
-}
-
-RejectApplicant(id: number, approvedBy: any) {
-  return this.httpClient.post(`${this.linkurl}RejectApplicant/${id}?approvedBy=${approvedBy}`,{},httpOptions);
-}
-
-checkUsernameAvailability(username: string): Observable<{ available: boolean; message: string }> {
-  return this.httpClient.get<{ available: boolean; message: string }>(this.linkurl + 'checkUsername?username=' + username)
-    .pipe(catchError(() => of({ available: false, message: 'Error checking username' })));
-}
+  //#endregion
 
 
 
+  //#region Applicant Courses
+
+  addApplicantCourses(formData: any): Observable<any> {
+    return this.httpClient.post(this.linkurl + 'addApplicantCourses', formData)
+      .pipe(catchError(this.handleError));
+  }
+
+  GetApplicantCourses(status: number, applicantId: any): Observable<any[]> {
+    return this.httpClient.get<any>(this.linkurl + 'filterAplicantCourses?status=' + status + '&applicantid=' + applicantId, httpOptions);
+  }
+
+  updateApplicantCourses(formData: any): Observable<any> {
+    return this.httpClient.put(this.linkurl + 'updateApplicantCourses', formData)
+      .pipe(catchError(this.handleError));
+  }
+
+  DeleteApplicantCourses(id: number) {
+    return this.httpClient.delete(this.linkurl + 'DeleteApplicantCourse/' + id, httpOptions);
+  }
+
+  ApproveApplicant(id: number, approvedBy: any) {
+    return this.httpClient.post(`${this.linkurl}ApproveApplicant/${id}?approvedBy=${approvedBy}`, {}, httpOptions);
+  }
+
+  RejectApplicant(id: number, approvedBy: any) {
+    return this.httpClient.post(`${this.linkurl}RejectApplicant/${id}?approvedBy=${approvedBy}`, {}, httpOptions);
+  }
+
+  checkUsernameAvailability(username: string): Observable<{ available: boolean; message: string }> {
+    return this.httpClient.get<{ available: boolean; message: string }>(this.linkurl + 'checkUsername?username=' + username)
+      .pipe(catchError(() => of({ available: false, message: 'Error checking username' })));
+  }
 
 
-//#endregion
+
+
+
+  //#endregion
 
 
   private handleError(error: HttpErrorResponse) {
@@ -231,12 +231,12 @@ checkUsernameAvailability(username: string): Observable<{ available: boolean; me
     // } else {
     //   return throwError('Some thing went wrong.');
     // }
-console.log(error.error.toString())
-console.log(error.toString())
-    if (error.error.toString().indexOf('InvalidOperationException') > -1) 
-    return throwError("Cannot insert duplicate name & DOB. Candidate with same name & date of birth is already there. Please check with administrator.");
+    console.log(error.error.toString())
+    console.log(error.toString())
+    if (error.error.toString().indexOf('InvalidOperationException') > -1)
+      return throwError("Cannot insert duplicate name & DOB. Candidate with same name & date of birth is already there. Please check with administrator.");
     else
-    return throwError("Some thing went wrong.Please check with administrator.");
+      return throwError("Some thing went wrong.Please check with administrator.");
   }
 
 }

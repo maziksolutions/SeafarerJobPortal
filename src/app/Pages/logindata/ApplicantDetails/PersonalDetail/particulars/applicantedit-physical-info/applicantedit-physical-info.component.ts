@@ -87,8 +87,9 @@ ngOnInit(): void
       mobile:[""],
       mobilePhone:[""],
       nationality:[""],
-      lastWage:[''],foodHabit:[''],
-      lowerRank:['']
+      lastWage:[''],
+      foodHabit:[''],
+      lowerRank:[''],cdcNumber:['']
     });
 
     this.form.valueChanges.subscribe(data => this.onValueChanged(data));

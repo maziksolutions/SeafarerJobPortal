@@ -43,3 +43,13 @@ html body.fixed-navbar{padding-top:0px !important}
 .mat-column-actions {
   flex: 0 0 70px;
   }
+
+  .mat-column-expiryDate {
+  flex: 0 0 100px;
+  }
+  .mat-column-issueDate {
+  flex: 0 0 100px;
+  }
+   .mat-column-certificateNumber {
+  flex: 0 0 140px;
+  }
