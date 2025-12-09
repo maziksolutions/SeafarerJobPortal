@@ -7,6 +7,7 @@ import { FormGroup } from '@angular/forms';
 import { CountryService } from 'src/app/Services/country.service';
 import { ParticularsComponent } from '../particulars.component';
 import { ApplicantService } from 'src/app/Services/applicant.service';
+import { RankregisterService } from 'src/app/Services/rankregister.service';
 
 @Component({
   selector: 'app-applicantedit-physical-info',
@@ -23,15 +24,15 @@ export class ApplicanteditPhysicalInfoComponent implements OnInit
   weights : number[]= []; // Create an empty array to fill value of weights
   // heights:any[];
   // weights:any[];
-
+religionData:any[];
 constructor(@Inject(MAT_DIALOG_DATA) public data: any,
 private fb: FormBuilder,
   private snackBar: MatSnackBar,
   private applicantservice: ApplicantService,
+  private rankregisterservice: RankregisterService,
   public dialogRef: MatDialogRef<ParticularsComponent>){}
 ngOnInit(): void 
 {
-  
   this.loadingState = true;
     // Create loop for generate heights
     for (var i = 140; i <= 240; i++) {
@@ -43,17 +44,6 @@ ngOnInit(): void
       this.weights.push(j); // push weight value into weight array one by one
     }
 
-    // this.form = this.fb.group({
-    //   applicantId: [''],
-    //   height: ['', [Validators.required]],
-    //   weight: ['', [Validators.required]],
-    //   shoesSize: ['', [Validators.required]],  
-    //   boilerSuitSize: ['', [Validators.required]],
-    //   shirtSize: ['', [Validators.required]],
-    //   trouserSize: ['', [Validators.required]],
-    //   distinguishMark: ['', [Validators.required]],
-      
-    // });
     this.form = this.fb.group({
       applicantId: [""],
       doa: [""], 
@@ -88,15 +78,11 @@ ngOnInit(): void
       mobilePhone:[""],
       nationality:[""],
       lastWage:[''],foodHabit:[''],
-      lowerRank:['']
+      lowerRank:[''],
+      religionId:[''],
+      religionName:['']
     });
-
-    this.form.valueChanges.subscribe(data => this.onValueChanged(data));
-    this.onValueChanged();
-
-    if (this.data.crew != null) {
-      this.form.setValue(this.data.crew);
-    }
+this.LoadReligion(0); 
 }
 
 onValueChanged(data?: any) {
@@ -122,14 +108,7 @@ formErrors = {
 };
 // custom valdiation messages
 validationMessages = {
-  // 'name': {
-  //   'maxlength': 'Name cannot be more than 50 characters long.',
-  //   'required': 'Name is required.'
-  // },
-  // 'countryId': {
-  //   'email': 'Invalid email format.',
-  //   'required': 'Email is required.'
-  // },
+ 
 };
 // Form Sumit
 
@@ -157,5 +136,22 @@ onSubmit(form: any) {
 SetControlsState(isEnable: boolean) {
   isEnable ? this.form.enable() : this.form.disable();
 }
+LoadReligion(status: number): void {
+  this.rankregisterservice.GetReligionList(status)
+    .subscribe(data => {
+      this.religionData = data.map(r => ({
+        ...r,
+        religionId: Number(r.religionId)
+      }));
+
+      if (this.data.crew != null) {
+        this.form.patchValue({
+          ...this.data.crew,
+          religionId: Number(this.data.crew.religionId)
+        });
+      }
+    });
+}
+
 
 }

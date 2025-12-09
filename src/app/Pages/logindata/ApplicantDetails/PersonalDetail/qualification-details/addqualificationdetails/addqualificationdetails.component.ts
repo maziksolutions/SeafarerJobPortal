@@ -53,7 +53,7 @@ export class AddqualificationdetailsComponent  implements OnInit
       instituteName: ['', [Validators.required]],
       from: ['', [Validators.required]],
       to: ['', [Validators.required]]
-    });debugger
+    });
      if (this.data.qualificationDetails != null) {
     this.patchFormWithDependencies(this.data.qualificationDetails);
   } else {
@@ -135,14 +135,14 @@ onValueChanged(data?: any) {
 
  selectedCountry(event: any) {
     this.stateService.filterStatesByCountryId(event.value)
-      .subscribe((data) => {debugger
+      .subscribe((data) => {
         this.stateList = data;
       });
   }
 
    selectedState(event: any) {
     this.cityService.filterCitiesByStateId(event.value)
-      .subscribe((data) => {debugger
+      .subscribe((data) => {
         this.cityList = data;
       });
   }

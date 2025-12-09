@@ -34,6 +34,9 @@ export class CrewAddressService {
   CheckApplicantEmail(EmailId): Observable<any> {
     return this.httpClient.get<any>(this.linkurl + 'CheckApplicantEmail?email=' + EmailId, httpOptions);
   }
+  CheckApplicantsEmail(EmailId): Observable<any> {
+    return this.httpClient.get<any>(this.linkurl + 'checkApplicantsEmail?email=' + EmailId, httpOptions);
+  }
 
 resetPassword(email: string): Observable<any> {
   const body = { email: email };

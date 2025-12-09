@@ -7,6 +7,7 @@ import { ApplicantService } from 'src/app/Services/applicant.service';
 import { DBOperation } from 'src/app/Shared/DBOperation';
 import { ApplicanteditpersonalComponent } from './applicanteditpersonal/applicanteditpersonal.component';
 import { ApplicanteditPhysicalInfoComponent } from './applicantedit-physical-info/applicantedit-physical-info.component';
+import { RankregisterService } from 'src/app/Services/rankregister.service';
 
 @Component({
   selector: 'app-particulars',
@@ -26,8 +27,9 @@ export class ParticularsComponent implements OnInit
    applicantphysicalModel: any; 
    loading: boolean;
    dataSource: any; 
-   userstatus:any;
-  constructor(private applicantserice:ApplicantService,private route: ActivatedRoute,public dialog: MatDialog,private snackBar: MatSnackBar,){}
+   userstatus:any;religionData:any[];
+  constructor(private applicantserice:ApplicantService,private route: ActivatedRoute,public dialog: MatDialog,private snackBar: MatSnackBar,
+    private rankregisterservice: RankregisterService,){}
 ngOnInit(): void 
 
 {
@@ -78,7 +80,7 @@ updatePersonalInfo(id: number): void {
 
 updatePhysicalInfo(id: number): void {
   this.dbops = DBOperation.update;
-  this.modalTitle = 'Edit Applicant Physical Information';
+  this.modalTitle = 'Edit Applicant Other Information';
   this.modalBtnTitle = 'Update';
   this.applicantphysicalModel = this.applicantdata.filter(c => c.applicantId === id)[0];
   this.openPhysicalDialog();
@@ -115,6 +117,17 @@ openPhysicalDialog(): void {
       duration: 1500,
       panelClass: type == 'danger' ? ['red-snackbar'] : ['blue-snackbar']
     });
+  }
+
+   LoadReligion(status: number): void {
+    this.rankregisterservice.GetReligionList(status)
+      .subscribe(data => {
+        console.log(data);
+        
+        this.religionData = data;
+        console.log(this.religionData);
+        
+      });
   }
 
 }

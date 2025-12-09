@@ -36,6 +36,9 @@
                               <button class="btn btn-primary form-small p-t-3 p-b-3 m-l-5" type="button"  data-toggle="popover" 
                         title="Help" data-html="true"  data-placement="left" >
                         <i class="fas fa-question" aria-hidden="true"></i></button>
+                        <!-- <a type="button" (click)="exportReport()" class="text-success m-r-5">
+                                    <i class="fa fa-file-excel"></i>
+                                </a> -->
                         </form>
                       </div>
                     </div>
@@ -43,19 +46,19 @@
                   <div id="goal-list-scroll" class="table-responsive position-relative">
                     <mat-table #table1 [dataSource]="dataqualificationSource" matSort
                     class="mat-cell table table-hover table-bordered mb-0 crew-table table-striped">
-
-                    <ng-container matColumnDef="documentNumber">
+                   
+                    <ng-container matColumnDef="qualificationType">
                       <mat-header-cell *matHeaderCellDef mat-sort-header>Qualification Type</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.degreeType}}</mat-cell>
                     </ng-container>
-                    <ng-container matColumnDef="documentType">
+                    <ng-container matColumnDef="degree">
                       <mat-header-cell *matHeaderCellDef mat-sort-header>Degree/Diploma/Class</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.class}}</mat-cell>
                     </ng-container>
 
 
-                    <ng-container matColumnDef="documentDetail">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>Year of Passing</mat-header-cell>
+                    <ng-container matColumnDef="passingYear">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Passing Year</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.yearOfPassing}}</mat-cell>
                     </ng-container>
 

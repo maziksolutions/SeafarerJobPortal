@@ -13,13 +13,14 @@
                       <option value="3">Rejected Candidate</option>
                     </select>
                     <span class="p-l-10 p-r-10">|</span>
-                    <input type="text" class="form-control form-small p-t-3 p-b-3 m-r-5"
+                    <input type="text" class="form-control form-small m-r-5"
                       (keyup)="applyFilter($any($event.target).value)" placeholder="Search applicant...">
 
-                    <button class="btn btn-primary form-small p-t-3 p-b-3 m-r-5" type="button" data-toggle="tooltip"
+                    <button class="btn btn-primary form-small m-r-5" type="button" data-toggle="tooltip"
                       data-trigger="hover" data-placement="top" data-title="Search" data-original-title="" title=""
                       (click)="applyFilter($any($event.target).value)"><i class=" fa fa-search"
                         aria-hidden="true"></i></button>
+                      
                     <!-- <button class="btn btn-primary form-small p-t-3 p-b-3 m-r-5" type="button" data-toggle="tooltip"
                         data-trigger="hover" data-placement="top" data-title="Add" data-original-title="" title=""><i
                           class="fas fa-plus" aria-hidden="true" 
@@ -144,8 +145,11 @@
                         <a type="button" (click)="RejectApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
                           title="Reject Applicant"
                           *ngIf="(row.approvedBy < 0 || row.approvedBy == null) && row.applicantStatus != 'Rejected Candidate'">
-                          <i class="fas fa-times" style="vertical-align: middle;"></i>
+                          <i class="fas fa-times mr-1" style="vertical-align: middle;"></i>
                         </a>
+                          <a type="button" (click)="exportReport(row.applicantId)" class=" text-success">
+                                    <i class="fa fa-file-excel"></i>
+                                </a>
 
 
 

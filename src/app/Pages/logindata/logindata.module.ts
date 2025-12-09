@@ -28,6 +28,9 @@ import { EditapplicantcourseComponent } from './ApplicantDetails/PersonalDetail/
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { QualificationDetailsComponent } from './ApplicantDetails/PersonalDetail/qualification-details/qualification-details.component';
 import { AddqualificationdetailsComponent } from './ApplicantDetails/PersonalDetail/qualification-details/addqualificationdetails/addqualificationdetails.component';
+import { ExperienceDetailsComponent } from './ApplicantDetails/PersonalDetail/experience-details/experience-details.component';
+import { ReferenceComponent } from './ApplicantDetails/PersonalDetail/reference/reference.component';
+import { AddreferenceComponent } from './ApplicantDetails/PersonalDetail/reference/addreference/addreference.component';
 @NgModule({
   declarations: [
     SefarerelistComponent,
@@ -52,7 +55,10 @@ import { AddqualificationdetailsComponent } from './ApplicantDetails/PersonalDet
     AddapplicantCourseComponent,
     EditapplicantcourseComponent,
     QualificationDetailsComponent,
-    AddqualificationdetailsComponent,    
+    AddqualificationdetailsComponent,
+    ExperienceDetailsComponent,
+    ReferenceComponent,
+    AddreferenceComponent,    
   ],
   imports: [
     CommonModule,

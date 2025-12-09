@@ -7,6 +7,7 @@ import { ApplicantService } from 'src/app/Services/applicant.service';
 import { DBOperation } from 'src/app/Shared/DBOperation';
 import { AddqualificationdetailsComponent } from './addqualificationdetails/addqualificationdetails.component';
 import { environment } from 'src/environments/environment';
+// import { SwalToastService } from 'src/app/Services/swal-toast.service';
 
 @Component({
   selector: 'app-qualification-details',
@@ -21,7 +22,7 @@ dbops: DBOperation;
   applicantId:any;
   status;
   qualificationDetails:any;
-  displayedqualificationDetailsColumns = ['documentNumber','documentType','documentDetail','countryName','instituteName', 'actions'];
+  displayedqualificationDetailsColumns = ['qualificationType','degree','passingYear','countryName','instituteName', 'actions'];
   dataqualificationSource = new MatTableDataSource<any>();
   userstatus;
   certificateFile: File | null = null; // Allow certificateFile to be nullable
@@ -31,6 +32,7 @@ private router: Router,
 public dialog: MatDialog  ,
  private route: ActivatedRoute,
  private applicantserice:ApplicantService,
+//  private swal: SwalToastService
 ){}
 
 
@@ -61,7 +63,7 @@ openQualificationDetails(): void {
   });
 }
 
-  DeleteQualificationDetails(id: number) {debugger
+  DeleteQualificationDetails(id: number) {
     if (confirm('Are you sure to change status of this record ?') === true) {
       this.applicantserice.DeleteQualificationDetails(id)
         .subscribe((x) => {
@@ -72,7 +74,7 @@ openQualificationDetails(): void {
   }
 loadQualificationDetails(status: number): void {
   this.applicantserice.GetQualificationDetails(status,this.applicantId)
-    .subscribe(qualificationData => {debugger
+    .subscribe(qualificationData => {
       console.log(qualificationData);
       
       this.status = status;
@@ -87,7 +89,7 @@ showMessage(msg: string,type:string='') {
   });
 }
 
-updateQualificationDetails(id: number) {debugger
+updateQualificationDetails(id: number) {
   this.dbops = DBOperation.update;
   this.modalTitle = 'Edit Qualification Details';
   this.modalBtnTitle = 'Update';
@@ -95,7 +97,7 @@ updateQualificationDetails(id: number) {debugger
   this.openEditQualificationDetails();
 }
 
-openEditQualificationDetails(): void {debugger
+openEditQualificationDetails(): void {
   const dialogRef = this.dialog.open(AddqualificationdetailsComponent,{
     width: '80vw',
     data: { dbops: this.dbops, modalTitle: this.modalTitle, modalBtnTitle: this.modalBtnTitle, qualificationDetails: this.qualificationDetails,crewId:this.applicantId  }
@@ -108,11 +110,18 @@ openEditQualificationDetails(): void {debugger
     }
   });
 }
-
-
- 
-
-  
-
-
+exportReport(){
+  this.applicantserice.ExportApplicantData(this.applicantId)
+    .subscribe((response) => {
+      if(response.size){
+        var bolb=new Blob([response],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(bolb);
+        a.download = 'Applicant Details.xlsx';
+        a.click();
+        }else{
+          // this.swal.info('File not found');
+        }
+    })
+}
 }

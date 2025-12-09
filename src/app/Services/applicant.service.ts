@@ -115,7 +115,7 @@ GetQualificationDetails(status: number,crewId: any): Observable<any[]> {
     return this.httpClient.put(this.linkurl + 'addQualificationDetails', formData)
       .pipe(catchError(this.handleError));
   }
-  updateQualificationDetails(id: number, formData: any): Observable<any> {debugger
+  updateQualificationDetails(id: number, formData: any): Observable<any> {
   return this.httpClient.put(this.linkurl + 'updateQualificationDetails', formData, httpOptions)
 }
 
@@ -123,6 +123,32 @@ GetQualificationDetails(status: number,crewId: any): Observable<any[]> {
     return this.httpClient.delete(this.linkurl +'DeleteQualificationDetails/'+ id, httpOptions);
   }
   //#endregion
+GetReference(status: number,crewId: any): Observable<any[]> {
+    return this.httpClient.get<any>(this.linkurl + 'filterReference?status=' + status + '&crewId=' +crewId, httpOptions);
+  }
+
+ addReference(formData: any): Observable<any> {
+    return this.httpClient.put(this.linkurl + 'addReference', formData)
+      .pipe(catchError(this.handleError));
+  }
+
+   updateReference(id: number, formData: any): Observable<any> {
+  return this.httpClient.put(this.linkurl + 'updateReference', formData, httpOptions)
+}
+ addExperience(formData: any): Observable<any> {
+    return this.httpClient.put(this.linkurl + 'addExperience', formData)
+      .pipe(catchError(this.handleError));
+  }
+   updateExperience(id: number, formData: any): Observable<any> {
+  return this.httpClient.put(this.linkurl + 'updateExperience', formData, httpOptions)
+}
+getExperience(status: number,crewId: any): Observable<any[]> {
+    return this.httpClient.get<any>(this.linkurl + 'filterExperience?status=' + status + '&crewId=' +crewId, httpOptions);
+  }
+   ExportApplicantData(applicantId:any):Observable<any>{  
+    return  this.httpClient.get<any>(`${this.linkurl}exportApplicantData/${applicantId}`,{ responseType: 'blob' as 'json'})
+    .pipe(catchError(this.handleError));
+  }
 //#region  Applicant License
 
 addApplicantLicense(formData: any): Observable<any> {

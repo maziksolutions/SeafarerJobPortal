@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ViewChild } from '@angular/core';
 import { ApplicantService } from 'src/app/Services/applicant.service';
 import { MatPaginator } from '@angular/material/paginator';
@@ -20,7 +20,7 @@ export class ApplicantlistComponent implements OnInit {
   loggedUserId: any;
   loadingState: boolean;
   dataSource = new MatTableDataSource<any>();
-  status;
+  status; applicantId:any;
   displayedColumns: string[] = ['name', 'rankRegister.rankName', 'dob', 'country.countryName', 'cdc', 'vesseltype', 'remarks', 'status', 'doa', 'actions'];
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
@@ -31,6 +31,7 @@ export class ApplicantlistComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router, 
     private jwtHelper: JwtHelperService,
+    private route: ActivatedRoute,
     // private exportExcelService: ExportExcelService,
     // private _applyAccessRightsService: ApplyAccessRightsService,
     private ApplicantService: ApplicantService,
@@ -39,6 +40,8 @@ export class ApplicantlistComponent implements OnInit {
   ngOnInit() {
     // this.userId();
     this.loggedUserId=localStorage.getItem('userId');
+    this.applicantId = this.route.snapshot.paramMap.get('id');
+    // alert(this.applicantId)
     this.loadingState = true;
     // const userSession = localStorage.getItem('userToken');
     // if (userSession == null || userSession == '' || userSession == undefined)
@@ -126,6 +129,19 @@ RejectApplicant(id: number) {
 
   }
 }
-
+exportReport(applicantId:any){
+  this.ApplicantService.ExportApplicantData(applicantId)
+    .subscribe((response) => {
+      if(response.size){
+        var bolb=new Blob([response],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(bolb);
+        a.download = 'Applicant Details.xlsx';
+        a.click();
+        }else{
+          // this.swal.info('File not found');
+        }
+    })
+}
 
 }

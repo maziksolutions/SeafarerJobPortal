@@ -1,0 +1,103 @@
+<mat-dialog-content>
+    <form (ngSubmit)="onSubmit(referencefrm)" [formGroup]="referencefrm">
+        <div style="Color:red; padding-bottom:10px; font-size: 12px !important;"> {{errorMsg}}</div>
+        <h2><b>{{data.modalTitle}}</b>
+            <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
+        </h2>
+        <div class="row">
+            <div class="col-2">
+                <mat-form-field color="accent">
+                    <mat-label>Last Name of Company</mat-label>
+                    <input matInput formControlName="nameOfCompany" required>
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <mat-form-field color="accent">
+                    <mat-label>Name - Person to contact</mat-label>
+                    <input matInput formControlName="personToContact" required>
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <mat-form-field color="accent">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="address" type="text" required>
+                </mat-form-field>
+            </div>
+            <div class="col -2">
+                <mat-form-field>
+                    <mat-label>Country</mat-label>
+                    <mat-select formControlName="countryId">
+                        <mat-option *ngFor="let country of countries" [value]="country.countryId">
+                            {{country.countryName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <mat-form-field color="accent">
+                    <mat-label>Telephone</mat-label>
+                    <input matInput formControlName="telephone" type="text" required>
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <mat-form-field color="accent">
+                    <mat-label>Last Wages Drawn</mat-label>
+                    <input matInput formControlName="lastWagesDrawn" type="text" required>
+                </mat-form-field>
+            </div>
+        </div>
+        <hr class="mt-2 mb-2">
+        <h2 style="margin-top: 10px!important;margin-bottom: 10px!important;">
+            <b>Reference 2 </b>
+        </h2>
+
+        <div class="row">
+            <div class="col-2">
+                <mat-form-field color="accent">
+                    <mat-label>Last Name of Company</mat-label>
+                    <input matInput formControlName="r2NameOfCompany" required>
+                </mat-form-field>
+            </div>
+
+            <div class="col-2">
+                <mat-form-field color="accent">
+                    <mat-label>Name - Person to contact</mat-label>
+                    <input matInput formControlName="r2PersonToContact" required>
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <mat-form-field color="accent">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="r2Address" type="text" required>
+                </mat-form-field>
+            </div>
+            <div class="col -2">
+                <mat-form-field>
+                    <mat-label>Country</mat-label>
+                    <mat-select formControlName="r2CountryId">
+                        <mat-option *ngFor="let country of countries" [value]="country.countryId">
+                            {{country.countryName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <mat-form-field color="accent">
+                    <mat-label>Telephone</mat-label>
+                    <input matInput formControlName="r2Telephone" type="text" required>
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <mat-form-field color="accent">
+                    <mat-label>Last Wages Drawn</mat-label>
+                    <input matInput formControlName="r2LastWagesDrawn" type="text" required>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="mt-2">
+            <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>&nbsp;
+            <button type="submit" mat-raised-button color="primary"
+                [disabled]="referencefrm.invalid">{{data.modalBtnTitle}}</button>
+        </div>
+    </form>
+</mat-dialog-content>

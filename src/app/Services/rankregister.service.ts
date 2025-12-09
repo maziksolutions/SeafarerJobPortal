@@ -48,6 +48,10 @@ export class RankregisterService {
       );
   }
 
+ GetReligionList(id: number): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.linkurl + 'filterReligion?id=' + id, httpOptions);
+  }
+
   private handleError(error: HttpErrorResponse) {
 
     if (error.error instanceof ErrorEvent) {

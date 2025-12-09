@@ -74,9 +74,9 @@ color:#fff;
 background: #ad2300 !important;
 color:#fff;
 } */
-.mat-mdc-cell, .mat-mdc-footer-cell {
+/* .mat-mdc-cell, .mat-mdc-footer-cell {
     font-size: 13px !important;
-}
+} */
 
 
 
@@ -137,7 +137,7 @@ color:#fff;
   /* font-weight: 600 !important; */
  color:#333;
  min-height: 30px;
- font-size: 12px; 
+ /* font-size: 12px;  */
  border-collapse: collapse !important;
    border-right: none !important;
 }
@@ -161,10 +161,10 @@ color:#fff;
 .mat-mdc-cell a{
 color:#253A62 !important;
 }
-.mat-mdc-cell, .mat-mdc-footer-cell
+/* .mat-mdc-cell, .mat-mdc-footer-cell
 {
   font-size: 12px !important;
-}
+} */
 .mat-mdc-header-row 
 {
   min-height: 20px !important; 
@@ -272,14 +272,14 @@ form .form-group {
   margin-bottom: 0.7rem !important;
   /* margin-top: 10px !important; */
 }
-body{
+/* body{
   font-size: 0.85rem !important;
-}
-.form-control
+} */
+/* .form-control
 {
   padding: 0.6rem !important;
   line-height: 1rem !important;
-}
+} */
 
 /*Testing vertical Align Top*/
 mat-header-cell {  

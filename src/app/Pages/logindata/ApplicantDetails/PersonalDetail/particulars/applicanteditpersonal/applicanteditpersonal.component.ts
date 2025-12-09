@@ -75,7 +75,7 @@ export class ApplicanteditpersonalComponent implements OnInit
     this.form.valueChanges.subscribe(data => this.onValueChanged(data));
     this.onValueChanged();
     if (this.data.crew != null) {
-      this.form.setValue(this.data.crew);
+      this.form.patchValue(this.data.crew);
     }
   }
   loadCountries(): void {

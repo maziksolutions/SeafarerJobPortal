@@ -45,12 +45,10 @@
       </div> -->
 
       <div id="user-profile" style="margin-top: 21px;"(contextmenu)="$event.preventDefault()">
-        <div class="row">
-          <div class="col-12">
             <div class="card profile-with-cover m-b-0">
               <div class="card-img-top img-fluid bg-cover height-100" style="background: #E3EBF3;    height: 45px !important;"></div>
               <div class="media profil-cover-details w-100">            
-                <div class="media-left pl-3 pt-1 profile-image"style="padding-top: 1.8rem !important;">
+                <div class="media-left pl-3 pt-1 profile-image">
                   <!-- <img *ngIf="showimage=='yes'" src="{{userimage}}" class="rounded-circle img-border height-100"
                     alt="Card image"> -->
 
@@ -74,12 +72,12 @@
                 </div>
 
 
-                <div class="media-body pt-5 px-2"style="padding-top: 3.2rem !important;">
+                <div class="media-body pt-5 px-2"style="padding-top: 2.2rem !important;">
                   <div class="row">
                     <div class="col">
                       <!-- <h3 class="card-title m-b-0" style="font-size: 1.4rem;">{{applicantfullname}} <span class="alert bg-success p-t-3 p-b-3 font-small-3 position-relative position-tm-3">On Board</span></h3> -->
-                      <h3 class="m-b-0" style="font-size: 2.1rem;"><b>{{applicantfullname}}</b></h3>
-                      <div style="font-size: 1.4rem;">{{rank}}</div></div>
+                      <h3 class="card-title m-b-0" style="font-size: 1.4rem;"><b>{{applicantfullname}}</b></h3>
+                      <div>{{rank}}</div></div>
                       <!-- <div class="col">
                       <div class="float-right white font-small-2 position-relative position-tm-15 bg-primary p-1 round">
                         <strong>Operator Experience :</strong> <span class="yellow font-small-3">1y 3m 15d</span> <span class="p-l-10 p-r-10">|</span>
@@ -100,6 +98,7 @@
                     </ul>
                       </li>
                         <li routerLinkActive="active"><a [routerLink]="['/logindata/Applicantaddress', applicantId]">Address</a></li>
+                          <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantCourses', applicantId]">Courses</a></li>
                     <li  routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantLicense', applicantId]">Licenses</a>
                       <!-- <ul>
                           <li><a [routerLink]="['/logindata/ApplicantLicense', applicantId]">License</a></li>
@@ -107,9 +106,10 @@
                           </ul> -->
                       </li>
                       <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantTravel', applicantId]">Travel Documents</a></li>
-                    <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantAssignment', applicantId]">Sea services</a></li>
-                    <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantCourses', applicantId]">Courses</a></li>
+                    <li routerLinkActive="active"><a [routerLink]="['/logindata/ApplicantAssignment', applicantId]">Sea services</a></li>      
                     <li routerLinkActive="active"><a [routerLink]="['/logindata/QualificationDetails', applicantId]">Qualification Details</a></li>
+                    <li routerLinkActive="active"><a [routerLink]="['/logindata/ExperienceDetails', applicantId]">Experience Details</a></li>
+                    <li routerLinkActive="active"><a [routerLink]="['/logindata/Reference', applicantId]">Reference</a></li>
                     
                   </ul>
                   <div *ngIf="userstatus === 'User'">
@@ -160,8 +160,6 @@
 
               </nav>
             </div>
-          </div>
-        </div>
       </div>
     </div>
   </nav>

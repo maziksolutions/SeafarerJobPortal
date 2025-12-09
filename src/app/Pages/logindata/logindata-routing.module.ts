@@ -11,6 +11,7 @@ import { ApplicantAssignmentComponent } from './ApplicantDetails/PersonalDetail/
 import { ApplicantCoursesComponent } from './ApplicantDetails/PersonalDetail/applicant-courses/applicant-courses.component';
 import { QualificationDetailsComponent } from './ApplicantDetails/PersonalDetail/qualification-details/qualification-details.component';
 import { ExperienceDetailsComponent } from './ApplicantDetails/PersonalDetail/experience-details/experience-details.component';
+import { ReferenceComponent } from './ApplicantDetails/PersonalDetail/reference/reference.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
         {path: 'ApplicantCourses/:id',component: ApplicantCoursesComponent}, 
         {path: 'QualificationDetails/:id',component: QualificationDetailsComponent}, 
         {path: 'ExperienceDetails/:id',component: ExperienceDetailsComponent}, 
+        {path: 'Reference/:id',component: ReferenceComponent}, 
       ]
     }
 

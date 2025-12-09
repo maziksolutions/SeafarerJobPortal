@@ -1106,10 +1106,12 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 }
 
 html, body {
-  font-size: 62.5%;
+  /* font-size: 62.5%; */
   height: 100%;
-  overflow: hidden;
    background-image: url("/assets/img/slider.png") !important;
+   background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 @media (max-width: 768px) {
   html, body {

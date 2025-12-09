@@ -36,11 +36,10 @@ submit() {
   this.errorMsg = '';
   this.successMsg = '';
 
-  this.crewAddressService.CheckApplicantEmail(email).subscribe((result: any) => {
-    ;
+  this.crewAddressService.CheckApplicantsEmail(email).subscribe((result: any) => {
 
     if (result.code === -1 || result.code === -3 || result.code === 0) {
-      this.errorMsg = "Invalid Email ID";
+      this.errorMsg = "Invalid Email ID , Please ReEnter Email ID";
       this.forgotForm.reset();
       return;
     }
