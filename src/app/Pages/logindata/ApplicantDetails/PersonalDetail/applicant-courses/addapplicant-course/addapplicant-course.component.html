@@ -1,9 +1,9 @@
 <mat-dialog-content>
     <form (ngSubmit)="onSubmit(applicantCoursefrm)" [formGroup]="applicantCoursefrm">
       <div style="Color:red; padding-bottom:10px; font-size: 12px !important;"> {{errorMsg}}</div>     
-          <h4>{{data.modalTitle}}
+          <h5>{{data.modalTitle}}
             <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
-          </h4>
+          </h5>
           <div class="row">
             <div class="col-3">
               <mat-form-field>

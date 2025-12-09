@@ -168,7 +168,7 @@
     display: 'team',
     source: nbaTeams,
     templates: {
-      header: '<h3 class="league-name">NBA Teams</h3>'
+      header: '<h5 class="league-name">NBA Teams</h5>'
     }
   },
   {
@@ -176,7 +176,7 @@
     display: 'team',
     source: nhlTeams,
     templates: {
-      header: '<h3 class="league-name">NHL Teams</h3>'
+      header: '<h5 class="league-name">NHL Teams</h5>'
     }
   });
 

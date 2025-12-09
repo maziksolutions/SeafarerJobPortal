@@ -165,7 +165,9 @@ pre {
   background: #f2f2f2}
 
 .table-bordered th, .table-bordered td {
-  border: 1px solid #e3ebf3; }
+  border: 1px solid #e3ebf3;   
+}
+
 
 .table th {
   border-bottom: 1px solid #e3ebf3;}
@@ -174,7 +176,9 @@ pre {
   border-bottom: 1px solid #e3ebf3; position: relative}
 
 .table-bordered {
-  border: 1px solid #e3ebf3; font-size: 12px; }
+  border: 1px solid #e3ebf3; font-size: 12px; 
+  padding: 0 10px !important;
+}
 
 .table-inverse {
   color: #eceeef;
@@ -423,7 +427,7 @@ Bootstrap Enhance */
     {
       padding: 0.5rem 1rem !important;
       font-size: 13px !important;
-      height: calc(2.75rem + 2px) !important;
+      height: calc(2.2rem + 0px) !important;     
     }
 
 button, html [type='button'], [type='reset'], [type='submit'] {
@@ -1111,12 +1115,12 @@ button, html [type='button'], [type='reset'], [type='submit'] {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 0.05rem;
-    font-size: 1.12rem; }
+    font-size: 1rem; }
 .card .card-title-lower {
     text-transform:none;
     font-weight: 600;
     letter-spacing: 0.05rem;
-    font-size: 1.12rem;
+    font-size: 1rem;
     margin-bottom: 1.5rem;}
   .card .card-bordered {
     border: 1px solid rgba(0, 0, 0, 0.06); }

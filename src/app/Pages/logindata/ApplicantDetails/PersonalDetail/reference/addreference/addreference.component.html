@@ -1,9 +1,9 @@
 <mat-dialog-content>
     <form (ngSubmit)="onSubmit(referencefrm)" [formGroup]="referencefrm">
         <div style="Color:red; padding-bottom:10px; font-size: 12px !important;"> {{errorMsg}}</div>
-        <h2><b>{{data.modalTitle}}</b>
+        <h5><b>{{data.modalTitle}}</b>
             <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
-        </h2>
+        </h5>
         <div class="row">
             <div class="col-2">
                 <mat-form-field color="accent">
@@ -47,9 +47,9 @@
             </div>
         </div>
         <hr class="mt-2 mb-2">
-        <h2 style="margin-top: 10px!important;margin-bottom: 10px!important;">
+        <h5 style="margin-top: 10px!important;margin-bottom: 10px!important;">
             <b>Reference 2 </b>
-        </h2>
+        </h5>
 
         <div class="row">
             <div class="col-2">

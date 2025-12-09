@@ -29,7 +29,7 @@
         lng: -73.949997,
         title: 'Moved Brooklyn',
         infoWindow: {
-            content: '<h3>Moved Brooklyn</h3> <p>Our new office with more team members.</p>'
+            content: '<h5>Moved Brooklyn</h5> <p>Our new office with more team members.</p>'
         }
     });
 

@@ -2,9 +2,9 @@
   <form (ngSubmit)="onSubmit(crewaddressfrm)" [formGroup]="crewaddressfrm">
     <div style="Color:red; padding-bottom:10px; font-size: 12px !important;"> {{errorMsg}}</div>
    
-        <h2><b>{{data.modalTitle}}</b>
+        <h5><b>{{data.modalTitle}}</b>
           <span class="mandatory-fields"> (Mandatory Fields are sign with asterisk(*)) </span>
-        </h2>
+        </h5>
         <div class="row">
           <div class="col-4">
             <mat-form-field color="accent">
@@ -78,11 +78,11 @@
       </div>      
       </div>
               <hr class="mt-2 mb-2">        
-        <h2 style="margin-top: 10px!important;margin-bottom: 10px!important;">
+        <h5 style="margin-top: 10px!important;margin-bottom: 10px!important;">
            <b>Current Address</b>
           ( <input type="checkbox" formcontrolName="sameAddress" (change)="sameAddress($event)">
           <span style="font-size: smaller;"> Same as Permanent</span> )
-        </h2>
+        </h5>
         <div class="row">
           <div class="col-4">
             <mat-form-field color="accent">
@@ -137,10 +137,10 @@
   <hr class="mt-2 mb-2">
     <div class="row">
       <div class="col-6">
-      <h2 class="mt-2">{{mobile}}</h2>
+      <h5 class="mt-2">{{mobile}}</h5>
       </div>
       <div class="col-6">
-      <h2 class="mt-2">{{residential}}</h2>
+      <h5 class="mt-2">{{residential}}</h5>
       </div>
       </div>
     <div class="row">
