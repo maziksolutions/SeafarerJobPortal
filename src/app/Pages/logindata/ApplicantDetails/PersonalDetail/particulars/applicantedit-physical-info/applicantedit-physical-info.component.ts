@@ -80,7 +80,8 @@ ngOnInit(): void
       lastWage:[''],foodHabit:[''],
       lowerRank:[''],
       religionId:[''],
-      religionName:['']
+      religionName:[''],
+      cdcNumber:['']
     });
 this.LoadReligion(0); 
 }

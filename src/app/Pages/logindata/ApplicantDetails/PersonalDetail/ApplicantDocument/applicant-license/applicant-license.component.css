@@ -34,4 +34,9 @@
 .mat-column-actions {
   flex: 0 0 70px;
   }
-  
+  .mat-column-doe {
+  flex: 0 0 115px;
+  }
+  .mat-column-doi {
+  flex: 0 0 115px;
+  }

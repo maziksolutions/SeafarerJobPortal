@@ -67,10 +67,15 @@
                       <mat-cell *matCellDef="let row">{{row.country?.countryName}}</mat-cell>
                     </ng-container>
                     <ng-container matColumnDef="instituteName">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>Institite</mat-header-cell>
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Institute</mat-header-cell>
                       <mat-cell *matCellDef="let row">{{row.instituteName}}</mat-cell>
                     </ng-container>
-
+                  <ng-container matColumnDef="duration">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Duration</mat-header-cell>
+                      <mat-cell *matCellDef="let row">{{row.from
+                          | date: 'dd.MMM.yyyy'}} - {{row.to
+                          | date: 'dd.MMM.yyyy'}}</mat-cell>
+                    </ng-container>
                     <!-- <ng-container matColumnDef="attachment">
                       <mat-header-cell *matHeaderCellDef mat-sort-header>Attachment</mat-header-cell>
                       <mat-cell *matCellDef="let row"><i class="fas fa-paperclip" data-toggle="tooltip"
