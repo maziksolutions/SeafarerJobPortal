@@ -85,7 +85,7 @@
   
         <div class="col s3">
           <mat-form-field>
-            <mat-label>Date Of Avail</mat-label>
+            <mat-label>Date available from</mat-label>
             <input matInput [matDatepicker]="picker2" (click)="picker2.open()" 
               formControlName="doa" required>
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
@@ -121,6 +121,18 @@
             <input matInput  appTitleCase formControlName="lastWage" required>
           </mat-form-field>
         </div>
+        <div class="col s3">
+          <mat-form-field>
+            <mat-label>Date of readiness</mat-label>
+            <input matInput [matDatepicker]="picker3" (click)="picker3.open()" 
+              formControlName="dor" required>
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker touchUi #picker3></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+
+
         <!-- <div class="col s12">
           <label>Image</label><br>
           <input type="file" accept="image/jpeg, image/jpg, image/png" formControlName="englishFluency"
