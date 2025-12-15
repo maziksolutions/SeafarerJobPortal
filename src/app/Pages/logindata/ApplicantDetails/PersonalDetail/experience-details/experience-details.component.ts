@@ -45,6 +45,19 @@ export class ExperienceDetailsComponent {
       generalDetails: [''],
       courtOfEnquiry: [''],
       deniedForeignVisa: [''],
+      workedOnUMSvessels: [''],
+      sireCdi: [''],
+      uscgInspection: [''],
+      dryDockexperience: [''],
+      shipyardeXperience: [''],
+      workedOnCPPvessel: [''],
+      twinpropellervessel: [''],
+      addictedToDrug: [''],
+      sufferedFromDiabetes: [''],
+      sufferedFromEpilepsy: [''],
+      anykindOfMedication: [''],
+      cowExpereince: [''],
+      cargoPumpsExperience: [''],
     });
     this.loadExperience(0);
     this.setupMedicalHistoryLogic();
@@ -53,18 +66,28 @@ export class ExperienceDetailsComponent {
   this.experiencefrm.get('signedOffShip')?.valueChanges.subscribe(() => {
     this.toggleMedicalHistory();
   });
-
   this.experiencefrm.get('operationInThePast')?.valueChanges.subscribe(() => {
     this.toggleMedicalHistory();
   });
-
   this.experiencefrm.get('consultedDoctor')?.valueChanges.subscribe(() => {
     this.toggleMedicalHistory();
   });
-
   this.experiencefrm.get('disabilityProblem')?.valueChanges.subscribe(() => {
     this.toggleMedicalHistory();
   });
+  this.experiencefrm.get('anykindOfMedication')?.valueChanges.subscribe(() => {
+    this.toggleMedicalHistory();
+  });
+   this.experiencefrm.get('sufferedFromEpilepsy')?.valueChanges.subscribe(() => {
+    this.toggleMedicalHistory();
+  });
+   this.experiencefrm.get('sufferedFromDiabetes')?.valueChanges.subscribe(() => {
+    this.toggleMedicalHistory();
+  });
+   this.experiencefrm.get('addictedToDrug')?.valueChanges.subscribe(() => {
+    this.toggleMedicalHistory();
+  });
+
    this.experiencefrm.get('maritimeAccident')?.valueChanges.subscribe(() => {
     this.toggleGeneralDetails();
   });
@@ -84,7 +107,11 @@ toggleMedicalHistory() {
     this.experiencefrm.get('signedOffShip')?.value === 'Yes' ||
     this.experiencefrm.get('operationInThePast')?.value === 'Yes' ||
     this.experiencefrm.get('consultedDoctor')?.value === 'Yes' ||
-    this.experiencefrm.get('disabilityProblem')?.value === 'Yes';
+    this.experiencefrm.get('disabilityProblem')?.value === 'Yes'||
+    this.experiencefrm.get('addictedToDrug')?.value === 'Yes'||
+    this.experiencefrm.get('sufferedFromDiabetes')?.value === 'Yes'||
+    this.experiencefrm.get('sufferedFromEpilepsy')?.value === 'Yes'||
+    this.experiencefrm.get('anykindOfMedication')?.value === 'Yes';
 
   if (medicalYes) {
     this.experiencefrm.get('medicalHistoryDetails')?.enable();
