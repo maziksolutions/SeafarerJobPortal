@@ -102,7 +102,7 @@ export class ApplicantService {
 
 
   DeleteApplicantTravel(id: number) {
-    return this.httpClient.delete(this.linkurl + id, httpOptions);
+    return this.httpClient.delete(this.linkurl +'DeleteApplicantTravel/'+ id, httpOptions);
   }
 
   //#endregion
