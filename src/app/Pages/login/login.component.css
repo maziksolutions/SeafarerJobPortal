@@ -125,7 +125,8 @@
   top: 15px !important;
   left: 20px !important;
   transition: 0.2s !important;
-  visibility: hidden !important;
+  /* visibility: hidden !important; */
+      color: #fff;
 }
 
  :host  .login-page .input-field:focus ~ .label,
