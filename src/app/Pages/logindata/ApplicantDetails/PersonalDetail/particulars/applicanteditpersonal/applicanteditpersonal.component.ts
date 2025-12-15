@@ -69,7 +69,8 @@ export class ApplicanteditpersonalComponent implements OnInit
       mobilePhone:[''],
       nationality:[''],
       lastWage:[''],foodHabit:[''],
-      lowerRank:['']
+      lowerRank:[''],
+      dor:['']
     });
 
     this.form.valueChanges.subscribe(data => this.onValueChanged(data));

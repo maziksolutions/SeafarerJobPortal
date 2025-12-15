@@ -75,7 +75,15 @@
                         <td>{{data.lowerRank}}</td>
                         <th>Last Wages</th>
                         <td>{{data.lastWage}}</td>
-                      </tr>  
+                      </tr> 
+                       <tr>
+                        <th width="13.3%" >Date available from</th>
+                        <td width="20%">{{ data.doa
+                       |date:'dd-MMM-yyyy' }}</td>
+                        <th width="13.3%">Date of readiness</th>
+                        <td width="20%"> {{ data.dor |date:'dd-MMM-yyyy' }}</td>                       
+                      </tr>                      
+                      
                       </tbody>
                   </table>
                 </div>
