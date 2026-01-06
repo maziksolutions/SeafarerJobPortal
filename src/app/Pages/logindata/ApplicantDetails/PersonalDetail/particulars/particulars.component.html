@@ -81,8 +81,43 @@
                         <td width="20%">{{ data.doa
                        |date:'dd-MMM-yyyy' }}</td>
                         <th width="13.3%">Date of Readiness</th>
-                        <td width="20%"> {{ data.dor |date:'dd-MMM-yyyy' }}</td>                       
-                      </tr>                      
+                        <td width="20%"> {{ data.dor |date:'dd-MMM-yyyy' }}</td>   
+                         <th>Last Ship Type</th>
+                        <td>{{data.lastShipType}}</td>
+                      </tr> 
+                      <tr>
+                        <th>Last Rank</th>
+                        <td>{{data.lastRank}}</td>  
+                        <!-- <th>Signature</th>
+                        <td>{{data.signature}}</td>   -->
+                        <th>Signature</th>
+                        <td>
+                          <ng-container *ngIf="data.signature else noSignature">
+                            <!-- <img
+                              [src]=" data.signature"
+                              alt="Signature"(click)="openImageModal()"
+                              style="width:100px; height:25px; border:1px solid #ccc;"
+                            /> -->
+                            <span
+                            class="view-signature"
+                            (click)="openImageModal(data.signature)">
+                            View Signature
+                          </span>
+                          </ng-container>
+
+                          <ng-template #noSignature>
+                            <span>Not Uploaded</span>
+                          </ng-template>
+                        </td>
+                         <div class="modal fade show" tabindex="-1" *ngIf="isModalOpen" style="display: block; background: rgba(0,0,0,0.6);"
+                    (click)="closeImageModal()">
+                  
+                    <div class="d-flex justify-content-center align-items-center" style="height:100vh;width: 100vw;">
+                      <img [src]="userimage" alt="Full size image" [style.transform]="'scale(' + scale + ')'" (wheel)="onWheel($event)"
+                        style="max-width: 80vw; max-height: 80vh; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5);"(contextmenu)="$event.preventDefault()" />
+                    </div>
+                  </div>
+                      </tr>               
                       
                       </tbody>
                   </table>

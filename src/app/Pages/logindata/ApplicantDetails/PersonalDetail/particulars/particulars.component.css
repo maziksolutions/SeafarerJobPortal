@@ -38,3 +38,10 @@ html body.fixed-navbar{padding-top:0px !important}
     background: #233855 !important;
     color: #fff !important;
   }
+  .view-signature {
+  color: #156ddf;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+}
+

@@ -22,7 +22,7 @@
         <div class="col s2">
           <mat-form-field color="accent">
             <mat-label>Last Name</mat-label>
-            <input matInput  appTitleCase  pattern="^([^0-9]*)$" formControlName="lastName" required>
+            <input matInput  appTitleCase  pattern="^([^0-9]*)$" formControlName="lastName" >
           </mat-form-field>
         </div>
   
@@ -130,7 +130,34 @@
             <mat-datepicker touchUi #picker3></mat-datepicker>
           </mat-form-field>
         </div>
-
+       <div class="col s3">
+        <mat-form-field color="accent">
+          <mat-label>Last Vessel Type </mat-label>
+          <mat-select placeholder="Vessel Type" formControlName="lastShipType" required>
+            <mat-option *ngFor="let ship of shipTypeList" [value]="ship.type">
+              {{ship.type}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+       <div class="col s3">
+        <mat-form-field>
+          <mat-label>Last Rank
+          </mat-label>
+          <mat-select formControlName="lastRank"required>
+            <mat-option *ngFor="let rank of rankRegisterList" [value]="rank.rankName">
+              {{rank.rankName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+     
+           <!-- <div class="col s3">
+          <mat-form-field color="accent">
+            <mat-label>Last Wages</mat-label>
+            <input matInput  appTitleCase formControlName="lastWage" required>
+          </mat-form-field>
+        </div> -->
 
 
         <!-- <div class="col s12">
@@ -140,6 +167,26 @@
         </div> -->
       
       </div>
+       <div class="row">
+      <div class="col-sm-4">
+            <label>Signature</label>
+            <br>
+            <label id="projectinput7" class="file center-block">
+              <!-- <input type="file" style="width: 100%;" formControlName="signature" accept="image" (change)="onSignatureSelect($event)" required> -->
+               <input type="file" accept="image/*" (change)="onSignatureSelect($event)">
+              <span class="file-custom"></span>
+            </label>
+          </div>
+          <div class="col-sm-4">
+            <label>Image</label>
+            <br>
+            <label id="projectinput8" class="file center-block">
+              <!-- <input type="file" style="width: 100%;" formControlName="photo" accept="image" (change)="onPhotoSelect($event)" required> -->
+               <input type="file" accept="image/*" (change)="onPhotoSelect($event)">
+              <span class="file-custom"></span>
+            </label>
+          </div>
+          </div>
   
       <div class="mt-2">
         <button type="button" mat-raised-button [style.background-color]="'coral'" [style.color]="'white'"
@@ -147,3 +194,5 @@
         <button type="submit" mat-raised-button [style.background-color]="'#36454F'" color="primary" [disabled]="form.invalid"><i
                   class="fa fa-check-square-o "></i>{{data.modalBtnTitle}}</button>
       </div>
+    </form>
+</mat-dialog-content>

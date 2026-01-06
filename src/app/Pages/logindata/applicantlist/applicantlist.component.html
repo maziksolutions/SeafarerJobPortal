@@ -1,41 +1,155 @@
-<div class="app-content content" style="padding-top: 6.5rem;">
+<div class="app-content content " style="padding-top: 6.5rem;">
   <div class="content-wrapper">
     <div class="content-header row">
-      <div class="col-xl-6 col-lg-12">
+      <div class="col-xl-4 col-lg-12">
         <h4 class="content-header-title m-b-10 proper-case">List of New Applicants</h4>
       </div>
-      <div class="col-xl-6 col-lg-12 nopl">
-          <form class="form-inline float-right">
-                    <select class="form-control form-small" (change)="LoadApplicant($any($event.target).value)">
-                      <option value="0">Active Data</option>
-                      <option value="1">Archived Data</option>
-                      <option value="2">Shortlisted Candidate</option>
-                      <option value="3">Rejected Candidate</option>
-                    </select>
-                    <span class="p-l-10 p-r-10">|</span>
-                    <input type="text" class="form-control form-small m-r-5"
-                      (keyup)="applyFilter($any($event.target).value)" placeholder="Search applicant...">
+      <div class="col-xl-8 col-lg-12">
+        <div class="form-inline float-right mb-1">
+          <select class="form-control form-small" (change)="LoadApplicant($any($event.target).value)">
+            <option value="0">Active Data</option>
+            <option value="1">Archived Data</option>
+            <option value="2">Shortlisted Candidate</option>
+            <option value="3">Rejected Candidate</option>
+          </select>
+          <span class="p-l-10 p-r-10">|</span>
+          <input type="text" class="form-control form-small m-r-5" (keyup)="applyFilter($any($event.target).value)"
+            placeholder="Search applicant...">
 
-                    <button class="btn btn-primary form-small m-r-5" type="button" data-toggle="tooltip"
-                      data-trigger="hover" data-placement="top" data-title="Search" data-original-title="" title=""
-                      (click)="applyFilter($any($event.target).value)"><i class=" fa fa-search"
-                        aria-hidden="true"></i></button>
-                      
-                    <!-- <button class="btn btn-primary form-small p-t-3 p-b-3 m-r-5" type="button" data-toggle="tooltip"
-                        data-trigger="hover" data-placement="top" data-title="Add" data-original-title="" title=""><i
-                          class="fas fa-plus" aria-hidden="true" 
-                          ></i></button> -->
-                    <!-- <button class="btn btn-success form-small p-t-3 p-b-3" type="button" data-toggle="tooltip"
-                        data-trigger="hover" data-placement="top" data-title="Export to Excel" data-original-title=""
-                        title=""><i class="fas fa-file-excel" aria-hidden="true" 
-                          ></i></button>
-                           -->
-                    <!-- <button class="btn btn-primary form-small p-t-3 p-b-3 m-l-5" type="button" data-toggle="popover"
-                      title="Help" data-html="true" data-placement="left">
-                      <i class="fas fa-question" aria-hidden="true"></i></button> -->
+          <button class="btn btn-primary form-small" type="button" data-toggle="tooltip" data-trigger="hover"
+            data-placement="top" data-title="Search" data-original-title="" title=""
+            (click)="applyFilter($any($event.target).value)"><i class=" fa fa-search" aria-hidden="true"></i></button>
 
-                  </form>
+          <span class="p-l-10 p-r-10">|</span>
+          <div id="accordionWrap01" role="tablist" aria-multiselectable="true">
+            <div id="heading01" class="text-right">
+              <button type="button" class="btn btn-primary round btn-min-width mb-0" data-toggle="collapse" id="advance"
+                data-parent="#accordionWrap01" href="#accordion01" aria-expanded="false"
+                aria-controls="accordion01">Advance Filter <i class="fa fa-chevron-down"></i></button>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    <div id="accordion01" role="tabpanel" aria-labelledby="heading01" class="collapse adv-filter">
+      <form class="form-group" [formGroup]="form">
+        <div class="card card-content">
+          <div class="card-body">
+            <div class="row">
+
+
+              <div class="col-sm">
+                <fieldset class="form-group">
+                  <ng-multiselect-dropdown formControlName="rankId" placeholder="Select Rank"
+                    class="multiselect-dropdown" [data]="ranks" [settings]="dropdownRankSetting"
+                    (onSelect)="onRankSelect($event)" (onSelectAll)="onRankSelectAll($event)"
+                    (onDeSelect)="onRankDeSelect($event)" (onDeSelectAll)="onRankDeSelectAll($event)">
+                  </ng-multiselect-dropdown>
+
+                </fieldset>
+              </div>
+
+              <div class="col-sm">
+                <fieldset class="form-group">
+                  <ng-multiselect-dropdown formControlName="countryId" placeholder="Select nationality" [data]="country"
+                    class="multiselect-dropdown" [settings]="dropdownCountrySetting"
+                    (onSelect)="onCountrySelect($event)" (onSelectAll)="onCountrySelectAll($event)"
+                    (onDeSelect)="onCountryDeSelect($event)" (onDeSelectAll)="onCountryDeSelectAll($event)">
+                  </ng-multiselect-dropdown>
+                </fieldset>
+              </div>
+
+              <div class="col-sm">
+                <fieldset class="form-group">
+                  <mat-form-field color="accent">
+                    <mat-select placeholder="Age From" formControlName="agefrom">
+                      <mat-option *ngFor="let age of agenumber" [value]="age">
+                        {{age}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  &nbsp;
+
+                </fieldset>
+              </div>
+              <div class="col-sm">
+                <fieldset class="form-group">
+                  <mat-form-field color="accent">
+                    <mat-select placeholder="To" formControlName="ageto" (selectionChange)="ValidateValue()">
+                      <mat-option *ngFor="let age of agenumber" [value]="age">
+                        {{age}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </fieldset>
+              </div>
+
+              <div class="col-sm">
+                <fieldset class="form-group">
+                  <mat-form-field color="accent">
+                    <mat-select placeholder="Status" formControlName="status">
+                      <mat-option value="Yet To Evaluate">Yet To Evaluate</mat-option>
+                      <mat-option value="Shortlisted Candidate">Shortlisted Candidate</mat-option>
+                      <mat-option value="Rejected Candidate">Rejected Candidate</mat-option>
+
+                    </mat-select>
+                  </mat-form-field>
+                </fieldset>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-sm">
+                <div class="dt">
+                   <!-- <label class="">From</label> -->
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="picker1" (click)="picker1.open()"   placeholder="FromDate"
+                      (dateChange)="fromDateChange($event)" formControlName="from" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1 touchUi></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="dt">
+                    <!-- <label class="">ToDOA</label> -->
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="picker2" (click)="picker2.open()" placeholder="toDOA"
+                      formControlName="toDOA" (dateChange)="toDateChange($event)" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 touchUi></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-sm">
+                <fieldset class="form-group">
+                  <mat-form-field>
+                    <mat-select placeholder="Last Vessel Type" formControlName="lastShipType" required>
+                      <mat-option *ngFor="let ship of shipTypeList" [value]="ship.type">
+                        {{ship.type}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </fieldset>
+              </div>
+
+              <div class="col-sm">
+                <div style="float: left;">
+                  <button class="btn  btn-primary form-small p-t-3 p-b-3 m-r-5" type="button" data-toggle="tooltip"
+                    data-trigger="hover" data-placement="top" data-title="Search" (click)="search()"><i
+                      class="fa fa-search" aria-hidden="true"></i></button>
+                  <button class="btn  btn-light form-small p-t-3 p-b-3 m-r-5" type="button" data-toggle="tooltip"
+                    data-trigger="hover" data-placement="top" data-title="Reset" (click)="reset()"><i
+                      class="fa fa-refresh" aria-hidden="true"></i></button>
+                </div>
+              </div>
+              <div class="col-sm">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
     <div class="content-body mt-1">
       <div class="row match-height" id="switch">
@@ -46,7 +160,6 @@
                 <div class="col-xl-6 col-lg-12">
                 </div>
                 <div class="col-xl-6 col-lg-12">
-                
                 </div>
               </div>
             </div>
@@ -56,38 +169,32 @@
               <div id="goal-list-scroll" class="table-responsive position-relative">
                 <mat-table #table [dataSource]="dataSource" matSort
                   class="table table-hover table-bordered mb-0 crew-table table-striped mat-cell">
-                  <!-- <ng-container matColumnDef="name">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header>Name </mat-header-cell>
-                      <mat-cell *matCellDef="let row"> {{row.firstName + row.middleName+row.lastName}}</mat-cell>
-                      <a [routerLink]="['/Logindata/ApplicantDetails', row.applicantId]">{{ row.firstName + ' ' + row.middleName + ' ' + row.lastName }}</a>
-                    </ng-container> -->
-
+                
                   <ng-container matColumnDef="name">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
                     <mat-cell *matCellDef="let row">
-                      <!-- <a [routerLink]="['/logindata/ApplicantDetails', row.applicantId]"> {{ row.firstName!=""?'row.firstName':""  + ' ' + row.middleName + ' ' + row.lastName }}</a> -->
-                      <a style="color: #016ce6 !important;" [routerLink]="['/logindata/ApplicantDetails', row.applicantId]">
+                      <a style="color: #016ce6 !important;"
+                        [routerLink]="['/logindata/ApplicantDetails', row.applicantId]">
                         {{ row.firstName ? row.firstName + ' ' : '' }}{{ row.middleName ? row.middleName + ' ' : '' }}{{
                         row.lastName || '' }}
                       </a>
                     </mat-cell>
                   </ng-container>
-
-                  <ng-container matColumnDef="rankRegister.rankName">
+                  <ng-container matColumnDef="rankName">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Rank </mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.rankRegister.rankName}}</mat-cell>
+                    <mat-cell *matCellDef="let row">{{row.rankName}}</mat-cell>
                   </ng-container>
 
                   <ng-container matColumnDef="dob">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>DOB</mat-header-cell>
                     <mat-cell *matCellDef="let row">{{row.dob | date }}</mat-cell>
                   </ng-container>
-                  <ng-container matColumnDef="country.countryName">
+                  <ng-container matColumnDef="countryName">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Nationality</mat-header-cell>
                     <!-- <mat-cell *matCellDef="let row">{{row.country.countryName }}</mat-cell> -->
 
                     <mat-cell *matCellDef="let row">
-                      {{ row.country.countryName ? row.country.countryName : null }}
+                      {{ row.countryName ? row.countryName : null }}
                     </mat-cell>
                   </ng-container>
 
@@ -95,10 +202,14 @@
                     <mat-header-cell *matHeaderCellDef mat-sort-header>CDC No</mat-header-cell>
                     <mat-cell *matCellDef="let row">{{row.cdc }}</mat-cell>
                   </ng-container>
+                   <ng-container matColumnDef="lastrank">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Last Rank</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{row.lastRank}}</mat-cell>
+                  </ng-container>
 
                   <ng-container matColumnDef="vesseltype">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Vessel Type</mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.department}}</mat-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Last Vessel Type</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{row.lastShipType}}</mat-cell>
                   </ng-container>
 
                   <ng-container matColumnDef="remarks">
@@ -121,38 +232,26 @@
                     </mat-header-cell>
 
                     <mat-cell *matCellDef="let row; let i=index;">
-                      <!-- <i class="fas fa-edit" data-toggle="tooltip" data-trigger="hover" data-placement="top"
-                          data-title="Edit" aria-hidden="true" data-original-title="" title="" 
-                          ></i> -->
-
+                  
                       <i class="fa fa-archive mr-1" data-toggle="tooltip" data-trigger="hover" data-placement="top"
                         data-title="Archive" aria-hidden="true" data-original-title=""
                         (click)="DeleteApplicant(row.applicantId)" title=""></i>
-                        <!-- <a type="button" (click)="ApproveApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
-                          title="Approve Applicant" *ngIf="row.approvedBy < 0||row.approvedBy==null&&row.applicantStatus !='Rejected Candidate'">
-                          <img src="assets/img/approve.png" alt="Approve" width="16" height="16" style="margin-bottom: 3px;" class="mr-1" />
-                        </a>
-                        <a type="button" (click)="RejectApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
-                          title="Reject Applicant" *ngIf="row.approvedBy < 0||row.approvedBy==null&&row.applicantStatus !='Rejected Candidate'">
-                          <i class="fas fa-times "></i>
-                        </a> -->
-                        <a type="button" (click)="ApproveApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
-                          title="Approve Applicant"
-                          *ngIf="(row.approvedBy < 0 || row.approvedBy == null) && row.applicantStatus != 'Rejected Candidate'">
-                          <img src="assets/img/approve.png" alt="Approve" width="16" height="16" class="mr-1" style="vertical-align: middle;" />
-                        </a>
-                        
-                        <a type="button" (click)="RejectApplicant(row.applicantId)" data-toggle="tooltip" data-placement="top"
-                          title="Reject Applicant"
-                          *ngIf="(row.approvedBy < 0 || row.approvedBy == null) && row.applicantStatus != 'Rejected Candidate'">
-                          <i class="fas fa-times mr-1" style="vertical-align: middle;"></i>
-                        </a>
-                          <a type="button" (click)="exportReport(row.applicantId)" class=" text-success">
-                                    <i class="fa fa-file-excel"></i>
-                                </a>
+                   
+                      <a type="button" (click)="ApproveApplicant(row.applicantId)" data-toggle="tooltip"
+                        data-placement="top" title="Approve Applicant"
+                        *ngIf="(row.approvedBy < 0 || row.approvedBy == null) && row.applicantStatus != 'Shortlisted Candidate'">
+                        <img src="assets/img/approve.png" alt="Approve" width="16" height="16" class="mr-1"
+                          style="vertical-align: middle;" />
+                      </a>
 
-
-
+                      <a type="button" (click)="RejectApplicant(row.applicantId)" data-toggle="tooltip"
+                        data-placement="top" title="Reject Applicant"
+                        *ngIf="(row.approvedBy < 0 || row.approvedBy == null) && row.applicantStatus != 'Rejected Candidate'">
+                        <i class="fas fa-times mr-1" style="vertical-align: middle;"></i>
+                      </a>
+                      <a type="button" (click)="exportReport(row.applicantId)" class=" text-success">
+                        <i class="fa fa-file-excel"></i>
+                      </a>
 
                     </mat-cell>
                   </ng-container>
