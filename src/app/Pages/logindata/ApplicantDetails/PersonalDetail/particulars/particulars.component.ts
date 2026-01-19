@@ -28,6 +28,7 @@ export class ParticularsComponent implements OnInit
    loading: boolean;
    dataSource: any; 
    userstatus:any;religionData:any[];
+   userimage: string;showimage: string;isModalOpen = false;scale: number = 1;
   constructor(private applicantserice:ApplicantService,private route: ActivatedRoute,public dialog: MatDialog,private snackBar: MatSnackBar,
     private rankregisterservice: RankregisterService,){}
 ngOnInit(): void 
@@ -44,12 +45,35 @@ loadapplicantbyId():void {
   this.applicantserice.GetApplicantbyidd(this.applicantId)
     .subscribe((response) => {
       this.applicantdata=response.data;
+        const image = response.data[0].signature;
+          if (image != 'null') {
+            this.userimage = image;
+            this.showimage = "yes";
+          }
+          else {
+            this.showimage = "no";
+          }
     },
       (error) => {
         console.log(error);
       }); 
 }
+ openImageModal(signature) {
+  this.isModalOpen = true;
+  }
 
+  closeImageModal() {
+  this.isModalOpen = false;
+  }
+
+  onWheel(event: WheelEvent) {
+    event.preventDefault();
+    if (event.deltaY < 0) {
+      this.scale += 0.1;
+    } else if (event.deltaY > 0 && this.scale > 0.2) {
+      this.scale -= 0.1;
+    }
+  }
 //#region  applicant personalInfo
 
 updatePersonalInfo(id: number): void {

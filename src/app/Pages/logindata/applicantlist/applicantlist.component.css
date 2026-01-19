@@ -1,3 +1,66 @@
  .mat-column-status {
   flex: 0 0 150px;
   }
+
+::ng-deep .adv-filter .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+::ng-deep .adv-filter .mat-mdc-form-field-infix {
+    min-height: 28px !important;
+}
+
+::ng-deep .adv-filter .mat-mdc-text-field-wrapper.mdc-text-field--filled {
+    min-height: 28px !important;
+}
+
+.adv-filter .mat-mdc-form-field {
+      margin-top: 0px;
+    border: 1px solid #ccd6e6 !important;
+    border-radius: 5px !important;
+    padding: 0px !important;
+}
+
+::ng-deep .adv-filter .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #ffffff !important;
+    border-radius: 5px;
+}
+
+::ng-deep .adv-filter .dt .mat-mdc-icon-button.mat-mdc-button-base {
+    --mdc-icon-button-state-layer-size: 30px !important;
+    width: var(--mdc-icon-button-state-layer-size);
+    height: var(--mdc-icon-button-state-layer-size);
+    padding: 0px !important;
+}
+
+::ng-deep .adv-filter .mdc-line-ripple::before {
+    border-bottom-width: 0px !important;
+}
+
+::ng-deep .adv-filter .mdc-line-ripple::after {
+    border-bottom-width: 0px !important;
+}
+
+::ng-deep .adv-filter .mat-mdc-form-field-focus-overlay {
+    background-color: #ffffff !important;
+    border-radius: 5px;
+}
+
+::ng-deep .adv-filter .mat-mdc-form-field.mat-focused .mat-mdc-select-arrow {
+    color: rgba(0, 0, 0, 0.54) !important;
+}
+
+::ng-deep  .red-snackbar .mat-mdc-simple-snack-bar {
+    background: #ad2300 !important;
+    color: #fff !important;
+  }
+  
+   ::ng-deep .blue-snackbar .mat-mdc-simple-snack-bar {
+    background: #233855 !important;
+    color: #fff !important;
+  }
+
+::ng-deep .adv-filter .multiselect-dropdown .dropdown-btn .selected-item-container .selected-item {
+    max-width: unset !important;
+}
+
