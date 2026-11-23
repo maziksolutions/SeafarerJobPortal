@@ -154,5 +154,12 @@ openPhysicalDialog(): void {
       });
   }
 
+hasSignature(signatureUrl: string): boolean {
+  if (!signatureUrl) return false;
+
+  return signatureUrl.includes('.') && (signatureUrl.endsWith('.png') || signatureUrl.endsWith('.jpg') || signatureUrl.endsWith('.jpeg'));
+  // return /\.[a-z0-9]+$/i.test(signatureUrl);
+}
+
 }
 

@@ -1,0 +1,37 @@
+<div class="page-wrapper">
+  <!-- Background: harbour scene -->
+  <div class="bg" aria-hidden="true"></div>
+  <div class="overlay"></div>
+
+  <main class="register-modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="title">
+    <section class="left">
+      <div class="brand">
+        <img src="assets/images/logo.png" alt="Atlantas Group" />
+      </div>
+      <p class="tag">Your Journey with Us<strong>Starts Here...</strong></p>
+    </section>
+
+    <section class="right">
+      <svg class="users" viewBox="0 0 170 120" aria-hidden="true">
+        <circle cx="82" cy="22" r="20" fill="#1b57a8" />
+        <circle cx="36" cy="38" r="15" fill="#2a6fc4" />
+        <circle cx="128" cy="40" r="15" fill="#2a6fc4" />
+        <path d="M44 100 Q44 56 82 56 Q120 56 120 100Z" fill="#1b57a8" />
+        <path d="M2 94 Q2 58 36 58 Q22 70 24 94Z" fill="#2a6fc4" />
+        <circle cx="138" cy="86" r="28" fill="#0e2f73" stroke="#f4f8fd" stroke-width="5" />
+        <path d="M138 72v28M124 86h28" stroke="#fff" stroke-width="7" stroke-linecap="round" />
+      </svg>
+
+      <h2 id="title">Don’t have an account?</h2>
+      <p>Register now to apply for job portal <br>  and explore career opportunities with us.</p>
+
+      <a class="cta" href="javascript:void(0)" id="registerBtn" (click)="addApplicant()">
+        Register Now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12h17M14 6l6 6-6 6" />
+        </svg>
+      </a>
+    </section>
+  </main>
+</div>
+

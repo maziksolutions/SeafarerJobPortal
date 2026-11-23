@@ -17,6 +17,7 @@ import { RankregisterService } from 'src/app/Services/rankregister.service';
 import { CountryService } from 'src/app/Services/country.service';
 import * as moment from 'moment';
 import { ShiptypeService } from 'src/app/Services/shiptype.service';
+import { ViewPDFComponent } from 'src/app/Common/view-pdf/view-pdf.component';
 @Component({
   selector: 'app-applicantlist',
   templateUrl: './applicantlist.component.html',
@@ -30,13 +31,13 @@ export class ApplicantlistComponent implements OnInit {
   status; applicantId:any;selectedCountries: string[] = [];selectedRank: string[] = [];
    dropdownRankSetting: { singleSelection: boolean; idField: string; textField: string; selectAllText: string; unSelectAllText: string; itemsShowLimit: number; allowSearchFilter: boolean; }; 
   dropdownCountrySetting: { singleSelection: boolean; idField: string; textField: string; selectAllText: string; unSelectAllText: string; itemsShowLimit: number; allowSearchFilter: boolean; };
-  displayedColumns: string[] = ['name', 'rankName', 'dob', 'countryName', 'cdc','lastrank', 'vesseltype', 'remarks', 'status', 'doa', 'actions'];
+  displayedColumns: string[] = ['name', 'rankName', 'dob', 'countryName', 'cdc', 'status', 'actions'];
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   now = new Date();
    toDate = new Date().toISOString().split('T')[0];
   fromDate = new Date(this.now.setMonth(this.now.getMonth() -12)).toISOString().split('T')[0];
-  
+  filepath: string = '';
   constructor(
     //private helpService: ActivityLogsService,    Rank, Status, Nationality, Age, DOA
     private fb: FormBuilder,
@@ -111,7 +112,7 @@ export class ApplicantlistComponent implements OnInit {
       this.ApplicantService.DeleteApplicant(id)
         .subscribe((x) => {
           this.LoadApplicant(this.status);
-          this.showMessage('Successfully deleted.');
+          this.showMessage('Successfully deleted.','danger');
         });
     }
   }
@@ -163,7 +164,7 @@ RejectApplicant(id: number) {
     this.ApplicantService.RejectApplicant(id, this.loggedUserId)
   .subscribe({
     next: (res: any) => {
-      this.showMessage('Applicant rejected successfully.');
+      this.showMessage('Applicant rejected successfully.','danger');
       this.LoadApplicant(this.status);
     },
     error: (err) => {
@@ -200,7 +201,7 @@ exportReport(applicantId:any){
     this.selectedRank=[];
     this.selectedRank.length = 0;
     this.dataSource.data = [];
- 
+    this.LoadApplicant(0);
   }
 
  CalculateAge(DOB: any) {
@@ -260,7 +261,7 @@ search(){
           }
         };
         this.dataSource.paginator = this.paginator;
-         this.LoadApplicant(this.status);
+        //  this.LoadApplicant(this.status);
       });
   }
     
@@ -349,7 +350,7 @@ Agenumbers() {
   
     ValidateValue() {
     if (Number(this.form.controls['ageto'].value) < Number(this.form.controls['agefrom'].value)) {
-      this.showMessageValidate('Ageto cannot be less than from Agefrom');
+      this.showMessageValidate('Ageto cannot be less than from Agefrom','danger');
       this.form.controls.ageto.setValue('')
       return false;
     }
@@ -383,4 +384,29 @@ Agenumbers() {
       }
     }
   }
+
+  openPDFfile(resumeUrl: string, customFileName?: string): void {
+    if (!resumeUrl || resumeUrl.trim() === '') {
+      this.showMessage('There is no attachment.', 'danger');
+      return;
+    }
+
+    this.filepath = resumeUrl;
+    const extractedFileName = resumeUrl.split('?')[0].split('/').pop() || 'Resume';
+    const fileName = customFileName || extractedFileName;
+
+    this.openDialogPDF(fileName);
+  }
+
+  openDialogPDF(filename: string): void {
+    const dialogRef = this.dialog.open(ViewPDFComponent, {
+      panelClass: 'custom-dialog-container',
+      width: 'auto',
+      data: { filepath: this.filepath, filename: filename }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
 }

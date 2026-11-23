@@ -82,9 +82,10 @@
                     </mat-select>
                   </mat-form-field>
                 </fieldset>
-              </div>
-
-              <div class="col-sm">
+              </div>      
+            </div>
+            <div class="row">
+               <div class="col-sm">
                 <fieldset class="form-group">
                   <mat-form-field color="accent">
                     <mat-select placeholder="Status" formControlName="status">
@@ -96,8 +97,6 @@
                   </mat-form-field>
                 </fieldset>
               </div>
-            </div>
-            <div class="row">
 
               <div class="col-sm">
                 <div class="dt">
@@ -121,7 +120,7 @@
                   </mat-form-field>
                 </div>
               </div>
-              <div class="col-sm">
+              <!-- <div class="col-sm">
                 <fieldset class="form-group">
                   <mat-form-field>
                     <mat-select placeholder="Last Vessel Type" formControlName="lastShipType" required>
@@ -131,7 +130,7 @@
                     </mat-select>
                   </mat-form-field>
                 </fieldset>
-              </div>
+              </div> -->
 
               <div class="col-sm">
                 <div style="float: left;">
@@ -143,9 +142,9 @@
                       class="fa fa-refresh" aria-hidden="true"></i></button>
                 </div>
               </div>
-              <div class="col-sm">
+              <!-- <div class="col-sm">
 
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -174,7 +173,8 @@
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
                     <mat-cell *matCellDef="let row">
                       <a style="color: #016ce6 !important;"
-                        [routerLink]="['/logindata/ApplicantDetails', row.applicantId]">
+                       >
+                        <!-- [routerLink]="['/logindata/ApplicantDetails', row.applicantId]" -->
                         {{ row.firstName ? row.firstName + ' ' : '' }}{{ row.middleName ? row.middleName + ' ' : '' }}{{
                         row.lastName || '' }}
                       </a>
@@ -202,7 +202,7 @@
                     <mat-header-cell *matHeaderCellDef mat-sort-header>CDC No</mat-header-cell>
                     <mat-cell *matCellDef="let row">{{row.cdc }}</mat-cell>
                   </ng-container>
-                   <ng-container matColumnDef="lastrank">
+                   <!-- <ng-container matColumnDef="lastrank">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Last Rank</mat-header-cell>
                     <mat-cell *matCellDef="let row">{{row.lastRank}}</mat-cell>
                   </ng-container>
@@ -215,17 +215,17 @@
                   <ng-container matColumnDef="remarks">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Remarks</mat-header-cell>
                     <mat-cell *matCellDef="let row">{{row.officeCrew}}</mat-cell>
-                  </ng-container>
+                  </ng-container> -->
 
                   <ng-container matColumnDef="status">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
                     <mat-cell *matCellDef="let row">{{row.applicantStatus}}</mat-cell>
                   </ng-container>
 
-                  <ng-container matColumnDef="doa">
+                  <!-- <ng-container matColumnDef="doa">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>DOA</mat-header-cell>
                     <mat-cell *matCellDef="let row">{{row.doa| date}}</mat-cell>
-                  </ng-container>
+                  </ng-container> -->
 
                   <ng-container matColumnDef="actions">
                     <mat-header-cell *matHeaderCellDef>
@@ -249,8 +249,11 @@
                         *ngIf="(row.approvedBy < 0 || row.approvedBy == null) && row.applicantStatus != 'Rejected Candidate'">
                         <i class="fas fa-times mr-1" style="vertical-align: middle;"></i>
                       </a>
-                      <a type="button" (click)="exportReport(row.applicantId)" class=" text-success">
+                      <!-- <a type="button" (click)="exportReport(row.applicantId)" class=" text-success">
                         <i class="fa fa-file-excel"></i>
+                      </a> -->
+                      <a type="button"  (click)="openPDFfile(row.resume)">
+                         <i class="fas fa-paperclip"></i>
                       </a>
 
                     </mat-cell>

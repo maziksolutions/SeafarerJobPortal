@@ -234,7 +234,7 @@ getExperience(status: number,crewId: any): Observable<any[]> {
     return this.httpClient.get<any[]>(this.linkurl + 'getsearch?searchcrew='+search, httpOptions);
   }
 
-  GetFilteredApplicant( status: number,selectedRank:any,  selectedCountries:any, from:string,toDoa:string,lastShipType:string ):Observable<any[]>{
+  GetFilteredApplicant( status: any,selectedRank:any,  selectedCountries:any, from:string,toDoa:string,lastShipType:string ):Observable<any[]>{
    return this.httpClient.get<any[]>(this.linkurl + 'GetFilteredApplicant?status='+status+'&Ranks='+selectedRank+'&countries='+selectedCountries+'&from='+from+'&toDoa='+toDoa+'&lastShipType='+lastShipType, httpOptions);
   }
 

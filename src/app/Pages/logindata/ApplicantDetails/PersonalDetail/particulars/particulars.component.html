@@ -92,22 +92,11 @@
                         <td>{{data.signature}}</td>   -->
                         <th>Signature</th>
                         <td>
-                          <ng-container *ngIf="data.signature else noSignature">
-                            <!-- <img
-                              [src]=" data.signature"
-                              alt="Signature"(click)="openImageModal()"
-                              style="width:100px; height:25px; border:1px solid #ccc;"
-                            /> -->
-                            <span
-                            class="view-signature"
-                            (click)="openImageModal(data.signature)">
-                            View Signature
+                          <span
+                            [ngClass]="hasSignature(data.signature) ? 'view-signature' : 'view-signature-disabled'"
+                            (click)="hasSignature(data.signature) && openImageModal(data.signature)">
+                            {{ hasSignature(data.signature) ? 'View Signature' : 'Not Uploaded' }}
                           </span>
-                          </ng-container>
-
-                          <ng-template #noSignature>
-                            <span>Not Uploaded</span>
-                          </ng-template>
                         </td>
                          <div class="modal fade show" tabindex="-1" *ngIf="isModalOpen" style="display: block; background: rgba(0,0,0,0.6);"
                     (click)="closeImageModal()">

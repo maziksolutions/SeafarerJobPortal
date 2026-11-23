@@ -44,4 +44,11 @@ html body.fixed-navbar{padding-top:0px !important}
   text-decoration: underline;
   font-weight: 500;
 }
+.view-signature-disabled {
+  color: #999;
+  cursor: not-allowed;
+  text-decoration: none;
+  font-weight: 400;
+  pointer-events: none; 
+}
 

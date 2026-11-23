@@ -1,0 +1,29 @@
+<div class="pdf-download">
+  &nbsp;&nbsp;&nbsp;<button  class="download-button">
+    <!-- <mat-icon class="download-icon" aria-label="Download" matTooltip="Download">
+      file_download
+    </mat-icon>    -->
+  </button> &nbsp;&nbsp;
+  <!-- <a [href]="data.filepath" *ngIf="extension=='pdf'" target="_blank"><i class="fas fa-external-link-alt"></i></a> -->
+  
+  <button type="button" class="close-icon" color="warn">
+    <i class="fas fa-download black" (click)="downloadFile(data.filename)" title="Download File"></i> &nbsp;&nbsp;
+    <a [href]="data.filepath" *ngIf="extension=='pdf'" target="_blank"><i class="fas fa-external-link-alt" style="color: #233855;"></i></a> &nbsp;&nbsp;     
+    <i class="fas fa-close red" (click)="close()" title="Close File"></i> &nbsp;&nbsp;
+  </button>
+</div>
+<div id="progressBar"><mat-progress-bar mode="indeterminate"></mat-progress-bar></div>
+<ngx-doc-viewer *ngIf="extension=='pdf' else docView"
+  [url]="pdfurl"
+  [viewer]="viewer"
+  style="width:80vw;height:80vh;"
+></ngx-doc-viewer>
+<ng-template #docView>
+  <iframe id="doc-iframe" class="doc" (load)="onfileLoad($event)" [src]="docurl" style="width:80vw;height:80vh;"></iframe>
+</ng-template>
+
+
+ 
+  
+ 
+
